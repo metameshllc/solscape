@@ -38,11 +38,6 @@ echo "${bold}Welcome to cdili-tanktop, a minimally-interactive bash script that 
 "
 sleep 2
 
-#Variables
-
-#There are system variables. If the variable is in capital, it is most likely a system variable. 
-#Other variables are user-defined variables. These types of variables are created by the user.
-
 echo "Shell directory: ${bold}$BASH${normal}"
 sleep .5
 echo "Shell version: ${bold}$BASH_VERSION${normal}"
@@ -56,9 +51,7 @@ echo "${bold}tanktop.sh${normal} needs to point to the root directory of your sm
 "
 sleep 1
 
-read -p "Please enter the absolute (e.g. /home/user/someAuditRepo) directory of the contract system to be assessed: " contractRoot
-
-
+read -e -p "Please enter the directory of the contract system to be assessed: " contractRoot
 
 echo ${bold}"Counting Solidity files."${normal}
 sleep 0.5
