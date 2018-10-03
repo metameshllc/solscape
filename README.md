@@ -13,3 +13,7 @@ A bash script for scoping Solidity code bases during the pre-assessment phase of
 - Apply some more cool automatic searching/sorting of .sol files to the generic output.
 - Report as an MD file instead of a plaintext outfile
 - Improve formatting of output report. Right now it just looks like a lot of numbers if you don't know what the script is doing.
+
+## Testing
+
+Test repo with previously scoped contracts. (link to come)
