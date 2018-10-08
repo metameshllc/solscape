@@ -33,6 +33,9 @@ graffViz() {
 	exit
     fi
 }
+
+
+
 sleep 0.4
 
 sleep 0.9
@@ -59,23 +62,25 @@ sleep 1
 read -e -p "Please enter the directory of the contract system to be assessed: " contractRoot
 
 echo ${bold}"Counting Solidity files."${normal}
+
 sleep 0.5
+
 echo "Number of Solidity files in codebase: " > scopingReport.out
-find $contractRoot -name '*.sol' | wc -l >> scopingReport.out
+find $contractRoot -name "*.sol" | grep -v test | grep -v Migrations* | grep -v mock | wc -l >> scopingReport.out
 echo " " >> scopingReport.out                                                                                           #Creates a visual line break in the report output.
 echo ${bold}"Solidity file count saved to ./scopingReport.out"${normal}
 sleep 0.5
 
 echo ${bold}"Counting lines of Solidity Code."${normal}
 sleep 0.5
-find $contractRoot -name '*.sol' | xargs wc -l >> scopingReport.out
+find $contractRoot -name "*.sol" | grep -v test | grep -v Migrations | grep -v mocks | xargs wc -l >> scopingReport.out
 echo " " >> scopingReport.out                                                                                           #Creates a visual line break in the report output.
 echo ${bold}"Solidity line count saved to ./scopingReport.out"${normal}
 sleep 0.5
 
 echo "Analyzing the number and nature of functions with ${bold}Surya${normal}"
 surya describe $contractRoot**/*.sol >> scopingReport.out 
-echo "Surya description saved to ./scopingReport.out"
+echo "Surya description saved to ./scopingReport.out"  
 sleep 0.1
 
 echo "Creating inheritance graph with ${bold}Surya${normal}"
