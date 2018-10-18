@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo() { builtin echo "$*"; sleep 0.$RANDOM; }
+echo() { builtin echo "$*"; sleep 0.5$RANDOM; }
 
 #THIS SETS THE VARIABLES TO BOLD TEXT
 bold=$(tput bold)
