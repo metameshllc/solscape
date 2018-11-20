@@ -16,16 +16,16 @@ The operation of this script is dependent on the existence of .sol files inhabit
 
 ## Tool Analysis
 
-### Mythril
+#### Mythril
 For each Solidity file, performs a Mythril analysis.
 
-### Mythril Dependencies
+##### Mythril Dependencies
 Mythril requires Python 3 to run. Mythril's dependencies will be automatically installed when installing Mythril with `python3-pip`.
 
-### Maru
+#### Maru
 For each Solidity file, performs a Maru analysis.
 
-### Solhint
+#### Solhint
 For each Solidity file, performs a Solhint analysis.
 
 ### Future Versions
