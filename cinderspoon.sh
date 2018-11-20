@@ -51,6 +51,27 @@ graffViz
 	"
 
 	read -e -p "Please enter the directory of the contract system to be assessed: " contractRoot
+	
+	PS3='What would you like to do? '
+options=("Option 1" "Option 2" "Option 3" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Option 1")
+            echo "you chose choice 1"
+            ;;
+        "Option 2")
+            echo "you chose choice 2"
+            ;;
+        "Option 3")
+            echo "you chose choice $REPLY which is $opt"
+            ;;
+        "Quit")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
 
 		echo ${bold}"Counting Solidity files."${normal}
 
