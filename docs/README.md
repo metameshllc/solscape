@@ -14,6 +14,20 @@ Scoping is an essential part of audit _pre-assessment_ which has to do with unde
 
 The operation of this script is dependent on the existence of .sol files inhabiting subdirectories of the main directory, or the main directory itself. It will not work unless _all_ of the .sol files you need scoped are in the main directory and/or its subdirectories _and_ all the files to be scoped are written in Solidity. This tool does not scope any files other than Solidity files.
 
+## Tool Analysis
+
+### Mythril
+For each Solidity file, performs a Mythril analysis.
+
+### Mythril Dependencies
+Mythril requires Python 3 to run. Mythril's dependencies will be automatically installed when installing Mythril with `python3-pip`.
+
+### Maru
+For each Solidity file, performs a Maru analysis.
+
+### Solhint
+For each Solidity file, performs a Solhint analysis.
+
 ### Future Versions
 Should:
 - Automatically exclude lines in files we've audited before or that don't need scoped for some other reason (e.g., the 0x contracts.)
