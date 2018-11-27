@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo() { builtin echo "$*"; sleep 0.5$RANDOM; }
+echo() { builtin echo "$*"; sleep 0.$RANDOM; }
 
 #THIS SETS THE VARIABLES TO BOLD TEXT
 bold=$(tput bold)
@@ -11,10 +11,11 @@ shopt -s globstar
 
 surryaa() {
     if command -v surya --help>/dev/null; then
-        echo "Dependency ${bold}Surya${normal} passed."
+        echo "6" | dialog --gauge "Dependency surya passed." 10 70 0
 
     else
         echo "Dependency Surya not passed. Install Surya to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
+      
       exit
     fi
 }
@@ -22,9 +23,16 @@ surryaa() {
 
 graffViz() {
     if command -v dot --help>/dev/null; then
-        echo ${bold}"Dependency graphviz passed."${normal}
+        echo "9" | dialog --gauge "Dependency graphviz passed." 10 70 0
     else
-        echo "Dependency graphviz not passed. Install graphviz to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
+        echo | dialog --colors --title "ERROR" \
+                      --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. Instructions for installing, \Zbgraphviz\Zn can be found in the README. Would you like to view the README?" 10 70
+                      response=$?
+                      case $response in
+                      0) echo | dialog  --textbox ./README.md 70 100;;
+                      1) echo "File not deleted.";;
+                      255) echo "[ESC] key pressed.";;
+esac
       exit
     fi
 }
@@ -32,7 +40,8 @@ graffViz() {
 
 diallog() {
     if command -v dialog --help>/dev/null; then
-        echo ${bold}"Dependency dialog passed."${normal}
+        echo "3" | dialog --gauge "Dependency dialog passed." 10 70 0
+
     else
         echo "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       exit
@@ -40,11 +49,9 @@ diallog() {
 }
 
 
-NUMBER=2
-graffViz
-NUMBER=3
-diallog
-NUMBER=4
+
+
+
 
 
 HEIGHT=15
@@ -65,15 +72,14 @@ CHOICE=$(dialog --colors --aspect 75 --begin 3 37 --title Intro --infobox  "$INT
   --and-widget --clear --backtitle "$BACKTITLE" --title "$TITLE" --menu "$MENU" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
 
 case $CHOICE in
-        1)NUMBER=0
-            dialog --begin 25 20 --gauge Progress 7 15 $NUMBER
-          NUMBER=1
-          surryaa
-            dialog --begin 25 20 --gauge Progress 7 15 $NUMBER
-          NUMBER=2
-          graffViz
-            dialog --begin 25 20 --gauge Progress 7 15 $NUMBER
-          NUMBER=3
+        1)
+        diallog
+        surryaa
+        graffViz
+        
+
+        echo "9" | dialog --gauge "Please wait" 10 70 0
+
                       
 
 
