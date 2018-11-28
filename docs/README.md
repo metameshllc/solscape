@@ -8,7 +8,7 @@ Scoping is an essential part of audit _pre-assessment_ which has to do with unde
 #### Scoping Dependencies
 - `globstar` is enabled by default at the beginning of the script with `shopt -s globstar`. This allows scoping any directory's `.sol` files using a single wildcard lookup. scoping functions in Audit Tools can't run properly without it.
 - `surya` Surya is a smart contract analysis tool. It provides many tools for breaking apart smart contracts and understanding them, including inheritance graphs, call graphs, and function breakdowns. Install globally with node package manager: `npm install -g surya`. This allows Audit Tools to call it from the command line.
-- `graphviz` (Graphviz)[https://www.graphviz.org/download/] is required by Surya for its data visualization functions. Click (here)[https://www.graphviz.org/download/] for a list of downloads by operating system. Or on apt, `apt install graphviz`.
+- `graphviz` [Graphviz](https://www.graphviz.org/download/) is required by Surya for its data visualization functions. Click [here](https://www.graphviz.org/download/) for a list of downloads by operating system. Or on apt, `apt install graphviz`.
 
 #### Scoping Functionality
 
