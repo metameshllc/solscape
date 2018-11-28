@@ -1,18 +1,23 @@
 #! /bin/bash
 
-printf() { builtin printf "$*"; sleep 0.$RANDOM; }
-
-#THIS SETS THE VARIABLES TO BOLD TEXT
-bold=$(tput bold)
-normal=$(tput sgr0)
-currentDate=`date`
+printf() { builtin printf "$*"; sleep 0.1$RANDOM; }
 
 		
 shopt -s globstar 
+ 
+
+diallog() {
+    if command -v dialog --help>/dev/null; then
+        printf | dialog --gauge "Dependency dialog passed." 10 70 3
+    else
+        printf "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
+      exit
+    fi
+}
 
 surryaa() {
     if command -v surya --help>/dev/null; then
-        printf "6" | dialog --gauge "Dependency surya passed." 10 70 0
+        printf | dialog --gauge "Dependency surya passed." 10 70 6
     else
         printf "Dependency Surya not passed. Install Surya to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       
@@ -23,7 +28,7 @@ surryaa() {
 
 graffViz() {
     if command -v dot --help>/dev/null; then
-        printf "9" | dialog --gauge "Dependency graphviz passed." 10 70 0
+        printf | dialog --gauge "Dependency graphviz passed." 10 70 9
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. Instructions for installing, \Zbgraphviz\Zn can be found in the README. Would you like to view this section of the README?" 10 70
@@ -36,33 +41,24 @@ esac
       exit
     fi
 }
- 
 
-diallog() {
-    if command -v dialog --help>/dev/null; then
-        printf "3" | dialog --gauge "Dependency dialog passed." 10 70 0
-    else
-        printf "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
-      exit
-    fi
-}
 
 getDir() {
     FILE=$(dialog --title "Root Contract Directory" --stdout --title "Select the root contract directory and press spacebar then enter." --dselect ~/ 10 70)       
-        printf "12" | dialog --gauge "Root directory acquired." 10 70 0
+        printf | dialog --gauge "Root directory acquired." 10 70 12
 }
 
 createReport() {
 printf "# Scoping Report \n" > ScopingReport.md   
-        printf 15 | dialog --gauge "Scoping report file created." 10 70 0
+        printf | dialog --gauge "Scoping report file created." 10 70 15
 
 }
 
 fileCount() {
         printf "## File Count \n" >> ScopingReport.md
     solCount=$(find $FILE -name "*.sol" | grep -v test | grep -v Migrations* | grep -v mock | wc -l)
-        printf "There are \`$solCount total\` auditable Solidity files in this contract system. \n" >> ScopingReport.md
-        printf "18" | dialog --gauge "File count summed and written to ScopingReport.md" 10 70 0
+        printf "There are \`$solCount total\` auditable Solidity files in this contract system.\n" >> ScopingReport.md
+        printf | dialog --gauge "File count summed and written to ScopingReport.md" 10 70 18
 
 }
 
@@ -70,16 +66,16 @@ fileCount() {
 lineCount() {
     printf "## Line Count \n" >> ScopingReport.md
     solCount2=$(find $FILE -name "*.sol" | grep -v test | grep -v Migrations | grep -v mocks | xargs wc -l | tail -1 | sed -e 's/^[[:space:]]*//')
-    printf "There are \`$solCount2\` lines of auditable Solidity code in this contract system. \n" >> ScopingReport.md
-    printf "21" | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 0
+    printf "There are \`$solCount2\` lines of auditable Solidity code in this contract system.\n" >> ScopingReport.md
+    printf | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 21
 }
 
 advancedLineCount() {
-        printf "### Advanced Line Count \n" >> ScopingReport.md
+        printf "### Advanced Line Count\n" >> ScopingReport.md
         if command -v sloc --help>/dev/null; then
-        solCount3=$(sloc $FILE)
-        printf "\`\`\` \n $solCount3 \n \`\`\`" >> ScopingReport.md
-        printf "24" | dialog --gauge "Advanced line count analysis saved to ScopingReport.md" 10 70 0
+        solCount3=$(sloc $FILE/**/*.sol)
+        printf "\`\`\`\n$solCount3\n\`\`\`" >> ScopingReport.md
+        printf | dialog --gauge "Advanced line count analysis saved to ScopingReport.md" 10 70 24
     else
         printf "Unable to perform advanced line count analysis. Please install \Zb\Z1sloc\Zn from node package manager to perform this type of analysis." >> ScopingReport.md
       exit
