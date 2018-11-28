@@ -1,4 +1,4 @@
- dialog --colors --begin 2 2 --title "BASH Environment" --infobox \
+ dialog --colors --begin 2 2 --title "Environment" --infobox \
 "\Z1Shell directory:\Zn \Zb$BASH$\Zn
 \Z1Shell version:\Zn \Zb$BASH_VERSION$\Zn
 \Z1Home directory:\Zn \Zb$HOME$\Zn
