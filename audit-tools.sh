@@ -54,6 +54,11 @@ printf "# Scoping Report \n" > ScopingReport.md
 
 }
 
+unfilterFind() {
+    find $rootDir -name "*.sol" | \
+    grep -v node_modules | \
+    grep -v coverageEnv
+}
 
 filterFind() { 
     find $rootDir -name "*.sol" | \
@@ -62,19 +67,25 @@ filterFind() {
     grep -v mock* | \
     grep -v Mock* | \
     grep -v Test* | \
-    grep -v 0x* | \
+    grep -v 0x | \
     grep -v Kyber* | \
     grep -v Bytes32.sol | \
     grep -v Authorizable.sol | \
     grep -v AddressArrayUtils.sol | \
-    grep -v CommonMath.sol
+    grep -v CommonMath.sol | \
+    grep -v node_modules | \
+    grep -v coverageEnv  | \
+    grep -v openzeppelin-solidity
 }
 
 
 fileCount() {
         printf "## File Count \n" >> ScopingReport.md
-    solCount=$(filterFind | wc -l)
-        printf "There are \`$solCount total\` auditable Solidity files in this contract system.\n" >> ScopingReport.md
+            uF=$(unfilterFind | wc -l) 
+            fF=$(filterFind | wc -l)
+        printf "* **$uF** Solidity files exist in this contract system.\n" >> ScopingReport.md
+        printf "* **$fF** of those are recommended for auditing.\n" >> ScopingReport.md
+        printf "* To view all filenames, see Appendix A.\n" >> ScopingReport.md
         printf | dialog --gauge "File count summed and written to ScopingReport.md" 10 70 18
 
 }
@@ -82,8 +93,11 @@ fileCount() {
 
 lineCount() {
     printf "## Line Count \n" >> ScopingReport.md
-    solCount2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/^[[:space:]]*//')
-    printf "There are \`$solCount2\` lines of auditable Solidity code in this contract system.\n" >> ScopingReport.md
+        uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
+        fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
+    printf "* **$uF2** Solidity lines exist in this contract system.\n" >> ScopingReport.md
+    printf "* **$fF2** of those are recommended for auditing.\n" >> ScopingReport.md
+    printf "* To view all code lines, see Appendix B.\n" >> ScopingReport.md
     printf | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 21
 }
 
