@@ -101,6 +101,10 @@ lineCount() {
     printf | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 21
 }
 
+suryaDescribe {
+    surya 
+}
+
 HEIGHT=15
 WIDTH=45
 CHOICE_HEIGHT=4
