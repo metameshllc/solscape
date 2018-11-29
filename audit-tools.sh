@@ -1,6 +1,6 @@
 #! /bin/bash
 
-printf() { builtin printf "$*"; sleep 0.1$RANDOM; }
+printf() { builtin printf "$*"; sleep 0.0$RANDOM; }
 
 		
 shopt -s globstar 
@@ -44,7 +44,7 @@ esac
 
 
 getDir() {
-    FILE=$(dialog --title "Root Contract Directory" --stdout --title "Select the root contract directory and press spacebar then enter." --dselect ~/ 10 70)       
+    rootDir=$(dialog --title "Root Contract Directory" --stdout --title "Select the root contract directory and press spacebar then enter." --dselect ~/ 10 70)       
         printf | dialog --gauge "Root directory acquired." 10 70 12
 }
 
@@ -54,9 +54,26 @@ printf "# Scoping Report \n" > ScopingReport.md
 
 }
 
+
+filterFind() { 
+    find $rootDir -name "*.sol" | \
+    grep -v test* | \
+    grep -v Migration* | \
+    grep -v mock* | \
+    grep -v Mock* | \
+    grep -v Test* | \
+    grep -v 0x* | \
+    grep -v Kyber* | \
+    grep -v Bytes32.sol | \
+    grep -v Authorizable.sol | \
+    grep -v AddressArrayUtils.sol | \
+    grep -v CommonMath.sol
+}
+
+
 fileCount() {
         printf "## File Count \n" >> ScopingReport.md
-    solCount=$(find $FILE -name "*.sol" | grep -v test | grep -v Migrations* | grep -v mock | wc -l)
+    solCount=$(filterFind | wc -l)
         printf "There are \`$solCount total\` auditable Solidity files in this contract system.\n" >> ScopingReport.md
         printf | dialog --gauge "File count summed and written to ScopingReport.md" 10 70 18
 
@@ -65,23 +82,10 @@ fileCount() {
 
 lineCount() {
     printf "## Line Count \n" >> ScopingReport.md
-    solCount2=$(find $FILE -name "*.sol" | grep -v test | grep -v Migrations | grep -v mocks | xargs wc -l | tail -1 | sed -e 's/^[[:space:]]*//')
+    solCount2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/^[[:space:]]*//')
     printf "There are \`$solCount2\` lines of auditable Solidity code in this contract system.\n" >> ScopingReport.md
     printf | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 21
 }
-
-advancedLineCount() {
-        printf "### Advanced Line Count\n" >> ScopingReport.md
-        if command -v sloc --help>/dev/null; then
-        solCount3=$(sloc $FILE/**/*.sol)
-        printf "\`\`\`\n$solCount3\n\`\`\`" >> ScopingReport.md
-        printf | dialog --gauge "Advanced line count analysis saved to ScopingReport.md" 10 70 24
-    else
-        printf "Unable to perform advanced line count analysis. Please install \Zb\Z1sloc\Zn from node package manager to perform this type of analysis." >> ScopingReport.md
-      exit
-    fi
-}
-
 
 HEIGHT=15
 WIDTH=45
@@ -114,7 +118,6 @@ case $CHOICE in
         createReport
         fileCount
         lineCount
-        advancedLineCount
 
             ;;
         2)
