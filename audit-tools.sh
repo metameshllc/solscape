@@ -84,7 +84,7 @@ fileCount() {
             uF=$(unfilterFind | wc -l) 
             fF=$(filterFind | wc -l)
         printf "* **$uF** Solidity files exist in this contract system.\n" >> ScopingReport.md
-        printf "* **$fF** of those are recommended for auditing.\n" >> ScopingReport.md
+        printf "* but, only **$fF** of those need audited.\n" >> ScopingReport.md
         printf "* To view all filenames, see Appendix A.\n" >> ScopingReport.md
         printf | dialog --gauge "File count summed and written to ScopingReport.md" 10 70 18
 
@@ -96,13 +96,27 @@ lineCount() {
         uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
         fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
     printf "* **$uF2** Solidity lines exist in this contract system.\n" >> ScopingReport.md
-    printf "* **$fF2** of those are recommended for auditing.\n" >> ScopingReport.md
+    printf "* but, only **$fF2** of those need audited.\n" >> ScopingReport.md
     printf "* To view all code lines, see Appendix B.\n" >> ScopingReport.md
     printf | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 21
 }
 
-suryaDescribe {
-    surya 
+suryaMd(){
+  printf "## Surya Markdown Report\n" >> ScopingReport.md
+  surya mdreport tmp $rootDir/**/*.sol 
+}
+
+
+createAppendix() {
+  printf "# Appendices\n" >> ScopingReport.md
+}
+
+
+suryaDescribe() {
+    printf "## Appendix C\n" >> ScopingReport.md
+    printf "### Surya Describe \n" >> ScopingReport.md
+    sF=$(filterFind)
+    surya describe $sF | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" >> ScopingReport.md
 }
 
 HEIGHT=15
@@ -134,8 +148,11 @@ case $CHOICE in
         graffViz
         getDir
         createReport
-        fileCount
+        fileCounte
         lineCount
+        suryaMd
+        createAppendix
+        suryaDescribe
 
             ;;
         2)
