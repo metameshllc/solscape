@@ -8,7 +8,7 @@ shopt -s globstar
 
 dialogCheck() {
     if command -v dialog --help>/dev/null; then
-        printf | dialog --gauge "Dependency dialog passed." 10 70 5
+        printf | dialog --gauge "Dependency dialog passed." 10 70 6
     else
         printf "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       exit
@@ -17,7 +17,7 @@ dialogCheck() {
 
 suryaCheck() {
     if command -v surya --help>/dev/null; then
-        printf | dialog --gauge "Dependency surya passed." 10 70 10
+        printf | dialog --gauge "Dependency surya passed." 10 70 12
     else
         printf "Dependency Surya not passed. Install Surya to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       
@@ -27,10 +27,10 @@ suryaCheck() {
 
 graphvizCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency graphviz passed." 10 70 15
+        printf | dialog --gauge "Dependency graphviz passed." 10 70 18
     else
         printf | dialog --colors --title "ERROR" \
-                      --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. Instructions for installing, \Zbgraphviz\Zn can be found in the README. Would you like to view this section of the README?" 10 70
+                      --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. View installation instructions?" 10 70
                       response=$?
                       case $response in
                       0) var=$(sed -n '/graphviz/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
@@ -41,14 +41,88 @@ esac
     fi
 }
 
+solcCheck() {
+    if command -v dot --help>/dev/null; then
+        printf | dialog --gauge "Dependency solc passed." 10 70 5
+    else
+        printf | dialog --colors --title "ERROR" \
+                      --yesno "\Zbsolc\Zn not found. Analysis requires \Zbsolc\Zn to run. View README?" 10 70
+                      response=$?
+                      case $response in
+                      0) var=$(sed -n '/solc/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
+                      1) ./audit-tools.sh ;;
+                      255) printf "Shutting down..." && sleep 0.5 ;;
+esac
+      exit
+    fi
+}
+
+mythCheck() {
+    if command -v dot --help>/dev/null; then
+        printf | dialog --gauge "Dependency Mythril passed." 10 70 10
+    else
+        printf | dialog --colors --title "ERROR" \
+                      --yesno "\ZbMythril\Zn was not found on this system. Analysis requires \ZbMythril\Zn to run. View README?" 10 70
+                      response=$?
+                      case $response in
+                      0) var=$(sed -n '/mythril/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
+                      1) ./audit-tools.sh ;;
+                      255) printf "Shutting down..." && sleep 0.5 ;;
+esac
+      exit
+    fi
+}
+
+
+maruCheck() {
+    if command -v dot --help>/dev/null; then
+        printf | dialog --gauge "Dependency Maru passed." 10 70 15
+    else
+        printf | dialog --colors --title "ERROR" \
+                      --yesno "\ZbMaru\Zn was not found on this system. Analysis requires \ZbMaru\Zn to run. View README?" 10 70
+                      response=$?
+                      case $response in
+                      0) var=$(sed -n '/maru/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
+                      1) ./audit-tools.sh ;;
+                      255) printf "Shutting down..." && sleep 0.5 ;;
+esac
+      exit
+    fi
+}
+
+solhintCheck() {
+    if command -v dot --help>/dev/null; then
+        printf | dialog --gauge "Dependency solhint passed." 10 70 20
+    else
+        printf | dialog --colors --title "ERROR" \
+                      --yesno "\Zbsolhint\Zn not found. Analysis requires \Zbsolhint\Zn to run. View README?" 10 70
+                      response=$?
+                      case $response in
+                      0) var=$(sed -n '/solhint/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
+                      1) ./audit-tools.sh ;;
+                      255) printf "Shutting down..." && sleep 0.5 ;;
+esac
+      exit
+    fi
+}
+
+
+
+#Manticore Check?
+#Solhydra Check?
+#Slither Check?
 
 getDir() {
     rootDir=$(dialog --title "Root Contract Directory" --stdout --title "Select the root contract directory and press spacebar then enter." --dselect ~/ 10 70)       
-        printf | dialog --gauge "Root directory acquired." 10 70 12
+        printf | dialog --gauge "Root directory acquired." 10 70 24
 }
 
-createReport() {
+createScopingReport() {
 printf "# Scoping Report \n" > ScopingReport.md   
+}
+
+createAnalysisReport() {
+printf "# Scoping Report \n" > AnalysisReport.md   
 }
 
 unfilterFind() {
@@ -101,7 +175,7 @@ lineCount() {
 
 suryaDescribe() {
     printf "### Surya Describe\n" >> ScopingReport.md
-    surya describe $suryaFilter | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" >> ScopingReport.md
+    surya describe $suryaFilter | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g\n" >> ScopingReport.md
 }
 
 suryaParse(){
@@ -111,7 +185,7 @@ suryaParse(){
 
 suryaInheritance() {
   printf "## Inheritance Graph\n" >> ScopingReport.md
-  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls." >> ScopingReport.md
+  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" >> ScopingReport.md
   surya inheritance $suryaFilter | dot -Tpng InheritanceGraph.png
   printf "![Inheritance Graph](InheritanceGraph.png)" >> ScopingReport.md
 }
@@ -128,7 +202,7 @@ suryaMdReport() {
 
 suryaCall() {
   printf "## Call Graph\n" >> ScopingReport.md
-  printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls." >> ScopingReport.md
+  printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" >> ScopingReport.md
   surya graph $suryaFilter  | dot -Tpng CallGraph.png
   printf "![Call Graph](CallGraph.png)" >> ScopingReport.md
 }
@@ -164,32 +238,39 @@ case $CHOICE in
         suryaCheck
         graphvizCheck
         getDir
-          printf | dialog --gauge "Directory Acquired" 10 70 20
+          printf | dialog --gauge "Directory Acquired." 10 70 30
         createFilteredVars
-          printf | dialog --gauge "Variables Filtered" 10 70 25
-        createReport
-          printf | dialog --gauge "Report Created" 10 70 30
+          printf | dialog --gauge "Variables Filtered." 10 70 36
+        createScopingReport
+          printf | dialog --gauge "Report Created." 10 70 42
         fileCount
-          printf | dialog --gauge "Files Counted" 10 70 35
+          printf | dialog --gauge "Files Counted." 10 70 48
         lineCount
-          printf | dialog --gauge "Lines Counted" 10 70 40
+          printf | dialog --gauge "Lines Counted." 10 70 54
         suryaDescribe
-          printf | dialog --gauge "Contracts Described" 10 70 45
+          printf | dialog --gauge "Contracts Described." 10 70 60
         suryaInheritance
-          printf | dialog --gauge "Inheritance Pictured" 10 70 50
+          printf | dialog --gauge "Inheritance Pictured." 10 70 72
         suryaCall
-          printf | dialog --gauge "Calls Graphed" 10 70 55
+          printf | dialog --gauge "Calls Graphed." 10 70 84
         suryaParse
-          printf | dialog --gauge "Parse Tree Generated" 10 70 60
+          printf | dialog --gauge "Parse Tree Generated." 10 70 96 
         suryaMdReport
-          printf | dialog --gauge "MDReport Generated" 10 70 65
-        
-
+          printf | dialog --gauge "MDReport Generated." 10 70 100
+        sleep 1.25
+        ./audit-tools.sh
             ;;
         2)
-            printf "You chose Option 2"
-            sleep 2
-            ./audit-tools.sh
+          solcCheck
+          mythCheck
+          maruCheck
+          solhintCheck
+          getDir
+            printf | dialog --gauge "Directory Acquired." 10 70 25
+          createFilteredVars
+                      printf | dialog --gauge "Directory Acquired." 10 70 30
+          sleep 2
+        ./audit-tools.sh
             ;;
         3)
             printf ""
