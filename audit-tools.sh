@@ -8,7 +8,7 @@ shopt -s globstar
 
 dialogCheck() {
     if command -v dialog --help>/dev/null; then
-        printf | dialog --gauge "Dependency dialog passed." 10 70 3
+        printf | dialog --gauge "Dependency dialog passed." 10 70 5
     else
         printf "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       exit
@@ -17,7 +17,7 @@ dialogCheck() {
 
 suryaCheck() {
     if command -v surya --help>/dev/null; then
-        printf | dialog --gauge "Dependency surya passed." 10 70 6
+        printf | dialog --gauge "Dependency surya passed." 10 70 10
     else
         printf "Dependency Surya not passed. Install Surya to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       
@@ -27,7 +27,7 @@ suryaCheck() {
 
 graphvizCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency graphviz passed." 10 70 9
+        printf | dialog --gauge "Dependency graphviz passed." 10 70 15
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. Instructions for installing, \Zbgraphviz\Zn can be found in the README. Would you like to view this section of the README?" 10 70
@@ -49,8 +49,6 @@ getDir() {
 
 createReport() {
 printf "# Scoping Report \n" > ScopingReport.md   
-        printf | dialog --gauge "Scoping report file created." 10 70 15
-
 }
 
 unfilterFind() {
@@ -89,7 +87,6 @@ fileCount() {
     fF=$(filterFind | wc -l)
   printf "* **$uF** Solidity files exist in this contract system.\n" >> ScopingReport.md
   printf "* but, only **$fF** of those need audited.\n" >> ScopingReport.md
-  printf | dialog --gauge "File count summed and written to ScopingReport.md" 10 70 18
 
 }
 
@@ -100,9 +97,24 @@ lineCount() {
         fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
     printf "* **$uF2** Solidity lines exist in this contract system.\n" >> ScopingReport.md
     printf "* but, only **$fF2** of those need audited.\n" >> ScopingReport.md
-    printf | dialog --gauge "Line count summed and written to ScopingReport.md" 10 70 21
 }
 
+suryaDescribe() {
+    printf "### Surya Describe\n" >> ScopingReport.md
+    surya describe $suryaFilter | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" >> ScopingReport.md
+}
+
+suryaParse(){
+    printf "### Surya Parse\n" >> ScopingReport.md
+    surya parse $suryaFilter >> ScopingReport.md
+}
+
+suryaInheritance() {
+  printf "## Inheritance Graph\n" >> ScopingReport.md
+  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls." >> ScopingReport.md
+  surya inheritance $suryaFilter | dot -Tpng InheritanceGraph.png
+  printf "![Inheritance Graph](InheritanceGraph.png)" >> ScopingReport.md
+}
 
 suryaMdReport() {
     printf "## Markdown Report\n" >> ScopingReport.md 
@@ -112,41 +124,16 @@ suryaMdReport() {
     printf "* The description table of all contracts (surya describe.) \n" >> ScopingReport.md
     printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" >> ScopingReport.md
       surya mdreport MDReport.md $suryaFilter 
-    printf | dialog --gauge "Markdown Report written." 10 70 27
 }
 
 suryaCall() {
   printf "## Call Graph\n" >> ScopingReport.md
   printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls." >> ScopingReport.md
   surya graph $suryaFilter  | dot -Tpng CallGraph.png
-  printf "![Call Graph](CallGraph.png)"
-}
-
-suryaInheritance() {
-  printf "## Inheritance Graph\n" >> ScopingReport.md
-  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls." >> ScopingReport.md
-  surya inheritance $suryaFilter  | dot -Tpng InheritanceGraph.png
-  printf "![Inheritance Graph](InheritanceGraph.png)"
-}
-
-createAppendix() {
-  printf "# Appendices\n" >> ScopingReport.md
-  printf | dialog --gauge "Appendix written." 10 70 33
+  printf "![Call Graph](CallGraph.png)" >> ScopingReport.md
 }
 
 
-suryaDescribe() {
-    printf "## Appendix A: Surya\n" >> ScopingReport.md
-    printf "### Surya Describe\n" >> ScopingReport.md
-    surya describe $suryaFilter #| sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" >> ScopingReport.md
-    printf | dialog --gauge "Description Report Written" 10 70 36
-}
-
-suryaParse(){
-    printf "### Surya Parse\n" >> ScopingReport.md
-    surya parse $suryaFilter >> ScopingReport.md
-    printf | dialog --gauge "Parse Report Written" 10 70 39
-}
 
 
 HEIGHT=15
@@ -177,16 +164,25 @@ case $CHOICE in
         suryaCheck
         graphvizCheck
         getDir
+          printf | dialog --gauge "Directory Acquired" 10 70 20
         createFilteredVars
+          printf | dialog --gauge "Variables Filtered" 10 70 25
         createReport
+          printf | dialog --gauge "Report Created" 10 70 30
         fileCount
+          printf | dialog --gauge "Files Counted" 10 70 35
         lineCount
+          printf | dialog --gauge "Lines Counted" 10 70 40
         suryaDescribe
+          printf | dialog --gauge "Contracts Described" 10 70 45
         suryaInheritance
+          printf | dialog --gauge "Inheritance Pictured" 10 70 50
         suryaCall
+          printf | dialog --gauge "Calls Graphed" 10 70 55
         suryaParse
+          printf | dialog --gauge "Parse Tree Generated" 10 70 60
         suryaMdReport
-        createAppendix
+          printf | dialog --gauge "MDReport Generated" 10 70 65
         
 
             ;;
