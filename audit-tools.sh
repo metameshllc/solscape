@@ -106,15 +106,32 @@ esac
     fi
 }
 
-
-
 #Manticore Check?
 #Solhydra Check?
 #Slither Check?
 
+solcGen() {
+  solc
+}
+
+mythRun() {
+  printf "# Mythril Output\n" > AnalysisReport.md && myth -x $unfilteredVar >> AnalysisReport.md 
+}
+
+maruRun() {
+  mkdir tmp
+  cp $filteredVar ./tmp/
+  printf "# \nMaru Output\n" >> AnalysisReport.md && maru -r tmp >> AnalysisReport.md 
+  rm -rf tmp
+}
+
+solhintRun() {
+  printf "# \nSolhint Output\n" >> AnalysisReport.md && solhint $filteredVar >> AnalysisReport.md 
+}
+
+
 getDir() {
     rootDir=$(dialog --title "Root Contract Directory" --stdout --title "Select the root contract directory and press spacebar then enter." --dselect ~/ 10 70)       
-        printf | dialog --gauge "Root directory acquired." 10 70 24
 }
 
 createScopingReport() {
@@ -150,8 +167,8 @@ filterFind() {
 }
 
 createFilteredVars() {
-  suryaFilter=$(filterFind)
-  suryaUnFilter=$(unfilterFind)
+  filteredVar=$(filterFind)
+  unfilteredVar=$(unfilterFind)
 }
 
 
@@ -175,18 +192,18 @@ lineCount() {
 
 suryaDescribe() {
     printf "### Surya Describe\n" >> ScopingReport.md
-    surya describe $suryaFilter | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g\n" >> ScopingReport.md
+    surya describe $filteredVar | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g\n" >> ScopingReport.md
 }
 
 suryaParse(){
     printf "### Surya Parse\n" >> ScopingReport.md
-    surya parse $suryaFilter >> ScopingReport.md
+    surya parse $filteredVar >> ScopingReport.md
 }
 
 suryaInheritance() {
   printf "## Inheritance Graph\n" >> ScopingReport.md
   printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" >> ScopingReport.md
-  surya inheritance $suryaFilter | dot -Tpng InheritanceGraph.png
+  surya inheritance $filteredVar | dot -Tpng InheritanceGraph.png
   printf "![Inheritance Graph](InheritanceGraph.png)" >> ScopingReport.md
 }
 
@@ -197,13 +214,13 @@ suryaMdReport() {
     printf "* The directory of each file in the contract system. \n" >> ScopingReport.md
     printf "* The description table of all contracts (surya describe.) \n" >> ScopingReport.md
     printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" >> ScopingReport.md
-      surya mdreport MDReport.md $suryaFilter 
+      surya mdreport MDReport.md $filteredVar 
 }
 
 suryaCall() {
   printf "## Call Graph\n" >> ScopingReport.md
   printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" >> ScopingReport.md
-  surya graph $suryaFilter  | dot -Tpng CallGraph.png
+  surya graph $filteredVar  | dot -Tpng CallGraph.png
   printf "![Call Graph](CallGraph.png)" >> ScopingReport.md
 }
 
@@ -268,12 +285,19 @@ case $CHOICE in
           getDir
             printf | dialog --gauge "Directory Acquired." 10 70 25
           createFilteredVars
-                      printf | dialog --gauge "Directory Acquired." 10 70 30
-          sleep 2
+            printf | dialog --gauge "Variables Filtered." 10 70 30
+          mythRun
+            printf | dialog --gauge "Mythril Complete." 10 70 55
+          maruRun
+            printf | dialog --gauge "Maru Complete." 10 70 65
+          solhintRun
+            printf | dialog --gauge "Solhint Complete." 10 70 100
+          sleep 1.25
         ./audit-tools.sh
             ;;
         3)
             printf ""
+        ./audit-tools
             ;;
         4) 
             exit
