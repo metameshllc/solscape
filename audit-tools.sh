@@ -1,14 +1,14 @@
 #! /bin/bash
 
-printf() { builtin printf "$*"; sleep 0.1$RANDOM; }
+printf() { builtin printf "$*"; sleep 0.$RANDOM; }
 
 		
 shopt -s globstar 
- 
+
 
 dialogCheck() {
     if command -v dialog --help>/dev/null; then
-        printf | dialog --gauge "Dependency dialog passed." 10 70 6
+        printf | dialog --gauge "Dependency dialog passed." 10 70 1
     else
         printf "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       exit
@@ -17,7 +17,7 @@ dialogCheck() {
 
 suryaCheck() {
     if command -v surya --help>/dev/null; then
-        printf | dialog --gauge "Dependency surya passed." 10 70 12
+        printf | dialog --gauge "Dependency surya passed." 10 70 3
     else
         printf "Dependency Surya not passed. Install Surya to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       
@@ -27,7 +27,7 @@ suryaCheck() {
 
 graphvizCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency graphviz passed." 10 70 18
+        printf | dialog --gauge "Dependency graphviz passed." 10 70 7
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. View installation instructions?" 10 70
@@ -43,7 +43,7 @@ esac
 
 solcCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency solc passed." 10 70 5
+        printf | dialog --gauge "Dependency solc passed." 10 70 10
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\Zbsolc\Zn not found. Analysis requires \Zbsolc\Zn to run. View README?" 10 70
@@ -59,7 +59,7 @@ esac
 
 mythCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency Mythril passed." 10 70 10
+        printf | dialog --gauge "Dependency Mythril passed." 10 70 11
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\ZbMythril\Zn was not found on this system. Analysis requires \ZbMythril\Zn to run. View README?" 10 70
@@ -76,7 +76,7 @@ esac
 
 maruCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency Maru passed." 10 70 15
+        printf | dialog --gauge "Dependency Maru passed." 10 70 13
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\ZbMaru\Zn was not found on this system. Analysis requires \ZbMaru\Zn to run. View README?" 10 70
@@ -92,7 +92,7 @@ esac
 
 solhintCheck() {
     if command -v dot --help>/dev/null; then
-        printf | dialog --gauge "Dependency solhint passed." 10 70 20
+        printf | dialog --gauge "Dependency solhint passed." 10 70 15
     else
         printf | dialog --colors --title "ERROR" \
                       --yesno "\Zbsolhint\Zn not found. Analysis requires \Zbsolhint\Zn to run. View README?" 10 70
@@ -115,18 +115,26 @@ solcGen() {
 }
 
 mythRun() {
-  printf "# Mythril Output\n" > AnalysisReport.md && myth -x $unfilteredVar >> AnalysisReport.md 
+  printf "# Mythril Output\n" > AnalysisReport.md 
+  
+  for file in $filteredVar
+do
+  myth -x $file |& tee -a AnalysisReport.md 
+done
 }
 
 maruRun() {
   mkdir tmp
   cp $filteredVar ./tmp/
-  printf "# \nMaru Output\n" >> AnalysisReport.md && maru -r tmp >> AnalysisReport.md 
-  rm -rf tmp
+  printf "# Maru Output\n" |& tee -a AnalysisReport.md 
+  maru -r tmp |& tee -a AnalysisReport.md 
+  sleep 2
+  rm -rf tmp 
 }
 
 solhintRun() {
-  printf "# \nSolhint Output\n" >> AnalysisReport.md && solhint $filteredVar >> AnalysisReport.md 
+  printf "# Solhint Output\n" |& tee -a AnalysisReport.md
+  solhint $filteredVar |& tee -a AnalysisReport.md 
 }
 
 
@@ -139,7 +147,7 @@ printf "# Scoping Report \n" > ScopingReport.md
 }
 
 createAnalysisReport() {
-printf "# Scoping Report \n" > AnalysisReport.md   
+printf "# Analysis Report \n" > AnalysisReport.md   
 }
 
 unfilterFind() {
@@ -163,7 +171,8 @@ filterFind() {
     grep -v CommonMath.sol | \
     grep -v node_modules | \
     grep -v coverageEnv  | \
-    grep -v openzeppelin-solidity
+    grep -v openzeppelin-solidity | \
+    grep -v cryptofin-solidity
 }
 
 createFilteredVars() {
@@ -173,58 +182,56 @@ createFilteredVars() {
 
 
 fileCount() {
-  printf "## File Count \n" >> ScopingReport.md
+  printf "## File Count \n" |& tee -a ScopingReport.md
     uF=$(unfilterFind | wc -l) 
     fF=$(filterFind | wc -l)
-  printf "* **$uF** Solidity files exist in this contract system.\n" >> ScopingReport.md
-  printf "* but, only **$fF** of those need audited.\n" >> ScopingReport.md
+  printf "* **$uF** Solidity files exist in this contract system.\n" |& tee -a ScopingReport.md
+  printf "* but, only **$fF** of those need audited.\n" |& tee -a ScopingReport.md
 
 }
 
 
 lineCount() {
-    printf "## Line Count \n" >> ScopingReport.md
+    printf "## Line Count \n" |& tee -a ScopingReport.md
         uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
         fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
-    printf "* **$uF2** Solidity lines exist in this contract system.\n" >> ScopingReport.md
-    printf "* but, only **$fF2** of those need audited.\n" >> ScopingReport.md
+    printf "* **$uF2** Solidity lines exist in this contract system.\n" |& tee -a ScopingReport.md
+    printf "* but, only **$fF2** of those need audited.\n" |& tee -a ScopingReport.md
 }
 
 suryaDescribe() {
-    printf "### Surya Describe\n" >> ScopingReport.md
-    surya describe $filteredVar | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g\n" >> ScopingReport.md
+    printf "### Surya Describe\n" |& tee -a ScopingReport.md
+    surya describe $filteredVar | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" |& tee -a ScopingReport.md
 }
 
 suryaParse(){
-    printf "### Surya Parse\n" >> ScopingReport.md
-    surya parse $filteredVar >> ScopingReport.md
+    printf "### Surya Parse\n" |& tee -a ScopingReport.md
+    surya parse $filteredVar |& tee -a ScopingReport.md
 }
 
 suryaInheritance() {
-  printf "## Inheritance Graph\n" >> ScopingReport.md
-  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" >> ScopingReport.md
+  printf "## Inheritance Graph\n" |& tee -a ScopingReport.md
+  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a ScopingReport.md
   surya inheritance $filteredVar | dot -Tpng InheritanceGraph.png
-  printf "![Inheritance Graph](InheritanceGraph.png)" >> ScopingReport.md
+  printf "![Inheritance Graph](InheritanceGraph.png)" |& tee -a ScopingReport.md
 }
 
 suryaMdReport() {
-    printf "## Markdown Report\n" >> ScopingReport.md 
-    printf "**Surya's Markdown Report** gives an eagle-eye view of a smart contract system's inner workings. It displays:\n"  >> ScopingReport.md
-    printf "* Files to be audited, along with their SHA-1 hash. \n" >> ScopingReport.md
-    printf "* The directory of each file in the contract system. \n" >> ScopingReport.md
-    printf "* The description table of all contracts (surya describe.) \n" >> ScopingReport.md
-    printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" >> ScopingReport.md
+    printf "## Markdown Report\n" |& tee -a ScopingReport.md 
+    printf "**Surya's Markdown Report** gives an eagle-eye view of a smart contract system's inner workings. It displays:\n"  |& tee -a ScopingReport.md
+    printf "* Files to be audited, along with their SHA-1 hash. \n" |& tee -a ScopingReport.md
+    printf "* The directory of each file in the contract system. \n" |& tee -a ScopingReport.md
+    printf "* The description table of all contracts (surya describe.) \n" |& tee -a ScopingReport.md
+    printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" |& tee -a ScopingReport.md
       surya mdreport MDReport.md $filteredVar 
 }
 
 suryaCall() {
-  printf "## Call Graph\n" >> ScopingReport.md
-  printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" >> ScopingReport.md
+  printf "## Call Graph\n" |& tee -a ScopingReport.md
+  printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a ScopingReport.md
   surya graph $filteredVar  | dot -Tpng CallGraph.png
-  printf "![Call Graph](CallGraph.png)" >> ScopingReport.md
+  printf "![Call Graph](CallGraph.png)" |& tee -a ScopingReport.md
 }
-
-
 
 
 HEIGHT=15
@@ -284,20 +291,55 @@ case $CHOICE in
           solhintCheck
           getDir
             printf | dialog --gauge "Directory Acquired." 10 70 25
-          createFilteredVars
-            printf | dialog --gauge "Variables Filtered." 10 70 30
-          mythRun
-            printf | dialog --gauge "Mythril Complete." 10 70 55
-          maruRun
-            printf | dialog --gauge "Maru Complete." 10 70 65
-          solhintRun
-            printf | dialog --gauge "Solhint Complete." 10 70 100
+          createFilteredVars 
+            printf | dialog --gauge "Variables Filtered." 7 50 40 
+          mythRun |  dialog --progressbox Feed 25 65
+            printf | dialog --gauge "Mythril Analysis Complete." 10 70 70
+          maruRun |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Maru Analysis Complete." 10 70 90
+          solhintRun | dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Solhint Analysis Complete." 10 70 100
           sleep 1.25
-        ./audit-tools.sh
+          ./audit-tools.sh
             ;;
         3)
-            printf ""
-        ./audit-tools
+          dialogCheck
+          suryaCheck
+          graphvizCheck
+          solcCheck
+          mythCheck
+          maruCheck
+          solhintCheck
+          getDir
+            printf | dialog --gauge "Directory Acquired." 10 70 30
+          createFilteredVars
+            printf | dialog --gauge "Variables Filtered." 10 70 33
+          createScopingReport
+            printf | dialog --gauge "Report Created." 10 70 39
+          fileCount |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Files Counted." 10 70 43
+          lineCount |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Lines Counted." 10 70 46
+          suryaDescribe |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Contracts Described." 10 70 47
+          suryaInheritance |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Inheritance Pictured." 10 70 50
+          suryaCall |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Calls Graphed." 10 70 53
+          suryaParse |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Parse Tree Generated." 10 70 56
+          suryaMdReport |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "MDReport Generated." 10 70 58
+          createFilteredVars |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Variables Filtered." 10 70 59
+          mythRun | dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Mythril Analysis Complete." 10 70 75
+          maruRun |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Maru Analysis Complete." 10 70 90
+          solhintRun |  dialog --progressbox  Feed 25 65
+            printf | dialog --gauge "Solhint Analysis Complete." 10 70 100
+          sleep 1.25
+        ./audit-tools.sh
             ;;
         4) 
             exit
