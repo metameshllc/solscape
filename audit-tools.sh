@@ -194,8 +194,8 @@ fileCount() {
 
 lineCount() {
     printf "## Line Count \n" |& tee -a ScopingReport.md
-        uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
-        fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//')
+        uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//'|sed 's/ //g')
+        fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//'|sed 's/ //g')
     printf "* **$uF2** Solidity lines exist in this contract system.\n" |& tee -a ScopingReport.md
     printf "* but, only **$fF2** of those need audited.\n" |& tee -a ScopingReport.md
 }
@@ -224,7 +224,7 @@ suryaMdReport() {
     printf "* The directory of each file in the contract system. \n" |& tee -a ScopingReport.md
     printf "* The description table of all contracts (surya describe.) \n" |& tee -a ScopingReport.md
     printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" |& tee -a ScopingReport.md
-      surya mdreport MDReport.md $filteredVar 
+      surya mdreport MDReport.md $filteredVar && cat MDReport.md |& tee -a ScopingReport.md
 }
 
 suryaCall() {
@@ -234,9 +234,9 @@ suryaCall() {
   printf "![Call Graph](CallGraph.png)" |& tee -a ScopingReport.md
 }
 
-progressBar() {
-    dialog --begin 2 65 --keep-window --gauge "Variables Filtered." 7 50 6
- }
+#progressBar() {
+#   dialog --begin 2 65 --keep-window --gauge "Variables Filtered." 7 50 6
+# }
 
 
 HEIGHT=15
@@ -253,7 +253,7 @@ OPTIONS=(1 "Scope Code"
          3 "Run All"
          4 "Exit")
 
-CHOICE=$(dialog --colors --aspect 0 --begin 3 65 --title "Audit Tools" --infobox  "$INTRO" 5 55 \
+CHOICE=$(dialog --colors --aspect 0 --begin 3 65 --title "Audit Tools 0.1.0" --infobox  "$INTRO" 5 55 \
   --and-widget --colors --begin 3 2 --title "Environment" --infobox \
 "\Z1Shell directory:\Zn \Zb$BASH$\Zn 
 \Z1Shell version:\Zn \Zb$BASH_VERSION$\Zn 
@@ -267,7 +267,7 @@ case $CHOICE in
         suryaCheck
         graphvizCheck
         getDir
-          printf | dialog --gauge "Directory Acquired." 10 70 30
+          printf | dialog --gauge "Directory Acquired." 10 70 20
         createFilteredVars
           printf | dialog --gauge "Variables Filtered." 10 70 36
         createScopingReport
@@ -297,13 +297,12 @@ case $CHOICE in
           getDir
             printf | dialog --gauge "Directory Acquired." 10 70 25
           createFilteredVars 
-            #printf | dialog --begin 2 15 --keep-window --gauge "Variables Filtered." 7 50 40 
-          mythRun | dialog --progressbox progressBar 25 65 \
-          --and-widget --begin 3 65 --keep-window --gauge "Variables Filtered." 7 50 40 
+            printf | dialog --begin --gauge "Variables Filtered." 10 70 40
+          mythRun | dialog --progressbox Feed 25 65 
             printf | dialog --gauge "Mythril Analysis Complete." 10 70 70
-          maruRun |  dialog --progressbox  Feed 25 65
+          maruRun #|  dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Maru Analysis Complete." 10 70 90
-          solhintRun | dialog --progressbox  Feed 25 65
+          solhintRun #| dialog --stdout --progressbox Feed 25 65 
             printf | dialog --gauge "Solhint Analysis Complete." 10 70 100
           sleep 1.25
           ./audit-tools.sh
@@ -317,32 +316,32 @@ case $CHOICE in
           maruCheck
           solhintCheck
           getDir
-            printf | dialog --gauge "Directory Acquired." 10 70 30
+            printf | dialog --gauge "Directory Acquired." 10 70 20
           createFilteredVars
             printf | dialog --gauge "Variables Filtered." 10 70 33
           createScopingReport
             printf | dialog --gauge "Report Created." 10 70 39
-          fileCount |  dialog --progressbox  Feed 25 65
+          fileCount |  
             printf | dialog --gauge "Files Counted." 10 70 43
-          lineCount |  dialog --progressbox  Feed 25 65
+          lineCount |  
             printf | dialog --gauge "Lines Counted." 10 70 46
-          suryaDescribe |  dialog --progressbox  Feed 25 65
+          suryaDescribe 
             printf | dialog --gauge "Contracts Described." 10 70 47
-          suryaInheritance |  dialog --progressbox  Feed 25 65
+          suryaInheritance | dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Inheritance Pictured." 10 70 50
-          suryaCall |  dialog --progressbox  Feed 25 65
+          suryaCall 
             printf | dialog --gauge "Calls Graphed." 10 70 53
-          suryaParse |  dialog --progressbox  Feed 25 65
+          suryaParse | dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Parse Tree Generated." 10 70 56
-          suryaMdReport |  dialog --progressbox  Feed 25 65
+          suryaMdReport | dialog --progressbox  Feed 25 65
             printf | dialog --gauge "MDReport Generated." 10 70 58
-          createFilteredVars |  dialog --progressbox  Feed 25 65
+          createFilteredVars | dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Variables Filtered." 10 70 59
           mythRun | dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Mythril Analysis Complete." 10 70 75
-          maruRun |  dialog --progressbox  Feed 25 65
+          maruRun #|  dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Maru Analysis Complete." 10 70 90
-          solhintRun |  dialog --progressbox  Feed 25 65
+          solhintRun #| dialog --stdout --progressbox Feed 25 65 
             printf | dialog --gauge "Solhint Analysis Complete." 10 70 100
           sleep 1.25
         ./audit-tools.sh
