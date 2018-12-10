@@ -8,7 +8,8 @@ shopt -s globstar
 
 dialogCheck() {
     if command -v dialog --help>/dev/null; then
-        printf | dialog --gauge "Dependency dialog passed." 10 70 1
+      cnt=1 
+        printf | dialog --gauge "Dependency dialog passed." 10 70 $cnt
     else
         printf "Dependency dialog not passed. Install dialog to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       exit
@@ -233,6 +234,10 @@ suryaCall() {
   printf "![Call Graph](CallGraph.png)" |& tee -a ScopingReport.md
 }
 
+progressBar() {
+    dialog --begin 2 65 --keep-window --gauge "Variables Filtered." 7 50 6
+ }
+
 
 HEIGHT=15
 WIDTH=45
@@ -292,8 +297,9 @@ case $CHOICE in
           getDir
             printf | dialog --gauge "Directory Acquired." 10 70 25
           createFilteredVars 
-            printf | dialog --gauge "Variables Filtered." 7 50 40 
-          mythRun |  dialog --progressbox Feed 25 65
+            #printf | dialog --begin 2 15 --keep-window --gauge "Variables Filtered." 7 50 40 
+          mythRun | dialog --progressbox progressBar 25 65 \
+          --and-widget --begin 3 65 --keep-window --gauge "Variables Filtered." 7 50 40 
             printf | dialog --gauge "Mythril Analysis Complete." 10 70 70
           maruRun |  dialog --progressbox  Feed 25 65
             printf | dialog --gauge "Maru Analysis Complete." 10 70 90
