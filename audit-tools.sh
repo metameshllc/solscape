@@ -214,7 +214,7 @@ suryaInheritance() {
   printf "## Inheritance Graph\n" |& tee -a ScopingReport.md
   printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a ScopingReport.md
   surya inheritance $filteredVar | dot -Tpng InheritanceGraph.png
-  printf "![Inheritance Graph](InheritanceGraph.png)" |& tee -a ScopingReport.md
+  printf "![Inheritance Graph](InheritanceGraph.png)"\n |& tee -a ScopingReport.md
 }
 
 suryaMdReport() {
@@ -230,8 +230,8 @@ suryaMdReport() {
 suryaCall() {
   printf "## Call Graph\n" |& tee -a ScopingReport.md
   printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a ScopingReport.md
-  surya graph $filteredVar  | dot -Tpng CallGraph.png
-  printf "![Call Graph](CallGraph.png)" |& tee -a ScopingReport.md
+  surya graph $filteredVar | dot -Tpng CallGraph.png
+  printf "![Call Graph](CallGraph.png)"\n |& tee -a ScopingReport.md
 }
 
 #progressBar() {

@@ -1058,371 +1058,70 @@ body .markdown-body
 </style><title>ScopingReport</title></head><body><article class="markdown-body"><h1 id="scoping-report">Scoping Report<a class="headerlink" href="#scoping-report" title="Permanent link"></a></h1>
 <h2 id="file-count">File Count<a class="headerlink" href="#file-count" title="Permanent link"></a></h2>
 <ul>
-<li><strong>138</strong> Solidity files exist in this contract system.</li>
-<li>but, only <strong>37</strong> of those need audited.</li>
+<li><strong>6</strong> Solidity files exist in this contract system.</li>
+<li>but, only <strong>5</strong> of those need audited.</li>
 </ul>
 <h2 id="line-count">Line Count<a class="headerlink" href="#line-count" title="Permanent link"></a></h2>
 <ul>
-<li>*<em>13280 *</em> Solidity lines exist in this contract system.</li>
-<li>but, only *<em>6331 *</em> of those need audited.</li>
+<li><strong>1066</strong> Solidity lines exist in this contract system.</li>
+<li>but, only <strong>1035</strong> of those need audited.</li>
 </ul>
 <h3 id="surya-describe">Surya Describe<a class="headerlink" href="#surya-describe" title="Permanent link"></a></h3>
 <ul>
 <li>
-<p>[Int] IERC20 </p>
-<ul>
-<li>[Ext] balanceOf</li>
-<li>[Ext] allowance</li>
-<li>[Ext] transfer #</li>
-<li>[Ext] transferFrom #</li>
-<li>[Ext] approve #</li>
-</ul>
-</li>
-<li>
-<p>[Lib] ERC20Wrapper </p>
-<ul>
-<li>[Ext] balanceOf</li>
-<li>[Int] allowance</li>
-<li>[Ext] transfer #</li>
-<li>[Ext] transferFrom #</li>
-<li>[Int] approve #</li>
-<li>[Int] ensureAllowance #</li>
-<li>[Prv] checkSuccess</li>
-</ul>
-</li>
-<li>
-<p>Vault (Authorizable)</p>
-<ul>
-<li>[Ext] withdrawTo #</li>
-<li>[Ext] incrementTokenOwner #</li>
-<li>[Ext] decrementTokenOwner #</li>
-<li>[Ext] transferBalance #</li>
-<li>[Ext] batchTransferBalance #</li>
-<li>[Ext] getOwnerBalance</li>
-<li>[Prv] transferBalanceInternal #</li>
-</ul>
-</li>
-<li>
-<p>TransferProxy (Authorizable)</p>
-<ul>
-<li>[Ext] transfer #</li>
-</ul>
-</li>
-<li>
-<p>SetToken (ERC20, ERC20Detailed)</p>
-<ul>
-<li>[Pub] <Constructor> #</li>
-<li>[Ext] mint #</li>
-<li>[Ext] burn #</li>
-<li>[Ext] getComponents</li>
-<li>[Ext] getUnits</li>
-<li>[Pub] tokenIsComponent</li>
-</ul>
-</li>
-<li>
-<p>SetTokenFactory </p>
-<ul>
-<li>[Pub] <Constructor> #</li>
-<li>[Ext] create #</li>
-</ul>
-</li>
-<li>
-<p>CoreOperationState (Ownable, CoreState)</p>
-<ul>
-<li>[Ext] setOperationState #</li>
-</ul>
-</li>
-<li>
-<p>CoreIssuanceOrder (ICoreIssuance, ICoreAccounting, CoreState, ReentrancyGuard)</p>
-<ul>
-<li>[Ext] fillOrder #</li>
-<li>[Ext] cancelOrder #</li>
-<li>[Prv] executeExchangeOrders #</li>
-<li>[Prv] validateOrder</li>
-<li>[Prv] settleOrder #</li>
-<li>[Prv] settleAccounts #</li>
-<li>[Prv] settleRelayerFees #</li>
-</ul>
-</li>
-<li>
-<p>CoreAccounting (CoreState, CoreOperationState, ReentrancyGuard)</p>
-<ul>
-<li>[Ext] deposit #</li>
-<li>[Ext] withdraw #</li>
-<li>[Ext] batchDeposit #</li>
-<li>[Ext] batchWithdraw #</li>
-<li>[Ext] internalTransfer #</li>
-<li>[Int] depositInternal #</li>
-<li>[Int] withdrawInternal #</li>
-<li>[Int] batchDepositInternal #</li>
-<li>[Int] batchWithdrawInternal #</li>
-</ul>
-</li>
-<li>
-<p>CoreInternal (Ownable, CoreState)</p>
-<ul>
-<li>[Ext] addFactory #</li>
-<li>[Ext] removeFactory #</li>
-<li>[Ext] addExchange #</li>
-<li>[Ext] removeExchange #</li>
-<li>[Ext] disableSet #</li>
-<li>[Ext] reenableSet #</li>
-<li>[Ext] addPriceLibrary #</li>
-<li>[Ext] removePriceLibrary #</li>
-<li>[Ext] setProtocolFee #</li>
-<li>[Ext] setProtocolFeeRecipient #</li>
-<li>[Ext] setSignatureValidator #</li>
-</ul>
-</li>
-<li>
-<p>CoreIssuance (CoreState, CoreOperationState, ReentrancyGuard)</p>
-<ul>
-<li>[Ext] issue #</li>
-<li>[Ext] redeem #</li>
-<li>[Ext] redeemAndWithdraw #</li>
-<li>[Ext] redeemInVault #</li>
-<li>[Int] issueInternal #</li>
-<li>[Prv] redeemInternal #</li>
-<li>[Int] calculateTransferValue</li>
-</ul>
-</li>
-<li>
-<p>CoreFactory (CoreState)</p>
-<ul>
-<li>[Ext] create #</li>
-</ul>
-</li>
-<li>
-<p>CoreRebalanceAuction (ICoreAccounting, CoreState, ReentrancyGuard)</p>
-<ul>
-<li>[Ext] bid #</li>
-</ul>
-</li>
-<li>
-<p>RebalancingSetToken (ERC20, ERC20Detailed)</p>
-<ul>
-<li>[Pub] <Constructor> #</li>
-<li>[Ext] propose #</li>
-<li>[Ext] startRebalance #</li>
-<li>[Ext] settleRebalance #</li>
-<li>[Ext] placeBid #</li>
-<li>[Pub] getBidPrice</li>
-<li>[Ext] mint #</li>
-<li>[Ext] burn #</li>
-<li>[Ext] setManager #</li>
-<li>[Ext] getComponents</li>
-<li>[Ext] getUnits</li>
-<li>[Pub] tokenIsComponent</li>
-<li>[Ext] getCombinedTokenArrayLength</li>
-<li>[Ext] getCombinedTokenArray</li>
-<li>[Ext] getCombinedCurrentUnits</li>
-<li>[Ext] getCombinedNextSetUnits</li>
-<li>[Prv] auctionSetUp #</li>
-<li>[Prv] calculateNextSetIssueQuantity #</li>
-<li>[Prv] computeTransferValue #</li>
-<li>[Prv] calculateTotalFees #</li>
-<li>[Prv] calculateFeeSplit #</li>
-</ul>
-</li>
-<li>
-<p>Core (CoreState, CoreIssuanceOrder, CoreRebalanceAuction, CoreAccounting, CoreInternal, CoreFactory, CoreIssuance)</p>
+<p>BitcoinHEX (StakeableToken)</p>
 <ul>
 <li>[Pub] <Constructor> #</li>
 </ul>
 </li>
 <li>
-<p>RebalancingSetTokenFactory </p>
+<p>UTXOClaimValidation (GlobalsAndUtility)</p>
 <ul>
-<li>[Pub] <Constructor> #</li>
-<li>[Ext] create #</li>
-<li>[Prv] parseRebalanceSetCallData</li>
+<li>[Pub] addressToString</li>
+<li>[Pub] validateSignature</li>
+<li>[Pub] ecdsaVerify</li>
+<li>[Pub] pubKeyToEthereumAddress</li>
+<li>[Pub] pubKeyToBitcoinAddress</li>
+<li>[Pub] verifyProof</li>
+<li>[Pub] canRedeemUTXOHash</li>
+<li>[Pub] canRedeemUTXO</li>
 </ul>
 </li>
 <li>
-<p>ICoreIssuance </p>
+<p>UTXORedeemableToken (UTXOClaimValidation)</p>
 <ul>
-<li>[Int] issueInternal #</li>
+<li>[Int] getSpeedBonus</li>
+<li>[Int] getLateClaimAdjustedAmount</li>
+<li>[Pub] getRedeemAmount</li>
+<li>[Int] verifyUTXOProofAndSigThenMarkRedeemed #</li>
+<li>[Pub] redeemUTXO #</li>
 </ul>
 </li>
 <li>
-<p>IRebalancingSetFactory (ISetFactory)</p>
+<p>GlobalsAndUtility (ERC20)</p>
 <ul>
-<li>[Ext] minimumRebalanceInterval #</li>
-<li>[Ext] minimumProposalPeriod #</li>
+<li>[Int] removeStake #</li>
+<li>[Int] differenceInPeriods</li>
+<li>[Int] timestampToWeeks</li>
+<li>[Int] weeksSinceLaunch</li>
+<li>[Int] timestampToPeriods</li>
+<li>[Int] periodsSinceLaunch</li>
+<li>[Pub] isClaimsPeriod</li>
+<li>[Pub] storeWeeklyData #</li>
+<li>[Pub] storePeriodData #</li>
+<li>[Ext] circulatingSupply</li>
 </ul>
 </li>
 <li>
-<p>[Int] IExchangeWrapper </p>
+<p>StakeableToken (UTXORedeemableToken)</p>
 <ul>
-<li>[Ext] exchange #</li>
-</ul>
-</li>
-<li>
-<p>[Int] IVault </p>
-<ul>
-<li>[Ext] withdrawTo #</li>
-<li>[Ext] incrementTokenOwner #</li>
-<li>[Ext] decrementTokenOwner #</li>
-<li>[Ext] transferBalance #</li>
-<li>[Ext] batchTransferBalance #</li>
-<li>[Ext] getOwnerBalance #</li>
-</ul>
-</li>
-<li>
-<p>[Int] ITransferProxy </p>
-<ul>
-<li>[Ext] transfer #</li>
-</ul>
-</li>
-<li>
-<p>ICoreAccounting </p>
-<ul>
-<li>[Int] batchDepositInternal #</li>
-</ul>
-</li>
-<li>
-<p>[Int] ICore </p>
-<ul>
-<li>[Pub] transferProxy</li>
-<li>[Pub] vault</li>
-<li>[Pub] protocolAddress</li>
-<li>[Pub] protocolFee</li>
-<li>[Ext] validSets</li>
-<li>[Pub] validPriceLibraries</li>
-<li>[Ext] setVaultAddress #</li>
-<li>[Ext] setTransferProxyAddress #</li>
-<li>[Ext] registerFactory #</li>
-<li>[Ext] registerSet #</li>
-<li>[Ext] registerPriceLibrary #</li>
-<li>[Ext] setSignatureValidator #</li>
-<li>[Ext] issue #</li>
-<li>[Ext] redeem #</li>
-<li>[Ext] redeemInVault #</li>
-<li>[Ext] batchDeposit #</li>
-<li>[Ext] batchWithdraw #</li>
-<li>[Ext] deposit #</li>
-<li>[Pub] withdraw #</li>
-<li>[Ext] create #</li>
-<li>[Ext] fillOrder #</li>
-<li>[Ext] cancelOrder #</li>
-<li>[Ext] bid #</li>
-</ul>
-</li>
-<li>
-<p>[Int] ISetToken </p>
-<ul>
-<li>[Ext] naturalUnit</li>
-<li>[Ext] getComponents</li>
-<li>[Ext] getUnits</li>
-<li>[Ext] tokenIsComponent</li>
-<li>[Ext] mint #</li>
-<li>[Ext] burn #</li>
-<li>[Pub] transfer #</li>
-</ul>
-</li>
-<li>
-<p>[Int] ISetFactory </p>
-<ul>
-<li>[Ext] core #</li>
-<li>[Ext] create #</li>
-</ul>
-</li>
-<li>
-<p>[Int] IRebalancingSetToken </p>
-<ul>
-<li>[Ext] placeBid #</li>
-<li>[Ext] getCombinedTokenArrayLength</li>
-</ul>
-</li>
-<li>
-<p>[Int] ISignatureValidator </p>
-<ul>
-<li>[Ext] validateSignature</li>
-</ul>
-</li>
-<li>
-<p>ZeroExExchangeWrapper </p>
-<ul>
-<li>[Pub] <Constructor> #</li>
-<li>[Ext] exchange #</li>
-<li>[Prv] fillZeroExOrder #</li>
-<li>[Prv] transferRelayerFee #</li>
-</ul>
-</li>
-<li>
-<p>[Lib] ZeroExOrderDataHandler </p>
-<ul>
-<li>[Int] parseOrderHeader</li>
-<li>[Int] parseZeroExOrder</li>
-<li>[Prv] tokenAddressToAssetData</li>
-</ul>
-</li>
-<li>
-<p>TakerWalletWrapper </p>
-<ul>
-<li>[Pub] <Constructor> #</li>
-<li>[Ext] exchange #</li>
-<li>[Prv] transferFromTaker #</li>
-</ul>
-</li>
-<li>
-<p>SignatureValidator </p>
-<ul>
-<li>[Ext] validateSignature</li>
-</ul>
-</li>
-<li>
-<p>[Lib] EIP712Library </p>
-<ul>
-<li>[Int] hashEIP712Message</li>
-<li>[Int] getEIP712DomainHash</li>
-</ul>
-</li>
-<li>
-<p>LinearAuctionPriceCurve </p>
-<ul>
-<li>[Ext] getCurrentPrice</li>
-</ul>
-</li>
-<li>
-<p>[Int] IAuctionPriceCurve </p>
-<ul>
-<li>[Ext] getCurrentPrice</li>
-</ul>
-</li>
-<li>
-<p>[Lib] ExchangeHeaderLibrary </p>
-<ul>
-<li>[Int] parseExchangeHeader</li>
-</ul>
-</li>
-<li>
-<p>CoreState </p>
-<ul>
-<li>[Pub] operationState</li>
-<li>[Pub] exchanges</li>
-<li>[Pub] transferProxy</li>
-<li>[Pub] vault</li>
-<li>[Pub] signatureValidator</li>
-<li>[Pub] protocolFee</li>
-<li>[Pub] protocolAddress</li>
-<li>[Pub] validFactories</li>
-<li>[Pub] validSets</li>
-<li>[Pub] disabledSets</li>
-<li>[Pub] setTokens</li>
-<li>[Pub] validPriceLibraries</li>
-<li>[Pub] orderFills</li>
-<li>[Pub] orderCancels</li>
-</ul>
-</li>
-<li>
-<p>[Lib] OrderLibrary </p>
-<ul>
-<li>[Int] generateOrderHash</li>
-<li>[Prv] hashOrder</li>
-<li>[Int] constructOrder</li>
-<li>[Int] getPartialAmount</li>
-<li>[Int] getEIP712OrderSchemaHash</li>
+<li>[Pub] calculateWeAreAllSatoshiRewards</li>
+<li>[Pub] calculatePayout</li>
+<li>[Ext] startStake #</li>
+<li>[Pub] calculateLatePenalty</li>
+<li>[Pub] calculateEarlyPenalty</li>
+<li>[Ext] goodAccounting #</li>
+<li>[Ext] endStake #</li>
 </ul>
 </li>
 </ul>
@@ -1436,157 +1135,26 @@ body .markdown-body
    ├─ 0
    │  ├─ type: PragmaDirective
    │  ├─ name: solidity
-   │  └─ value: 0.4.25
-   └─ 1
+   │  └─ value: ^0.4.24
+   ├─ 1
+   │  ├─ type: ImportDirective
+   │  ├─ path: ./StakeableToken.sol
+   │  ├─ unitAlias
+   │  └─ symbolAliases
+   └─ 2
       ├─ type: ContractDefinition
-      ├─ name: IERC20
+      ├─ name: BitcoinHEX
       ├─ baseContracts
+      │  └─ 0
+      │     ├─ type: InheritanceSpecifier
+      │     ├─ baseName
+      │     │  ├─ type: UserDefinedTypeName
+      │     │  └─ namePath: StakeableToken
+      │     └─ arguments
       ├─ subNodes
-      │  ├─ 0
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: balanceOf
-      │  │  ├─ parameters
-      │  │  │  ├─ type: ParameterList
-      │  │  │  └─ parameters
-      │  │  │     └─ 0
-      │  │  │        ├─ type: Parameter
-      │  │  │        ├─ typeName
-      │  │  │        │  ├─ type: ElementaryTypeName
-      │  │  │        │  └─ name: address
-      │  │  │        ├─ name: _owner
-      │  │  │        ├─ storageLocation
-      │  │  │        ├─ isStateVar: false
-      │  │  │        └─ isIndexed: false
-      │  │  ├─ returnParameters
-      │  │  │  ├─ type: ParameterList
-      │  │  │  └─ parameters
-      │  │  │     └─ 0
-      │  │  │        ├─ type: Parameter
-      │  │  │        ├─ typeName
-      │  │  │        │  ├─ type: ElementaryTypeName
-      │  │  │        │  └─ name: uint256
-      │  │  │        ├─ name
-      │  │  │        ├─ storageLocation
-      │  │  │        ├─ isStateVar: false
-      │  │  │        └─ isIndexed: false
-      │  │  ├─ body
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ isConstructor: false
-      │  │  └─ stateMutability: view
-      │  ├─ 1
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: allowance
-      │  │  ├─ parameters
-      │  │  │  ├─ type: ParameterList
-      │  │  │  └─ parameters
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: Parameter
-      │  │  │     │  ├─ typeName
-      │  │  │     │  │  ├─ type: ElementaryTypeName
-      │  │  │     │  │  └─ name: address
-      │  │  │     │  ├─ name: _owner
-      │  │  │     │  ├─ storageLocation
-      │  │  │     │  ├─ isStateVar: false
-      │  │  │     │  └─ isIndexed: false
-      │  │  │     └─ 1
-      │  │  │        ├─ type: Parameter
-      │  │  │        ├─ typeName
-      │  │  │        │  ├─ type: ElementaryTypeName
-      │  │  │        │  └─ name: address
-      │  │  │        ├─ name: _spender
-      │  │  │        ├─ storageLocation
-      │  │  │        ├─ isStateVar: false
-      │  │  │        └─ isIndexed: false
-      │  │  ├─ returnParameters
-      │  │  │  ├─ type: ParameterList
-      │  │  │  └─ parameters
-      │  │  │     └─ 0
-      │  │  │        ├─ type: Parameter
-      │  │  │        ├─ typeName
-      │  │  │        │  ├─ type: ElementaryTypeName
-      │  │  │        │  └─ name: uint256
-      │  │  │        ├─ name
-      │  │  │        ├─ storageLocation
-      │  │  │        ├─ isStateVar: false
-      │  │  │        └─ isIndexed: false
-      │  │  ├─ body
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ isConstructor: false
-      │  │  └─ stateMutability: view
-      │  ├─ 2
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: transfer
-      │  │  ├─ parameters
-      │  │  │  ├─ type: ParameterList
-      │  │  │  └─ parameters
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: Parameter
-      │  │  │     │  ├─ typeName
-      │  │  │     │  │  ├─ type: ElementaryTypeName
-      │  │  │     │  │  └─ name: address
-      │  │  │     │  ├─ name: _to
-      │  │  │     │  ├─ storageLocation
-      │  │  │     │  ├─ isStateVar: false
-      │  │  │     │  └─ isIndexed: false
-      │  │  │     └─ 1
-      │  │  │        ├─ type: Parameter
-      │  │  │        ├─ typeName
-      │  │  │        │  ├─ type: ElementaryTypeName
-      │  │  │        │  └─ name: uint256
-      │  │  │        ├─ name: _quantity
-      │  │  │        ├─ storageLocation
-      │  │  │        ├─ isStateVar: false
-      │  │  │        └─ isIndexed: false
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ isConstructor: false
-      │  │  └─ stateMutability
-      │  ├─ 3
-      │  │  ├─ type: FunctionDefinition
-      │  │  ├─ name: transferFrom
-      │  │  ├─ parameters
-      │  │  │  ├─ type: ParameterList
-      │  │  │  └─ parameters
-      │  │  │     ├─ 0
-      │  │  │     │  ├─ type: Parameter
-      │  │  │     │  ├─ typeName
-      │  │  │     │  │  ├─ type: ElementaryTypeName
-      │  │  │     │  │  └─ name: address
-      │  │  │     │  ├─ name: _from
-      │  │  │     │  ├─ storageLocation
-      │  │  │     │  ├─ isStateVar: false
-      │  │  │     │  └─ isIndexed: false
-      │  │  │     ├─ 1
-      │  │  │     │  ├─ type: Parameter
-      │  │  │     │  ├─ typeName
-      │  │  │     │  │  ├─ type: ElementaryTypeName
-      │  │  │     │  │  └─ name: address
-      │  │  │     │  ├─ name: _to
-      │  │  │     │  ├─ storageLocation
-      │  │  │     │  ├─ isStateVar: false
-      │  │  │     │  └─ isIndexed: false
-      │  │  │     └─ 2
-      │  │  │        ├─ type: Parameter
-      │  │  │        ├─ typeName
-      │  │  │        │  ├─ type: ElementaryTypeName
-      │  │  │        │  └─ name: uint256
-      │  │  │        ├─ name: _quantity
-      │  │  │        ├─ storageLocation
-      │  │  │        ├─ isStateVar: false
-      │  │  │        └─ isIndexed: false
-      │  │  ├─ returnParameters
-      │  │  ├─ body
-      │  │  ├─ visibility: external
-      │  │  ├─ modifiers
-      │  │  ├─ isConstructor: false
-      │  │  └─ stateMutability
-      │  └─ 4
+      │  └─ 0
       │     ├─ type: FunctionDefinition
-      │     ├─ name: approve
+      │     ├─ name
       │     ├─ parameters
       │     │  ├─ type: ParameterList
       │     │  └─ parameters
@@ -1595,40 +1163,480 @@ body .markdown-body
       │     │     │  ├─ typeName
       │     │     │  │  ├─ type: ElementaryTypeName
       │     │     │  │  └─ name: address
-      │     │     │  ├─ name: _spender
+      │     │     │  ├─ name: _originAddress
       │     │     │  ├─ storageLocation
       │     │     │  ├─ isStateVar: false
       │     │     │  └─ isIndexed: false
-      │     │     └─ 1
+      │     │     ├─ 1
+      │     │     │  ├─ type: Parameter
+      │     │     │  ├─ typeName
+      │     │     │  │  ├─ type: ElementaryTypeName
+      │     │     │  │  └─ name: bytes32
+      │     │     │  ├─ name: _rootUTXOMerkleTreeHash
+      │     │     │  ├─ storageLocation
+      │     │     │  ├─ isStateVar: false
+      │     │     │  └─ isIndexed: false
+      │     │     ├─ 2
+      │     │     │  ├─ type: Parameter
+      │     │     │  ├─ typeName
+      │     │     │  │  ├─ type: ElementaryTypeName
+      │     │     │  │  └─ name: uint256
+      │     │     │  ├─ name: _maximumRedeemable
+      │     │     │  ├─ storageLocation
+      │     │     │  ├─ isStateVar: false
+      │     │     │  └─ isIndexed: false
+      │     │     └─ 3
       │     │        ├─ type: Parameter
       │     │        ├─ typeName
       │     │        │  ├─ type: ElementaryTypeName
       │     │        │  └─ name: uint256
-      │     │        ├─ name: _quantity
-      │     │        ├─ storageLocation
-      │     │        ├─ isStateVar: false
-      │     │        └─ isIndexed: false
-      │     ├─ returnParameters
-      │     │  ├─ type: ParameterList
-      │     │  └─ parameters
-      │     │     └─ 0
-      │     │        ├─ type: Parameter
-      │     │        ├─ typeName
-      │     │        │  ├─ type: ElementaryTypeName
-      │     │        │  └─ name: bool
-      │     │        ├─ name
+      │     │        ├─ name: _UTXOCountAtFork
       │     │        ├─ storageLocation
       │     │        ├─ isStateVar: false
       │     │        └─ isIndexed: false
       │     ├─ body
-      │     ├─ visibility: external
+      │     │  ├─ type: Block
+      │     │  └─ statements
+      │     │     ├─ 0
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: BinaryOperation
+      │     │     │     ├─ operator: =
+      │     │     │     ├─ left
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: launchTime
+      │     │     │     └─ right
+      │     │     │        ├─ type: MemberAccess
+      │     │     │        ├─ expression
+      │     │     │        │  ├─ type: Identifier
+      │     │     │        │  └─ name: block
+      │     │     │        └─ memberName: timestamp
+      │     │     ├─ 1
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: BinaryOperation
+      │     │     │     ├─ operator: =
+      │     │     │     ├─ left
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: origin
+      │     │     │     └─ right
+      │     │     │        ├─ type: Identifier
+      │     │     │        └─ name: _originAddress
+      │     │     ├─ 2
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: BinaryOperation
+      │     │     │     ├─ operator: =
+      │     │     │     ├─ left
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: rootUTXOMerkleTreeHash
+      │     │     │     └─ right
+      │     │     │        ├─ type: Identifier
+      │     │     │        └─ name: _rootUTXOMerkleTreeHash
+      │     │     ├─ 3
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: BinaryOperation
+      │     │     │     ├─ operator: =
+      │     │     │     ├─ left
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: maximumRedeemable
+      │     │     │     └─ right
+      │     │     │        ├─ type: Identifier
+      │     │     │        └─ name: _maximumRedeemable
+      │     │     ├─ 4
+      │     │     │  ├─ type: ExpressionStatement
+      │     │     │  └─ expression
+      │     │     │     ├─ type: BinaryOperation
+      │     │     │     ├─ operator: =
+      │     │     │     ├─ left
+      │     │     │     │  ├─ type: Identifier
+      │     │     │     │  └─ name: UTXOCountAtFork
+      │     │     │     └─ right
+      │     │     │        ├─ type: Identifier
+      │     │     │        └─ name: _UTXOCountAtFork
+      │     │     └─ 5
+      │     │        ├─ type: ExpressionStatement
+      │     │        └─ expression
+      │     │           ├─ type: FunctionCall
+      │     │           ├─ expression
+      │     │           │  ├─ type: Identifier
+      │     │           │  └─ name: _mint
+      │     │           ├─ arguments
+      │     │           │  ├─ 0
+      │     │           │  │  ├─ type: Identifier
+      │     │           │  │  └─ name: this
+      │     │           │  └─ 1
+      │     │           │     ├─ type: Identifier
+      │     │           │     └─ name: maximumRedeemable
+      │     │           └─ names
+      │     ├─ visibility: public
       │     ├─ modifiers
-      │     ├─ isConstructor: false
+      │     ├─ isConstructor: true
       │     └─ stateMutability
-      └─ kind: interface</p>
+      └─ kind: contract</p>
 <h2 id="markdown-report">Markdown Report<a class="headerlink" href="#markdown-report" title="Permanent link"></a></h2>
 <p><strong>Surya&rsquo;s Markdown Report</strong> gives an eagle-eye view of a smart contract system&rsquo;s inner workings. It displays:
 * Files to be audited, along with their SHA-1 hash. 
 * The directory of each file in the contract system. 
 * The description table of all contracts (surya describe.) 
-* Click (here)[MDReport.md] to view Surya&rsquo;s Markdown Report. </p></article></body></html>
+* Click (here)[MDReport.md] to view Surya&rsquo;s Markdown Report. </p>
+<h2 id="suryas-description-report">Sūrya&rsquo;s Description Report<a class="headerlink" href="#suryas-description-report" title="Permanent link"></a></h2>
+<h3 id="files-description-table">Files Description Table<a class="headerlink" href="#files-description-table" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>SHA-1 Hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/home/micah/contract/contracts/BitcoinHEX.sol</td>
+<td>b0f58f5a557c49d7baab4351807ed74639a4a2ba</td>
+</tr>
+<tr>
+<td>/home/micah/contract/contracts/UTXOClaimValidation.sol</td>
+<td>61f647af7f89558d59d20f437552718a5f62d975</td>
+</tr>
+<tr>
+<td>/home/micah/contract/contracts/UTXORedeemableToken.sol</td>
+<td>8793ff17010a97c6c3bef1fbf3a6997affc23810</td>
+</tr>
+<tr>
+<td>/home/micah/contract/contracts/GlobalsAndUtility.sol</td>
+<td>42f5fa635fbdef61c4a076ececf9f9881a3f7491</td>
+</tr>
+<tr>
+<td>/home/micah/contract/contracts/StakeableToken.sol</td>
+<td>a8f888bb7245fb309b2b615f613d9f2642f4c23f</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contracts-description-table">Contracts Description Table<a class="headerlink" href="#contracts-description-table" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">Contract</th>
+<th align="center">Type</th>
+<th align="center">Bases</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">└</td>
+<td align="center"><strong>Function Name</strong></td>
+<td align="center"><strong>Visibility</strong></td>
+<td align="center"><strong>Mutability</strong></td>
+<td align="center"><strong>Modifiers</strong></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>BitcoinHEX</strong></td>
+<td align="center">Implementation</td>
+<td align="center">StakeableToken</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">\&lt;Constructor></td>
+<td align="center">Public ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>UTXOClaimValidation</strong></td>
+<td align="center">Implementation</td>
+<td align="center">GlobalsAndUtility</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">addressToString</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">validateSignature</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">ecdsaVerify</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">pubKeyToEthereumAddress</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">pubKeyToBitcoinAddress</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">verifyProof</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">canRedeemUTXOHash</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">canRedeemUTXO</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>UTXORedeemableToken</strong></td>
+<td align="center">Implementation</td>
+<td align="center">UTXOClaimValidation</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">getSpeedBonus</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">getLateClaimAdjustedAmount</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">getRedeemAmount</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">verifyUTXOProofAndSigThenMarkRedeemed</td>
+<td align="center">Internal 🔒</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">redeemUTXO</td>
+<td align="center">Public ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>GlobalsAndUtility</strong></td>
+<td align="center">Implementation</td>
+<td align="center">ERC20</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">removeStake</td>
+<td align="center">Internal 🔒</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">differenceInPeriods</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">timestampToWeeks</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">weeksSinceLaunch</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">timestampToPeriods</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">periodsSinceLaunch</td>
+<td align="center">Internal 🔒</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">isClaimsPeriod</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">storeWeeklyData</td>
+<td align="center">Public ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">storePeriodData</td>
+<td align="center">Public ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">circulatingSupply</td>
+<td align="center">External ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>StakeableToken</strong></td>
+<td align="center">Implementation</td>
+<td align="center">UTXORedeemableToken</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">calculateWeAreAllSatoshiRewards</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">calculatePayout</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">startStake</td>
+<td align="center">External ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">calculateLatePenalty</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">calculateEarlyPenalty</td>
+<td align="center">Public ❗️</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">goodAccounting</td>
+<td align="center">External ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">└</td>
+<td align="center">endStake</td>
+<td align="center">External ❗️</td>
+<td align="center">🛑</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="legend">Legend<a class="headerlink" href="#legend" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">🛑</td>
+<td>Function can modify state</td>
+</tr>
+<tr>
+<td align="center">💵</td>
+<td>Function is payable</td>
+</tr>
+</tbody>
+</table></article></body></html>
