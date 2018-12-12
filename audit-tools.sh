@@ -34,8 +34,8 @@ graphvizCheck() {
                       --yesno "\ZbGraphviz\Zn was not found on this system. Scoping requires \Zbgraphviz\Zn to run. View installation instructions?" 10 70
                       response=$?
                       case $response in
-                      0) var=$(sed -n '/graphviz/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
-                      1) ./audit-tools.sh ;;
+                      0) var=$(sed -n '/graphviz/p' README.md) && dialog --msgbox "$var" 10 70 && exec "$ScriptLoc";;
+                      1) exec "$ScriptLoc" ;;
                       255) printf "Shutting down..." && sleep 0.5 ;;
 esac
       exit
@@ -50,8 +50,8 @@ solcCheck() {
                       --yesno "\Zbsolc\Zn not found. Analysis requires \Zbsolc\Zn to run. View README?" 10 70
                       response=$?
                       case $response in
-                      0) var=$(sed -n '/solc/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
-                      1) ./audit-tools.sh ;;
+                      0) var=$(sed -n '/solc/p' README.md) && dialog --msgbox "$var" 10 70 && exec "$ScriptLoc";;
+                      1) exec "$ScriptLoc" ;;
                       255) printf "Shutting down..." && sleep 0.5 ;;
 esac
       exit
@@ -66,8 +66,8 @@ mythCheck() {
                       --yesno "\ZbMythril\Zn was not found on this system. Analysis requires \ZbMythril\Zn to run. View README?" 10 70
                       response=$?
                       case $response in
-                      0) var=$(sed -n '/mythril/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
-                      1) ./audit-tools.sh ;;
+                      0) var=$(sed -n '/mythril/p' README.md) && dialog --msgbox "$var" 10 70 && exec "$ScriptLoc";;
+                      1) exec "$ScriptLoc" ;;
                       255) printf "Shutting down..." && sleep 0.5 ;;
 esac
       exit
@@ -83,8 +83,8 @@ maruCheck() {
                       --yesno "\ZbMaru\Zn was not found on this system. Analysis requires \ZbMaru\Zn to run. View README?" 10 70
                       response=$?
                       case $response in
-                      0) var=$(sed -n '/maru/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
-                      1) ./audit-tools.sh ;;
+                      0) var=$(sed -n '/maru/p' README.md) && dialog --msgbox "$var" 10 70 && exec "$ScriptLoc";;
+                      1) exec "$ScriptLoc" ;;
                       255) printf "Shutting down..." && sleep 0.5 ;;
 esac
       exit
@@ -99,8 +99,8 @@ solhintCheck() {
                       --yesno "\Zbsolhint\Zn not found. Analysis requires \Zbsolhint\Zn to run. View README?" 10 70
                       response=$?
                       case $response in
-                      0) var=$(sed -n '/solhint/p' README.md) && dialog --msgbox "$var" 10 70 && ./audit-tools.sh;;
-                      1) ./audit-tools.sh ;;
+                      0) var=$(sed -n '/solhint/p' README.md) && dialog --msgbox "$var" 10 70 && exec "$ScriptLoc";;
+                      1) exec "$ScriptLoc" ;;
                       255) printf "Shutting down..." && sleep 0.5 ;;
 esac
       exit
@@ -213,7 +213,7 @@ suryaParse(){
 suryaInheritance() {
   printf "## Inheritance Graph\n" |& tee -a ScopingReport.md
   printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a ScopingReport.md
-  surya inheritance $filteredVar | dot -Tpng InheritanceGraph.png
+  surya inheritance $filteredVar | dot -Tpng > InheritanceGraph.png
   printf "![Inheritance Graph](InheritanceGraph.png)"\n |& tee -a ScopingReport.md
 }
 
@@ -230,7 +230,7 @@ suryaMdReport() {
 suryaCall() {
   printf "## Call Graph\n" |& tee -a ScopingReport.md
   printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a ScopingReport.md
-  surya graph $filteredVar | dot -Tpng CallGraph.png
+  surya graph $filteredVar | dot -Tpng > CallGraph.png
   printf "![Call Graph](CallGraph.png)"\n |& tee -a ScopingReport.md
 }
 
@@ -287,7 +287,7 @@ case $CHOICE in
         suryaMdReport
           printf | dialog --gauge "MDReport Generated." 10 70 100
         sleep 1.25
-        ./audit-tools.sh
+        exec "$ScriptLoc"
             ;;
         2)
           solcCheck
@@ -305,7 +305,7 @@ case $CHOICE in
           solhintRun #| dialog --stdout --progressbox Feed 25 65 
             printf | dialog --gauge "Solhint Analysis Complete." 10 70 100
           sleep 1.25
-          ./audit-tools.sh
+          exec "$ScriptLoc"
             ;;
         3)
           dialogCheck
@@ -344,7 +344,7 @@ case $CHOICE in
           solhintRun #| dialog --stdout --progressbox Feed 25 65 
             printf | dialog --gauge "Solhint Analysis Complete." 10 70 100
           sleep 1.25
-        ./audit-tools.sh
+        exec "$ScriptLoc"
             ;;
         4) 
             exit
