@@ -65,12 +65,8 @@ solhintCheck() {
 #Solhydra Check?
 #Slither Check?
 
-solcGen() {
-  solc
-}
-
 mythRun() {
-  printf "# Mythril Output\n" > AnalysisReport.md 
+  printf "# Mythril Output\n" |& tee -a AnalysisReport.md 
   
   for file in $filteredVar
 do
@@ -125,55 +121,55 @@ createFilteredVars() {
 
 
 fileCount() {
-  printf "## File Count \n" |& tee -a report.md
+  printf "## File Count \n" |& tee -a Audit_Tools_Report.md
     uF=$(unfilterFind | wc -l) 
     fF=$(filterFind | wc -l)
-  printf "* **$uF** Solidity files exist in this contract system.\n" |& tee -a report.md
-  printf "* but, only **$fF** of those need audited.\n" |& tee -a report.md
+  printf "* **$uF** Solidity files exist in this contract system.\n" |& tee -a Audit_Tools_Report.md
+  printf "* but, only **$fF** of those need audited.\n" |& tee -a Audit_Tools_Report.md
 
 }
 
 
 lineCount() {
-    printf "## Line Count \n" |& tee -a report.md
+    printf "## Line Count \n" |& tee -a Audit_Tools_Report.md
         uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//'|sed 's/ //g')
         fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//'|sed 's/ //g')
-    printf "* **$uF2** Solidity lines exist in this contract system.\n" |& tee -a report.md
-    printf "* but, only **$fF2** of those need audited.\n" |& tee -a report.md
+    printf "* **$uF2** Solidity lines exist in this contract system.\n" |& tee -a Audit_Tools_Report.md
+    printf "* but, only **$fF2** of those need audited.\n" |& tee -a Audit_Tools_Report.md
 }
 
 suryaDescribe() {
-    printf "### Surya Describe\n" |& tee -a report.md
-    surya describe $filteredVar | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" |& tee -a report.md
+    printf "### Surya Describe\n" |& tee -a Audit_Tools_Report.md
+    surya describe $filteredVar | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" |& tee -a Audit_Tools_Report.md
 }
 
 suryaParse(){
-    printf "### Surya Parse\n" |& tee -a report.md
-    surya parse $filteredVar |& tee -a report.md
+    printf "### Surya Parse\n" |& tee -a Audit_Tools_Report.md
+    surya parse $filteredVar |& tee -a Audit_Tools_Report.md
 }
 
 suryaInheritance() {
-  printf "## Inheritance Graph\n" |& tee -a report.md
-  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a report.md
+  printf "## Inheritance Graph\n" |& tee -a Audit_Tools_Report.md
+  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a Audit_Tools_Report.md
   surya inheritance $filteredVar | dot -Tpng > InheritanceGraph.png
-  printf "![Inheritance Graph](InheritanceGraph.png)"\n |& tee -a report.md
+  printf "![Inheritance Graph](InheritanceGraph.png)"\n |& tee -a Audit_Tools_Report.md
 }
 
 suryaMdReport() {
-    printf "## Markdown Report\n" |& tee -a report.md 
-    printf "**Surya's Markdown Report** gives an eagle-eye view of a smart contract system's inner workings. It displays:\n"  |& tee -a report.md
-    printf "* Files to be audited, along with their SHA-1 hash. \n" |& tee -a report.md
-    printf "* The directory of each file in the contract system. \n" |& tee -a report.md
-    printf "* The description table of all contracts (surya describe.) \n" |& tee -a report.md
-    printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" |& tee -a report.md
-      surya mdreport MDReport.md $filteredVar && cat MDReport.md |& tee -a report.md
+    printf "## Markdown Report\n" |& tee -a Audit_Tools_Report.md 
+    printf "**Surya's Markdown Report** gives an eagle-eye view of a smart contract system's inner workings. It displays:\n"  |& tee -a Audit_Tools_Report.md
+    printf "* Files to be audited, along with their SHA-1 hash. \n" |& tee -a Audit_Tools_Report.md
+    printf "* The directory of each file in the contract system. \n" |& tee -a Audit_Tools_Report.md
+    printf "* The description table of all contracts (surya describe.) \n" |& tee -a Audit_Tools_Report.md
+    printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" |& tee -a Audit_Tools_Report.md
+      surya mdreport MDReport.md $filteredVar && cat MDReport.md |& tee -a Audit_Tools_Report.md
 }
 
 suryaCall() {
-  printf "## Call Graph\n" |& tee -a report.md
-  printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a report.md
+  printf "## Call Graph\n" |& tee -a Audit_Tools_Report.md
+  printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a Audit_Tools_Report.md
   surya graph $filteredVar | dot -Tpng > CallGraph.png
-  printf "![Call Graph](CallGraph.png)"\n |& tee -a report.md
+  printf "![Call Graph](CallGraph.png)"\n |& tee -a Audit_Tools_Report.md
 }
 
 checkDeps () {
@@ -187,13 +183,22 @@ solhintCheck
 
 scope() {
 checkDeps
-printf "# Scoping Report \n" > report.md
+printf "# Scoping Report \n" > Audit_Tools_Report.md
+createFilteredVars
 lineCount
 fileCount
 suryaDescribe
 suryaParse
 suryaInheritance
 suryaMdReport
+}
+
+analyze() {
+printf "# Analysis Report \n" > Audit_Tools_Report.md
+createFilteredVars
+mythRun
+maruRun
+solhintRun
 }
 
 envPrt () {
@@ -207,21 +212,40 @@ printf "\e[1mShell directory:\e[0m $BASH
 
 #!/bin/bash
  
-while getopts ":hdc" opt; do
+while getopts ":hcs:a:l:" opt; do
   case $opt in
     h)
+      printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
       printf "\n"
-      printf " \e[1mUsage:\e[0m"
-      printf "\e[1m    Call      Option  User Input   Description\e[0m\n\n"
-      printf "        audit-tools    -h                 This help text. \n"
-      printf "        audit-tools    -d    \e[2m/exa/mple\e[0m    Solidity directory. \n"
-      printf "        audit-tools    -c                 Check for dependencies. \n"
-      printf "        audit-tools    -s                 Run scoping."
+      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
+      printf "\e[1m Option    Description\e[0m\n"
+      printf "   -h     This help text. \n"
+      printf "   -c     Check for dependencies. \n"
+      printf "   -s     Run scoping.\n"
+      printf "   -a     Run analysis.\n"
+      printf "   -l     Run all.\n"
       ;;
     c)
       envPrt
       checkDeps
       ;;
+    s)
+      rm Audit_Tools_Report.md
+      rootDir=$OPTARG
+      scope
+      ;;
+    a)
+      rm Audit_Tools_Report.md
+      rootDir=$OPTARG
+      analyze
+      ;;
+    l)
+      rm Audit_Tools_Report.md
+      rootDir=$OPTARG
+      scope
+      analyze
+      ;;
+
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
