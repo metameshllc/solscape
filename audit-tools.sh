@@ -224,26 +224,31 @@ while getopts ":hcs:a:l:" opt; do
       printf "   -s     Run scoping.\n"
       printf "   -a     Run analysis.\n"
       printf "   -l     Run all.\n"
+      exit
       ;;
     c)
       envPrt
       checkDeps
+      exit
       ;;
     s)
       rm Audit_Tools_Report.md
       rootDir=$OPTARG
       scope
+      exit
       ;;
     a)
       rm Audit_Tools_Report.md
       rootDir=$OPTARG
       analyze
+      exit
       ;;
     l)
       rm Audit_Tools_Report.md
       rootDir=$OPTARG
       scope
       analyze
+      exit
       ;;
 
     \?)
@@ -252,4 +257,14 @@ while getopts ":hcs:a:l:" opt; do
       ;;
   esac
 done
+
+      printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
+      printf "\n"
+      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
+      printf "\e[1m Option    Description\e[0m\n"
+      printf "   -h     This help text. \n"
+      printf "   -c     Check for dependencies. \n"
+      printf "   -s     Run scoping.\n"
+      printf "   -a     Run analysis.\n"
+      printf "   -l     Run all.\n"
 
