@@ -202,85 +202,30 @@ printf "\e[1mShell directory:\e[0m $BASH
 \e[1mWorking directory:\e[0m $PWD \n"
 }
 
-defaultMsg () {
-  printf "  \e[1mAudit Tools\e[0m
-
-  -a run all tests and analysis tools
-  -s run scoping tools
-  -n run analysis tools
-  -e print environment information
-  -c test for installed dependencies\n"
-}
 
 
 
 #!/bin/bash
-
-# File name
-readonly PROGNAME=$(basename $0)
-# File name, without the extension
-readonly PROGBASENAME=${PROGNAME%.*}
-# File directory
-readonly PROGDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-# Arguments
-readonly ARGS="$@"
-# Arguments number
-readonly ARGNUM="$#"
-
-usage() {
-  printf "\n"
-  printf "  \e[1mAudit Tools\e[0m expedites the process of running analysis tools on Solidity codebases. \n"
-  printf "\n"
-  printf "  Usage: $PROGNAME -d \e[2mdirectory\e[0m -o \e[2mfile\e[0m [options]... \n"
-  printf "\n"
-  printf "\n"
-  printf "        \e[1mOption         User Input   Description\e[0m\n"
-  printf "\n"
-  printf "  -h    --help                      This help text. \n"
-  printf "\n"
-  printf "  -d    --directory    \e[2mdirectory\e[0m    Solidity directory. If \"-\", stdin will be used instead. \n"
-  printf "\n"
-  printf "  -o    --output       \e[2mfile\e[0m         Output file. \n"
-  printf "\n"
-  printf "  -c    --check                     Run dependency test. \n"
-  printf "\n"
-  printf "        --                          Do not interpret any more arguments as options. \n"
-  printf "\n"
-}
-
-while [ "$#" -gt 0 ]
-do
-  case "$1" in
-  -h|--help)
-    usage
-    exit 0
-    ;;
-  -d|--directory)
-    rootDir=$(directory)
-
-    # Jump over <file>, in case "-" is a valid input file 
-    # (keyword to standard input). Jumping here prevents reaching
-    # "-*)" case when parsing <file>
-    shift
-    ;;
-  -s|--scope)
-    scope
-    ;;
-  -c|--check)
-    checkDeps
-    ;;
-  -o|--output)
-    output="report.md"
-    ;;
-  --)
-    break
-    ;;
-  -*)
-    printf "Invalid option '$1'. Use --help to see the valid options" >&2
-    exit 1
-    ;;
-  # an option argument, continue
-  *)  ;;
+ 
+while getopts ":hdc" opt; do
+  case $opt in
+    h)
+      printf "\n"
+      printf " \e[1mUsage:\e[0m"
+      printf "\e[1m    Call      Option  User Input   Description\e[0m\n\n"
+      printf "        audit-tools    -h                 This help text. \n"
+      printf "        audit-tools    -d    \e[2m/exa/mple\e[0m    Solidity directory. \n"
+      printf "        audit-tools    -c                 Check for dependencies. \n"
+      printf "        audit-tools    -s                 Run scoping."
+      ;;
+    c)
+      envPrt
+      checkDeps
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
   esac
-  shift
 done
+
