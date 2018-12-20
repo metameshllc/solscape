@@ -119,6 +119,9 @@ createFilteredVars() {
   unfilteredVar=$(unfilterFind)
 }
 
+createReport() {
+  printf "## Audit Tools Report\n" > Audit_Tools_Report.md
+}
 
 fileCount() {
   printf "## File Count \n" |& tee -a Audit_Tools_Report.md
@@ -161,8 +164,10 @@ suryaMdReport() {
     printf "* Files to be audited, along with their SHA-1 hash. \n" |& tee -a Audit_Tools_Report.md
     printf "* The directory of each file in the contract system. \n" |& tee -a Audit_Tools_Report.md
     printf "* The description table of all contracts (surya describe.) \n" |& tee -a Audit_Tools_Report.md
-    printf "* Click (here)[MDReport.md] to view Surya's Markdown Report. \n" |& tee -a Audit_Tools_Report.md
-      surya mdreport MDReport.md $filteredVar && cat MDReport.md |& tee -a Audit_Tools_Report.md
+    printf "* Click [here](MDReport.md) to view Surya's Markdown Report. \n" |& tee -a Audit_Tools_Report.md
+      surya mdreport MDReport.md $filteredVar
+      cat MDReport.md |& tee -a Audit_Tools_Report.md
+      rm MDReport.md
 }
 
 suryaCall() {
@@ -183,7 +188,8 @@ solhintCheck
 
 scope() {
 checkDeps
-printf "# Scoping Report \n" > Audit_Tools_Report.md
+createReport
+printf "# Scoping Report \n" >> Audit_Tools_Report.md
 createFilteredVars
 lineCount
 fileCount
@@ -194,7 +200,8 @@ suryaMdReport
 }
 
 analyze() {
-printf "# Analysis Report \n" > Audit_Tools_Report.md
+createReport
+printf "# Analysis Report \n" >> Audit_Tools_Report.md
 createFilteredVars
 mythRun
 maruRun
