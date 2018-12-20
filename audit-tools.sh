@@ -66,26 +66,26 @@ solhintCheck() {
 #Slither Check?
 
 mythRun() {
-  printf "# Mythril Output\n" |& tee -a AnalysisReport.md 
+  printf "# Mythril Output\n" |& tee -a Audit_Tools_Report.md 
   
   for file in $filteredVar
 do
-  myth -x $file |& tee -a AnalysisReport.md 
+  myth -x $file |& tee -a Audit_Tools_Report.md 
 done
 }
 
 maruRun() {
   mkdir tmp
   cp $filteredVar ./tmp/
-  printf "# Maru Output\n" |& tee -a AnalysisReport.md 
-  maru -r tmp |& tee -a AnalysisReport.md 
+  printf "# Maru Output\n" |& tee -a Audit_Tools_Report.md 
+  maru -r tmp |& tee -a Audit_Tools_Report.md 
   sleep 2
   rm -rf tmp 
 }
 
 solhintRun() {
-  printf "# Solhint Output\n" |& tee -a AnalysisReport.md
-  solhint $filteredVar |& tee -a AnalysisReport.md 
+  printf "# Solhint Output\n" |& tee -a Audit_Tools_Report.md
+  solhint $filteredVar |& tee -a Audit_Tools_Report.md 
 }
 
 
