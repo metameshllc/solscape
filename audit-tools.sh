@@ -196,6 +196,7 @@ fileCount
 suryaDescribe
 suryaParse
 suryaInheritance
+suryaCall
 suryaMdReport
 }
 
