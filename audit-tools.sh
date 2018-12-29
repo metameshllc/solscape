@@ -8,7 +8,7 @@ shopt -s globstar
 
 suryaCheck() {
     if command -v surya --help>/dev/null; then
-    printf "Dependency Surya Passed\n"
+    printf "\e[1mDependency Passed:\e[0m    Surya\n"
     else
         printf "Dependency Surya not passed. Install Surya to continue. For help installing, read the ${bold}Dependencies${normal} section in the README." 
       exit
@@ -17,7 +17,7 @@ suryaCheck() {
 
 graphvizCheck() {
     if command -v dot --help>/dev/null; then
-      printf "Dependency Graphviz Passed\n"
+      printf "\e[1mDependency Passed:    \e[0mGraphviz\n"
     else
         printf "Dependency Graphviz Missing. Graphviz functions will fail."
       exit
@@ -26,7 +26,7 @@ graphvizCheck() {
 
 solcCheck() {
     if command -v dot --help>/dev/null; then
-      printf "Dependency Solc Passed\n"
+      printf "\e[1mDependency Passed: \e[0m   Solc\n"
     else
         printf "Dependency Solc Missing. Solc functions will fail."
       exit
@@ -35,7 +35,7 @@ solcCheck() {
 
 mythCheck() {
     if command -v dot --help>/dev/null; then
-    printf "Dependency Mythril Passed\n"
+    printf "\e[1mDependency Passed:    \e[0mMythril  \n"
     else
         printf "Dependency Mythril Missing. Mythril functions will fail."
       exit
@@ -45,7 +45,7 @@ mythCheck() {
 
 maruCheck() {
     if command -v dot --help>/dev/null; then
-    printf "Dependency Maru Passed\n"
+    printf "\e[1mDependency Passed:    \e[0mMaru\n"
     else
         printf "Dependency Maru Missing. Maru functions will fail."
       exit
@@ -54,7 +54,7 @@ maruCheck() {
 
 solhintCheck() {
     if command -v dot --help>/dev/null; then
-    printf "Dependency Solhint Passed\n"
+    printf "\e[1mDependency Passed:    \e[0mSolhint\n"
     else
         printf | "Dependency Solhint Missing. Solhint functions will fail."
       exit
@@ -209,18 +209,10 @@ maruRun
 solhintRun
 }
 
-envPrt () {
-printf "\e[1mShell directory:\e[0m $BASH
-\e[1mShell version:\e[0m $BASH_VERSION
-\e[1mWorking directory:\e[0m $PWD \n"
-}
-
-
-
 
 #!/bin/bash
  
-while getopts ":hcs:a:l:" opt; do
+while getopts ":hcs:a:l:d" opt; do
   case $opt in
     h)
       printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
@@ -228,14 +220,13 @@ while getopts ":hcs:a:l:" opt; do
       printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
-      printf "   -c     Check for dependencies. \n"
+      printf "   -c     Scan environment dependencies. \n"
       printf "   -s     Run scoping.\n"
       printf "   -a     Run analysis.\n"
       printf "   -l     Run all.\n"
       exit
       ;;
     c)
-      envPrt
       checkDeps
       exit
       ;;
@@ -258,7 +249,13 @@ while getopts ":hcs:a:l:" opt; do
       analyze
       exit
       ;;
-
+    d)
+      rm Audit_Tools_Report.md
+      rootDir=$OPTARG
+      scope
+      analyze
+      exit
+      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -271,7 +268,7 @@ done
       printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
-      printf "   -c     Check for dependencies. \n"
+      printf "   -c     Scan dependencies. \n"
       printf "   -s     Run scoping.\n"
       printf "   -a     Run analysis.\n"
       printf "   -l     Run all.\n"
