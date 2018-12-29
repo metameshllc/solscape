@@ -1,0 +1,23 @@
+{
+  "ast": {
+    "nodes": [
+      {
+        "nodeType": "ContractDefinition",
+        "contractKind": "contract",
+        "nodes": [
+          {
+            "name": "foo",
+            "parameters": {
+              "parameters": [
+                {"typeDescriptions": {"typeString": "double"}},
+                {"typeDescriptions": {"typeString": "int"}}
+              ]
+            },
+            "stateMutability": false,
+            "implemented": true
+          }
+        ]
+      }
+    ]
+  }
+}

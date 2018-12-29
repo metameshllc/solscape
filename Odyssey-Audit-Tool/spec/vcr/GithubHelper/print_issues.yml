@@ -1,0 +1,541 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/issues?access_token=test_token&filter=all&per_page=100&sort=created&state=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json,application/vnd.github.beta+json;q=0.5,application/json;q=0.1
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - Github API Ruby Gem 0.18.2
+      Authorization:
+      - token test_token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Jul 2018 11:50:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4994'
+      X-Ratelimit-Reset:
+      - '1531831369'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"59d07ca631803313c14fa6964086411c"
+      X-Oauth-Scopes:
+      - notifications, repo, user, write:discussion
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.104425'
+      X-Github-Request-Id:
+      - C924:41CA:36D81DA:4829D2D:5B4DD7F8
+    body:
+      encoding: ASCII-8BIT
+      string: '[
+        { 
+          "url" : "https://api.github.com/repos/test/test_repo/issues/6",
+          "repository_url":"https://api.github.com/repos/test/test_repo",
+          "labels_url":"https://api.github.com/repos/test/test_repo/issues/6/labels{/name}",
+          "comments_url":"https://api.github.com/repos/test/test_repo/issues/6/comments",
+          "events_url":"https://api.github.com/repos/test/test_repo/issues/6/events",
+          "html_url":"https://github.com/test/test_repo/issues/6",
+          "id":341880985,
+          "node_id":"MDU6SXNzdWUzNDE4ODA5ODU=",
+          "number":6,
+          "title":"Major Issue",
+          "user":{
+            "login":"test_user",
+            "id":988067,
+            "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+            "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+            "gravatar_id":"",
+            "url":"https://api.github.com/users/test_user",
+            "html_url":"https://github.com/test_user",
+            "followers_url":"https://api.github.com/users/test_user/followers",
+            "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+            "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+            "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+            "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+            "organizations_url":"https://api.github.com/users/test_user/orgs",
+            "repos_url":"https://api.github.com/users/test_user/repos",
+            "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+            "received_events_url":"https://api.github.com/users/test_user/received_events",
+            "type":"User",
+            "site_admin":false
+          },
+          "labels":[{
+            "id":996332732,
+            "node_id":"MDU6TGFiZWw5OTYzMzI3MzI=",
+            "url":"https://api.github.com/repos/test/test_repo/labels/Major",
+            "name":"Major",
+            "color":"986afc",
+            "default":false
+          }],
+          "state":"open",
+          "locked":false,
+          "assignee":null,
+          "assignees":[],
+          "milestone":null,
+          "comments":0,
+          "created_at":"2018-07-17T11:36:06Z",
+          "updated_at":"2018-07-17T11:36:06Z",
+          "closed_at":null,
+          "author_association":"OWNER",
+          "body":"##
+        What is it?\r\n\r\nA single sentence that supplements the title to describe
+        what this issue is.\r\n\r\n### Problem\r\n\r\nDescribe the problem that needs
+        to be solved.\r\n\r\n### Solution\r\n\r\nDescribe the solution to the above
+        stated problem.\r\n\r\n### Steps to implement\r\n\r\n1. Provide either a numbered
+        list\r\n2. That that provides steps to implement   \r\n\r\n* Or a bullet list
+        of items\r\n* If order doesn''t matter\r\n"
+        },{
+          "url":"https://api.github.com/repos/test/test_repo/issues/2",
+          "repository_url":"https://api.github.com/repos/test/test_repo",
+          "labels_url":"https://api.github.com/repos/test/test_repo/issues/2/labels{/name}",
+          "comments_url":"https://api.github.com/repos/test/test_repo/issues/2/comments",
+          "events_url":"https://api.github.com/repos/test/test_repo/issues/2/events",
+          "html_url":"https://github.com/test/test_repo/issues/2",
+          "id":340075275,
+          "node_id":"MDU6SXNzdWUzNDAwNzUyNzU=",
+          "number":2,
+          "title":"Single Line Issue.",
+          "user":{
+            "login":"test_user",
+            "id":988067,
+            "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+            "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+            "gravatar_id":"",
+            "url":"https://api.github.com/users/test_user",
+            "html_url":"https://github.com/test_user",
+            "followers_url":"https://api.github.com/users/test_user/followers",
+            "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+            "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+            "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+            "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+            "organizations_url":"https://api.github.com/users/test_user/orgs",
+            "repos_url":"https://api.github.com/users/test_user/repos",
+            "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+            "received_events_url":"https://api.github.com/users/test_user/received_events",
+            "type":"User",
+            "site_admin":false
+          },
+          "labels":[{
+            "id":990171716,
+            "node_id":"MDU6TGFiZWw5OTAxNzE3MTY=",
+            "url":"https://api.github.com/repos/test/test_repo/labels/Minor",
+            "name":"Minor",
+            "color":"f9d0c4",
+            "default":false
+          }],
+          "state":"open",
+          "locked":false,
+          "assignee":null,
+          "assignees":[],
+          "milestone":null,
+          "comments":0,
+          "created_at":"2018-07-11T03:06:55Z",
+          "updated_at":"2018-07-15T12:29:40Z",
+          "closed_at":null,
+          "author_association":"OWNER",
+          "body":"About this issue.\r\nhttps://github.com/test/test_repo/blob/bcd15f73f0c229f7f4ac05bc872994a2cb571d65/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol#L17-L30 kkkkkka"
+        },{
+          "url":"https://api.github.com/repos/test/test_repo/issues/5",
+          "repository_url":"https://api.github.com/repos/test/test_repo",
+          "labels_url":"https://api.github.com/repos/test/test_repo/issues/5/labels{/name}",
+          "comments_url":"https://api.github.com/repos/test/test_repo/issues/5/comments",
+          "events_url":"https://api.github.com/repos/test/test_repo/issues/5/events",
+          "html_url":"https://github.com/test/test_repo/issues/5",
+          "id":340217215,
+          "node_id":"MDU6SXNzdWUzNDAyMTcyMTU=",
+          "number":5,
+          "title":"Audit Todo 1",
+          "user":{
+            "login":"test_user",
+            "id":988067,
+            "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+            "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+            "gravatar_id":"",
+            "url":"https://api.github.com/users/test_user",
+            "html_url":"https://github.com/test_user",
+            "followers_url":"https://api.github.com/users/test_user/followers",
+            "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+            "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+            "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+            "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+            "organizations_url":"https://api.github.com/users/test_user/orgs",
+            "repos_url":"https://api.github.com/users/test_user/repos",
+            "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+            "received_events_url":"https://api.github.com/users/test_user/received_events",
+            "type":"User",
+            "site_admin":false
+          },
+          "labels":[{
+            "id":990627530,
+            "node_id":"MDU6TGFiZWw5OTA2Mjc1MzA=",
+            "url":"https://api.github.com/repos/test/test_repo/labels/Audit-Todo",
+            "name":"Audit-Todo",
+            "color":"ededed",
+            "default":false
+          }],
+          "state":"open",
+          "locked":false,
+          "assignee":{
+            "login":"test_user",
+            "id":988067,
+            "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+            "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+            "gravatar_id":"",
+            "url":"https://api.github.com/users/test_user",
+            "html_url":"https://github.com/test_user",
+            "followers_url":"https://api.github.com/users/test_user/followers",
+            "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+            "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+            "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+            "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+            "organizations_url":"https://api.github.com/users/test_user/orgs",
+            "repos_url":"https://api.github.com/users/test_user/repos",
+            "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+            "received_events_url":"https://api.github.com/users/test_user/received_events",
+            "type":"User",
+            "site_admin":false
+          },
+          "assignees":[{
+            "login":"test_user",
+            "id":988067,
+            "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+            "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+            "gravatar_id":"",
+            "url":"https://api.github.com/users/test_user",
+            "html_url":"https://github.com/test_user",
+            "followers_url":"https://api.github.com/users/test_user/followers",
+            "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+            "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+            "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+            "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+            "organizations_url":"https://api.github.com/users/test_user/orgs",
+            "repos_url":"https://api.github.com/users/test_user/repos",
+            "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+            "received_events_url":"https://api.github.com/users/test_user/received_events",
+            "type":"User","site_admin":false
+          }],
+          "milestone":null,
+          "comments":0,
+          "created_at":"2018-07-11T12:19:01Z",
+          "updated_at":"2018-07-15T12:28:44Z",
+          "closed_at":null,
+          "author_association":"OWNER",
+          "body":"Todo todo\r\n\r\n```solidity\r\nfunction foo() {\r\n}\r\n```"
+        }, {
+          "url":"https://api.github.com/repos/test/test_repo/issues/4",
+          "repository_url":"https://api.github.com/repos/test/test_repo",
+          "labels_url":"https://api.github.com/repos/test/test_repo/issues/4/labels{/name}",
+          "comments_url":"https://api.github.com/repos/test/test_repo/issues/4/comments",
+          "events_url":"https://api.github.com/repos/test/test_repo/issues/4/events",
+          "html_url":"https://github.com/test/test_repo/issues/4",
+          "id":340217205,
+          "node_id":"MDU6SXNzdWUzNDAyMTcyMDU=",
+          "number":4,
+          "title":"Audit Todo 1",
+          "user":{
+            "login":"test_user",
+            "id":988067,
+            "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+            "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+            "gravatar_id":"",
+            "url":"https://api.github.com/users/test_user",
+            "html_url":"https://github.com/test_user",
+            "followers_url":"https://api.github.com/users/test_user/followers",
+            "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+            "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+            "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+            "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+            "organizations_url":"https://api.github.com/users/test_user/orgs",
+            "repos_url":"https://api.github.com/users/test_user/repos",
+            "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+            "received_events_url":"https://api.github.com/users/test_user/received_events",
+            "type":"User",
+            "site_admin":false
+          },
+          "labels":[{
+            "id":990627530,
+            "node_id":"MDU6TGFiZWw5OTA2Mjc1MzA=",
+            "url":"https://api.github.com/repos/test/test_repo/labels/Audit-Todo",
+            "name":"Audit-Todo",
+            "color":"ededed",
+            "default":false}],
+            "state":"open",
+            "locked":false,
+            "assignee":{
+              "login":"test_user",
+              "id":988067,
+              "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+              "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+              "gravatar_id":"",
+              "url":"https://api.github.com/users/test_user",
+              "html_url":"https://github.com/test_user",
+              "followers_url":"https://api.github.com/users/test_user/followers",
+              "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+              "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+              "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+              "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+              "organizations_url":"https://api.github.com/users/test_user/orgs",
+              "repos_url":"https://api.github.com/users/test_user/repos",
+              "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+              "received_events_url":"https://api.github.com/users/test_user/received_events",
+              "type":"User",
+              "site_admin":false
+            },
+            "assignees":[{
+              "login":"test_user",
+              "id":988067,
+              "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+              "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+              "gravatar_id":"",
+              "url":"https://api.github.com/users/test_user",
+              "html_url":"https://github.com/test_user",
+              "followers_url":"https://api.github.com/users/test_user/followers",
+              "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+              "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+              "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+              "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+              "organizations_url":"https://api.github.com/users/test_user/orgs",
+              "repos_url":"https://api.github.com/users/test_user/repos",
+              "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+              "received_events_url":"https://api.github.com/users/test_user/received_events",
+              "type":"User",
+              "site_admin":false
+            }],
+            "milestone":null,
+            "comments":0,
+            "created_at":"2018-07-11T12:18:59Z",
+            "updated_at":"2018-07-11T12:18:59Z",
+            "closed_at":null,
+            "author_association":"OWNER",
+            "body":"asdfaedf"
+          },{
+            "url":"https://api.github.com/repos/test/test_repo/issues/3",
+            "repository_url":"https://api.github.com/repos/test/test_repo",
+            "labels_url":"https://api.github.com/repos/test/test_repo/issues/3/labels{/name}",
+            "comments_url":"https://api.github.com/repos/test/test_repo/issues/3/comments",
+            "events_url":"https://api.github.com/repos/test/test_repo/issues/3/events",
+            "html_url":"https://github.com/test/test_repo/issues/3",
+            "id":340208392,
+            "node_id":"MDU6SXNzdWUzNDAyMDgzOTI=",
+            "number":3,
+            "title":"Medium Issue #1",
+            "user":{
+              "login":"test_user",
+              "id":988067,
+              "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+              "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+              "gravatar_id":"",
+              "url":"https://api.github.com/users/test_user",
+              "html_url":"https://github.com/test_user",
+              "followers_url":"https://api.github.com/users/test_user/followers",
+              "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+              "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+              "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+              "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+              "organizations_url":"https://api.github.com/users/test_user/orgs",
+              "repos_url":"https://api.github.com/users/test_user/repos",
+              "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+              "received_events_url":"https://api.github.com/users/test_user/received_events",
+              "type":"User",
+              "site_admin":false
+            },
+            "labels":[{
+              "id":990602997,
+              "node_id":"MDU6TGFiZWw5OTA2MDI5OTc=",
+              "url":"https://api.github.com/repos/test/test_repo/labels/Medium",
+              "name":"Medium",
+              "color":"60bf2a",
+              "default":false
+            }],
+            "state":"open",
+            "locked":false,
+            "assignee":null,
+            "assignees":[],
+            "milestone":null,
+            "comments":0,
+            "created_at":"2018-07-11T11:51:05Z",
+            "updated_at":"2018-07-11T11:51:05Z",
+            "closed_at":null,
+            "author_association":"OWNER",
+            "body":"##
+               What is it?\r\n\r\nA single sentence that supplements the title to describe
+               what this issue is.\r\n\r\nhttps://github.com/test/test_repo/blob/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol#L40-L53\r\n\r\n###
+               Problem\r\n\r\nDescribe the problem that needs to be solved.\r\n\r\nhttps://github.com/test/test_repo/blob/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol#L32\r\n\r\n\r\n###
+               Solution\r\n\r\nDescribe the solution to the above stated problem.\r\n\r\n###
+               Steps to implement\r\n\r\n1. Provide either a numbered list\r\n2. That that
+               provides steps to implement   \r\n\r\n* Or a bullet list of items\r\n* If
+               order doesn''t matter\r\n"
+          }, {
+            "url":"https://api.github.com/repos/test/test_repo/issues/1",
+            "repository_url":"https://api.github.com/repos/test/test_repo",
+            "labels_url":"https://api.github.com/repos/test/test_repo/issues/1/labels{/name}",
+            "comments_url":"https://api.github.com/repos/test/test_repo/issues/1/comments",
+            "events_url":"https://api.github.com/repos/test/test_repo/issues/1/events",
+            "html_url":"https://github.com/test/test_repo/issues/1",
+            "id":340074573,
+            "node_id":"MDU6SXNzdWUzNDAwNzQ1NzM=",
+            "number":1,
+            "title":"Derivate compiler output and duplicate files in source repo ",
+            "user":{
+              "login":"test_user",
+              "id":988067,
+              "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+              "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+              "gravatar_id":"",
+              "url":"https://api.github.com/users/test_user",
+              "html_url":"https://github.com/test_user",
+              "followers_url":"https://api.github.com/users/test_user/followers",
+              "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+              "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+              "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+              "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+              "organizations_url":"https://api.github.com/users/test_user/orgs",
+              "repos_url":"https://api.github.com/users/test_user/repos",
+              "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+              "received_events_url":"https://api.github.com/users/test_user/received_events",
+              "type":"User",
+              "site_admin":false
+            },
+            "labels":[{
+              "id":990168258,
+              "node_id":"MDU6TGFiZWw5OTAxNjgyNTg=",
+              "url":"https://api.github.com/repos/test/test_repo/labels/Critical",
+              "name":"Critical",
+              "color":"d93f0b",
+              "default":false
+            }],
+            "state":"open",
+            "locked":false,
+            "assignee":null,
+            "assignees":[],
+            "milestone":null,
+            "comments":0,
+            "created_at":"2018-07-11T03:02:46Z",
+            "updated_at":"2018-07-11T03:02:46Z",
+            "closed_at":null,
+            "author_association":"OWNER",
+            "body":"##
+              What is it?\r\n\r\nYou''ve got the outputs from the truffle compile in the
+              (source code) repo. That''s an anti-pattern.\r\n\r\n### Problem\r\n\r\nKeep
+              source code in the repo.\r\nAlong with notes and settings and your package.json
+              if needed so a dev can recreate the outputs.\r\n\r\nPut your outputs in a
+              release package, like npm or similar (truffle offers a packaging tool).\r\n\r\nDon''t
+              keep duplicates of your source files in the same repo. Refactor. DRY (don''t
+              repeat yourself), etc.\r\n\r\nBasically, this is not the recommended way to
+              use a code repo.\r\n\r\n### Solution\r\n\r\nDelete derivate files and re-commit
+              and push.\r\n\r\n### Steps to implement\r\n\r\n1. Provide either a numbered
+              list\r\n2. That that provides steps to implement   \r\n\r\n* Or a bullet list
+              of items\r\n* If order doesn''t matter\r\n"
+          }, {
+            "url":"https://api.github.com/repos/test/test_repo/issues/1",
+            "repository_url":"https://api.github.com/repos/test/test_repo",
+            "labels_url":"https://api.github.com/repos/test/test_repo/issues/1/labels{/name}",
+            "comments_url":"https://api.github.com/repos/test/test_repo/issues/1/comments",
+            "events_url":"https://api.github.com/repos/test/test_repo/issues/1/events",
+            "html_url":"https://github.com/test/test_repo/issues/1",
+            "id":340074573,
+            "node_id":"MDU6SXNzdWUzNDAwNzQ1NzM=",
+            "number":1,
+            "title":"Derivate compiler output and duplicate files in source repo ",
+            "user":{
+              "login":"test_user",
+              "id":988067,
+              "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+              "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+              "gravatar_id":"",
+              "url":"https://api.github.com/users/test_user",
+              "html_url":"https://github.com/test_user",
+              "followers_url":"https://api.github.com/users/test_user/followers",
+              "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+              "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+              "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+              "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+              "organizations_url":"https://api.github.com/users/test_user/orgs",
+              "repos_url":"https://api.github.com/users/test_user/repos",
+              "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+              "received_events_url":"https://api.github.com/users/test_user/received_events",
+              "type":"User",
+              "site_admin":false
+            },
+            "labels":[{
+              "id":990168258,
+              "node_id":"MDU6TGFiZWw5OTAxNjgyNTg=",
+              "url":"https://api.github.com/repos/test/test_repo/labels/Critical",
+              "name":"Critical",
+              "color":"d93f0b",
+              "default":false
+            }],
+            "state":"open",
+            "locked":false,
+            "assignee":null,
+            "assignees":[],
+            "milestone":null,
+            "comments":0,
+            "created_at":"2018-07-11T03:02:46Z",
+            "updated_at":"2018-07-11T03:02:46Z",
+            "closed_at":null,
+            "author_association":"OWNER",
+            "body":"##
+              What is it?\r\n\r\nYou''ve got the outputs from the truffle compile in the
+              (source code) repo. That''s an anti-pattern.\r\n\r\n### Problem\r\n\r\nKeep
+              source code in the repo.\r\nAlong with notes and settings and your package.json
+              if needed so a dev can recreate the outputs.\r\n\r\nPut your outputs in a
+              release package, like npm or similar (truffle offers a packaging tool).\r\n\r\nDon''t
+              keep duplicates of your source files in the same repo. Refactor. DRY (don''t
+              repeat yourself), etc.\r\n\r\nBasically, this is not the recommended way to
+              use a code repo.\r\n\r\n### Solution\r\n\r\nDelete derivate files and re-commit
+              and push.\r\n\r\n### Steps to implement\r\n\r\n1. Provide either a numbered
+              list\r\n2. That that provides steps to implement   \r\n\r\n* Or a bullet list
+              of items\r\n* If order doesn''t matter\r\n"
+        }]'
+    http_version: 
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:50:19 GMT
+recorded_with: VCR 3.0.3

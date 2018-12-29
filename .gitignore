@@ -1,6 +1,5 @@
 *.out
 ScopingReport.md
-*.png
 tst*
 MDReport.md
 AnalysisReport.md
@@ -10,3 +9,5 @@ tmp*
 tst*
 MDReport*
 Audit_Tools_Report.md
+CallGraph.png
+InheritanceGraph.png

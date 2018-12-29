@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>tocdown - A Table of Contents Generator for Markdown</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="toc.js" type="text/javascript">//</script>
+    <link rel="stylesheet" type="text/css" href="https://dohliam.github.io/dropin-minimal-css/vendor/mui.min.css">
+    <style>body{padding-left:24px;} #button_list{margin-top:10px;}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body onload="document.getElementById('input').focus();">
+    <a href="https://github.com/dohliam/tocdown" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <h1>tocdown</h1>
+    <h2>A Table of Contents Generator for Markdown</h2>
+
+    <div id=container style="width:75%">
+      <table style="width:100%">
+        <tr>
+          <td style="width:50%">
+            <h3>Input (Markdown)</h3>
+          </td>
+          <td style="width:50%">
+            <h3>Output (Text)</h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div id="input_div">
+              <textarea id="input" rows=15 cols=60 style="width:97%" accesskey="." onkeyup="md2Toc()">Enter markdown here</textarea>
+            </div>
+          </td>
+          <td>
+            <div id="output_div">
+              <textarea id="text_output" rows=15 cols=60 style="width:97%" accesskey="o">Output will appear here</textarea>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <center>
+        <div id="button_list">
+          <input type="button" onclick="md2Toc()" accesskey="c" value="Create TOC"> <input type="button" onclick="sampleText()" accesskey="s" value="Sample text"> <input type="button" onclick="toBase64()" accesskey="r" value="View TOC in Remarkable">
+        </div>
+      </center>
+
+      <br>
+
+      <form id="options">
+        <input type="checkbox" onchange="md2Toc()" name="markdown" value="true" accesskey="m">Output markdown<br>
+        <input type="checkbox" onchange="md2Toc()" name="bullets" value="true" accesskey="b">Output bulleted list instead of numbered list<br>
+        <input type="checkbox" onchange="md2Toc()" name="zero" value="true" accesskey="z">Allow for zero-level heading<br>
+        <input type="checkbox" onchange="md2Toc()" name="toplevel" value="true" accesskey="t">Include top-level heading (Heading 1 / Title)<br>
+        <input type="checkbox" onchange="md2Toc()" name="noindent" value="true" accesskey="i">Remove heading indentation<br>
+        <input type="checkbox" onchange="md2Toc()" name="nolinks" value="true" accesskey="l">Remove links to section headings<br>
+
+        Maximum heading depth: <select onchange="md2Toc()" name="maxdepth" accesskey="d">
+          <option value="6">6</option>
+          <option value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+
+      </form>
+
+    </div>
+  </body>
+</html>

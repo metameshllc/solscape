@@ -1,0 +1,3217 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/issues?access_token=1003bf0b23e9a631df5389a932cd615768048433&filter=all&per_page=100&sort=created&state=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json,application/vnd.github.beta+json;q=0.5,application/json;q=0.1
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - Github API Ruby Gem 0.18.2
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 17 Jul 2018 11:44:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4952'
+      X-Ratelimit-Reset:
+      - '1531828318'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"48a70a3da8ab94b193405e3c5d0bf001"
+      X-Oauth-Scopes:
+      - repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Oauth-Client-Id:
+      - de0e3c7e9973e1c4dd77
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.097603'
+      X-Github-Request-Id:
+      - E9BA:41CC:7A7F45F:A0FDB5B:5B4DD6B9
+    body:
+      encoding: ASCII-8BIT
+      string: '[{
+        "url":"https://api.github.com/repos/test/test_repo/issues/6",
+        "repository_url":"https://api.github.com/repos/test/test_repo",
+        "labels_url":"https://api.github.com/repos/test/test_repo/issues/6/labels{/name}",
+        "comments_url":"https://api.github.com/repos/test/test_repo/issues/6/comments",
+        "events_url":"https://api.github.com/repos/test/test_repo/issues/6/events",
+        "html_url":"https://github.com/test/test_repo/issues/6",
+        "id":341880985,
+        "node_id":"MDU6SXNzdWUzNDE4ODA5ODU=",
+        "number":6,
+        "title":"Major Issue with'' apostrophe",
+        "user":{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        },
+        "labels":[{
+          "id":996332732,
+          "node_id":"MDU6TGFiZWw5OTYzMzI3MzI=",
+          "url":"https://api.github.com/repos/test/test_repo/labels/Major",
+          "name":"Major",
+          "color":"986afc",
+          "default":false
+        }],
+        "state":"open",
+        "locked":false,
+        "assignee":null,
+        "assignees":[],
+        "milestone":null,
+        "comments":0,
+        "created_at":"2018-07-17T11:36:06Z",
+        "updated_at":"2018-07-17T11:36:06Z",
+        "closed_at":null,
+        "author_association":"OWNER",
+        "body":"##
+          What is it?\r\n\r\nA single sentence that supplements the title to describe
+          what this issue is.\r\n\r\n### Problem\r\n\r\nDescribe the problem that needs
+          to be solved.\r\n\r\n### Solution\r\n\r\nDescribe the solution to the above
+          stated problem.\r\n\r\n### Steps to implement\r\n\r\n1. Provide either a numbered
+          list\r\n2. That that provides steps to implement   \r\n\r\n* Or a bullet list
+          of items\r\n* If order doesn''t matter\r\n"},{"url":"https://api.github.com/repos/test/test_repo/issues/2","repository_url":"https://api.github.com/repos/test/test_repo","labels_url":"https://api.github.com/repos/test/test_repo/issues/2/labels{/name}","comments_url":"https://api.github.com/repos/test/test_repo/issues/2/comments","events_url":"https://api.github.com/repos/test/test_repo/issues/2/events","html_url":"https://github.com/test/test_repo/issues/2","id":340075275,"node_id":"MDU6SXNzdWUzNDAwNzUyNzU=","number":2,"title":"Single
+          Line Issue.","user":{"login":"test_user","id":988067,"node_id":"MDQ6VXNlcjk4ODA2Nw==","avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4","gravatar_id":"","url":"https://api.github.com/users/test_user","html_url":"https://github.com/test_user","followers_url":"https://api.github.com/users/test_user/followers","following_url":"https://api.github.com/users/test_user/following{/other_user}","gists_url":"https://api.github.com/users/test_user/gists{/gist_id}","starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/test_user/subscriptions","organizations_url":"https://api.github.com/users/test_user/orgs","repos_url":"https://api.github.com/users/test_user/repos","events_url":"https://api.github.com/users/test_user/events{/privacy}","received_events_url":"https://api.github.com/users/test_user/received_events","type":"User","site_admin":false},"labels":[{"id":990171716,"node_id":"MDU6TGFiZWw5OTAxNzE3MTY=","url":"https://api.github.com/repos/test/test_repo/labels/Minor","name":"Minor","color":"f9d0c4","default":false}],"state":"open","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2018-07-11T03:06:55Z","updated_at":"2018-07-15T12:29:40Z","closed_at":null,"author_association":"OWNER","body":"About
+          this issue.\r\nhttps://github.com/test/test_repo/blob/bcd15f73f0c229f7f4ac05bc872994a2cb571d65/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol#L17-L30
+          kkkkkka"
+      }, {
+        "url":"https://api.github.com/repos/test/test_repo/issues/5",
+        "repository_url":"https://api.github.com/repos/test/test_repo",
+        "labels_url":"https://api.github.com/repos/test/test_repo/issues/5/labels{/name}",
+        "comments_url":"https://api.github.com/repos/test/test_repo/issues/5/comments",
+        "events_url":"https://api.github.com/repos/test/test_repo/issues/5/events",
+        "html_url":"https://github.com/test/test_repo/issues/5",
+        "id":340217215,
+        "node_id":"MDU6SXNzdWUzNDAyMTcyMTU=",
+        "number":5,
+        "title":"Audit Todo 1",
+        "user":{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        },
+        "labels":[{
+          "id":990627530,
+          "node_id":"MDU6TGFiZWw5OTA2Mjc1MzA=",
+          "url":"https://api.github.com/repos/test/test_repo/labels/Audit-Todo",
+          "name":"Audit-Todo",
+          "color":"ededed",
+          "default":false
+        }],
+        "state":"open",
+        "locked":false,
+        "assignee":{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        },
+        "assignees":[{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        }],
+        "milestone":null,
+        "comments":0,
+        "created_at":"2018-07-11T12:19:01Z",
+        "updated_at":"2018-07-15T12:28:44Z",
+        "closed_at":null,
+        "author_association":"OWNER",
+        "body":"Todo todo\r\n\r\n```solidity\r\nfunction foo() {\r\n}\r\n```"
+      }, {
+        "url":"https://api.github.com/repos/test/test_repo/issues/4",
+        "repository_url":"https://api.github.com/repos/test/test_repo",
+        "labels_url":"https://api.github.com/repos/test/test_repo/issues/4/labels{/name}",
+        "comments_url":"https://api.github.com/repos/test/test_repo/issues/4/comments",
+        "events_url":"https://api.github.com/repos/test/test_repo/issues/4/events",
+        "html_url":"https://github.com/test/test_repo/issues/4",
+        "id":340217205,
+        "node_id":"MDU6SXNzdWUzNDAyMTcyMDU=",
+        "number":4,
+        "title":"Audit Todo 1",
+        "user":{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        },
+        "labels":[{
+          "id":990627530,
+          "node_id":"MDU6TGFiZWw5OTA2Mjc1MzA=",
+          "url":"https://api.github.com/repos/test/test_repo/labels/Audit-Todo",
+          "name":"Audit-Todo",
+          "color":"ededed",
+          "default":false
+        }],
+        "state":"open",
+        "locked":false,
+        "assignee":{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        },
+        "assignees":[{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        }],
+        "milestone":null,
+        "comments":0,
+        "created_at":"2018-07-11T12:18:59Z",
+        "updated_at":"2018-07-11T12:18:59Z",
+        "closed_at":null,
+        "author_association":"OWNER",
+        "body":"asdfaedf"
+      }, {
+        "url":"https://api.github.com/repos/test/test_repo/issues/3",
+        "repository_url":"https://api.github.com/repos/test/test_repo",
+        "labels_url":"https://api.github.com/repos/test/test_repo/issues/3/labels{/name}",
+        "comments_url":"https://api.github.com/repos/test/test_repo/issues/3/comments",
+        "events_url":"https://api.github.com/repos/test/test_repo/issues/3/events",
+        "html_url":"https://github.com/test/test_repo/issues/3",
+        "id":340208392,
+        "node_id":"MDU6SXNzdWUzNDAyMDgzOTI=",
+        "number":3,
+        "title":"Medium Issue #1",
+        "user":{
+          "login":"test_user",
+          "id":988067,
+          "node_id":"MDQ6VXNlcjk4ODA2Nw==",
+          "avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4",
+          "gravatar_id":"",
+          "url":"https://api.github.com/users/test_user",
+          "html_url":"https://github.com/test_user",
+          "followers_url":"https://api.github.com/users/test_user/followers",
+          "following_url":"https://api.github.com/users/test_user/following{/other_user}",
+          "gists_url":"https://api.github.com/users/test_user/gists{/gist_id}",
+          "starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}",
+          "subscriptions_url":"https://api.github.com/users/test_user/subscriptions",
+          "organizations_url":"https://api.github.com/users/test_user/orgs",
+          "repos_url":"https://api.github.com/users/test_user/repos",
+          "events_url":"https://api.github.com/users/test_user/events{/privacy}",
+          "received_events_url":"https://api.github.com/users/test_user/received_events",
+          "type":"User",
+          "site_admin":false
+        },
+        "labels":[{
+          "id":990602997,
+          "node_id":"MDU6TGFiZWw5OTA2MDI5OTc=",
+          "url":"https://api.github.com/repos/test/test_repo/labels/Medium",
+          "name":"Medium",
+          "color":"60bf2a",
+          "default":false
+        }],
+        "state":"open",
+        "locked":false,
+        "assignee":null,
+        "assignees":[],
+        "milestone":null,
+        "comments":0,
+        "created_at":"2018-07-11T11:51:05Z",
+        "updated_at":"2018-07-11T11:51:05Z",
+        "closed_at":null,
+        "author_association":"OWNER",
+        "body":"##
+          What is it?\r\n\r\nA single sentence that supplements the title to describe
+          what this issue is.\r\n\r\nhttps://github.com/test/test_repo/blob/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol#L40-L53\r\n\r\n###
+          Problem\r\n\r\nDescribe the problem that needs to be solved.\r\n\r\nhttps://github.com/test/test_repo/blob/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol#L32\r\n\r\n\r\n###
+          Solution\r\n\r\nDescribe the solution to the above stated problem.\r\n\r\n###
+          Steps to implement\r\n\r\n1. Provide either a numbered list\r\n2. That that
+          provides steps to implement   \r\n\r\n* Or a bullet list of items\r\n* If
+          order doesn''t matter\r\n"},{"url":"https://api.github.com/repos/test/test_repo/issues/1","repository_url":"https://api.github.com/repos/test/test_repo","labels_url":"https://api.github.com/repos/test/test_repo/issues/1/labels{/name}","comments_url":"https://api.github.com/repos/test/test_repo/issues/1/comments","events_url":"https://api.github.com/repos/test/test_repo/issues/1/events","html_url":"https://github.com/test/test_repo/issues/1","id":340074573,"node_id":"MDU6SXNzdWUzNDAwNzQ1NzM=","number":1,"title":"Derivate
+          compiler output and duplicate files in source repo ","user":{"login":"test_user","id":988067,"node_id":"MDQ6VXNlcjk4ODA2Nw==","avatar_url":"https://avatars1.githubusercontent.com/u/988067?v=4","gravatar_id":"","url":"https://api.github.com/users/test_user","html_url":"https://github.com/test_user","followers_url":"https://api.github.com/users/test_user/followers","following_url":"https://api.github.com/users/test_user/following{/other_user}","gists_url":"https://api.github.com/users/test_user/gists{/gist_id}","starred_url":"https://api.github.com/users/test_user/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/test_user/subscriptions","organizations_url":"https://api.github.com/users/test_user/orgs","repos_url":"https://api.github.com/users/test_user/repos","events_url":"https://api.github.com/users/test_user/events{/privacy}","received_events_url":"https://api.github.com/users/test_user/received_events","type":"User","site_admin":false},"labels":[{"id":990168258,"node_id":"MDU6TGFiZWw5OTAxNjgyNTg=","url":"https://api.github.com/repos/test/test_repo/labels/Critical","name":"Critical","color":"d93f0b","default":false}],"state":"open","locked":false,"assignee":null,"assignees":[],"milestone":null,"comments":0,"created_at":"2018-07-11T03:02:46Z","updated_at":"2018-07-11T03:02:46Z","closed_at":null,"author_association":"OWNER","body":"##
+          What is it?\r\n\r\nYou''ve got the outputs from the truffle compile in the
+          (source code) repo. That''s an anti-pattern.\r\n\r\n### Problem\r\n\r\nKeep
+          source code in the repo.\r\nAlong with notes and settings and your package.json
+          if needed so a dev can recreate the outputs.\r\n\r\nPut your outputs in a
+          release package, like npm or similar (truffle offers a packaging tool).\r\n\r\nDon''t
+          keep duplicates of your source files in the same repo. Refactor. DRY (don''t
+          repeat yourself), etc.\r\n\r\nBasically, this is not the recommended way to
+          use a code repo.\r\n\r\n### Solution\r\n\r\nDelete derivate files and re-commit
+          and push.\r\n\r\n### Steps to implement\r\n\r\n1. Provide either a numbered
+          list\r\n2. That that provides steps to implement   \r\n\r\n* Or a bullet list
+          of items\r\n* If order doesn''t matter\r\n"
+        }]'
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:44:59 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/contents/StringUtilsLib/StringUtilsLib.sol?ref=d269e5923b0d8c0ef7e391417109f219234f3ae1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/vnd.github.v3.raw
+      User-Agent:
+      - Ruby
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 17 Jul 2018 11:46:53 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Server:
+      - GitHub.com
+      Status:
+      - 302 Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - X-PJAX, Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://render.githubusercontent.com
+      Location:
+      - https://raw.githubusercontent.com/test/test_repo/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol
+      X-Runtime:
+      - '0.061233'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Expect-Ct:
+      - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
+      Content-Security-Policy:
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; connect-src
+        ''self'' uploads.github.com status.github.com collector.githubapp.com api.github.com
+        www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com
+        github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com
+        wss://live.github.com; font-src assets-cdn.github.com; form-action ''self''
+        github.com gist.github.com; frame-ancestors ''none''; frame-src render.githubusercontent.com;
+        img-src ''self'' data: assets-cdn.github.com identicons.github.com collector.githubapp.com
+        github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src ''self'';
+        media-src ''none''; script-src assets-cdn.github.com; style-src ''unsafe-inline''
+        assets-cdn.github.com'
+      X-Runtime-Rack:
+      - '0.068047'
+      Age:
+      - '0'
+      Content-Length:
+      - '202'
+      X-Github-Request-Id:
+      - 7210:71A8:6E0C52:A7DECE:5B4DD72C
+    body:
+      encoding: UTF-8
+      string: <html><body>You are being <a href="https://raw.githubusercontent.com/test/test_repo/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:46:54 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/test/test_repo/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"b559f3bf6ffa074b451ddbcedfcd07ed3321229b"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 5C7E:63B6:410B4F4:447F7BC:5B4DD72B
+      Content-Length:
+      - '5634'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Jul 2018 11:46:53 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-syd18925-SYD
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1531828014.589874,VS0,VE345
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - d5189de5923662be21816831aa50273d3ee10bfc
+      Expires:
+      - Tue, 17 Jul 2018 11:51:53 GMT
+      Source-Age:
+      - '0'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        pragma solidity ^0.4.18;
+
+        /*
+         * @title String & slice utility library for Solidity contracts.
+         * @author Nick Johnson <arachnid@notdot.net>
+         *
+         * version 1.2.0
+         * Copyright 2016 Nick Johnson
+         * Licensed under the Apache License, Version 2.0 (the "License");
+         * you may not use this file except in compliance with the License.
+         * You may obtain a copy of the License at
+         *
+         *      http://www.apache.org/licenses/LICENSE-2.0
+         *
+         * Unless required by applicable law or agreed to in writing, software
+         * distributed under the License is distributed on an "AS IS" BASIS,
+         * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+         * See the License for the specific language governing permissions and
+         * limitations under the License.
+         *
+         * This utility library was forked from https://github.com/Arachnid/solidity-stringutils
+         * into the Modular test_repo repo at https://github.com/Modular-Network/test_repo
+         * with permission. It has been updated to be more compatible with solidity 0.4.18
+         * coding patterns.
+         *
+         * Modular provides smart contract services and security reviews for contract
+         * deployments in addition to working on open source projects in the Ethereum
+         * community. Our purpose is to test, document, and deploy reusable code onto the
+         * blockchain and improve both security and usability. We also educate non-profits,
+         * schools, and other community members about the application of blockchain
+         * technology. For further information: modular.network
+         *
+         * @dev Functionality in this library is largely implemented using an
+         *      abstraction called a 'slice'. A slice represents a part of a string -
+         *      anything from the entire string to a single character, or even no
+         *      characters at all (a 0-length slice). Since a slice only has to specify
+         *      an offset and a length, copying and manipulating slices is a lot less
+         *      expensive than copying and manipulating the strings they reference.
+         *
+         *      To further reduce gas costs, most functions on slice that need to return
+         *      a slice modify the original one instead of allocating a new one; for
+         *      instance, `s.split(".")` will return the text up to the first '.',
+         *      modifying s to only contain the remainder of the string after the '.'.
+         *      In situations where you do not want to modify the original slice, you
+         *      can make a copy first with `.copy()`, for example:
+         *      `s.copy().split(".")`. Try and avoid using this idiom in loops; since
+         *      Solidity has no memory management, it will result in allocating many
+         *      short-lived slices that are later discarded.
+         *
+         *      Functions that return two slices come in two versions: a non-allocating
+         *      version that takes the second slice as an argument, modifying it in
+         *      place, and an allocating version that allocates and returns the second
+         *      slice; see `nextRune` for example.
+         *
+         *      Functions that have to copy string data will return strings rather than
+         *      slices; these can be cast back to slices for further processing if
+         *      required.
+         *
+         *      For convenience, some functions are provided with non-modifying
+         *      variants that create a new slice and return both; for instance,
+         *      `s.splitNew('.')` leaves s unmodified, and returns two values
+         *      corresponding to the left and right parts of the string.
+         */
+
+        library StringUtilsLib {
+            struct slice {
+                uint _len;
+                uint _ptr;
+            }
+
+            function memcpy(uint dest, uint src, uint len) private pure {
+                // Copy word-length chunks while possible
+                for(; len >= 32; len -= 32) {
+                    assembly {
+                        mstore(dest, mload(src))
+                    }
+                    dest += 32;
+                    src += 32;
+                }
+
+                // Copy remaining bytes
+                uint mask = 256 ** (32 - len) - 1;
+                assembly {
+                    let srcpart := and(mload(src), not(mask))
+                    let destpart := and(mload(dest), mask)
+                    mstore(dest, or(destpart, srcpart))
+                }
+            }
+
+            /*
+             * @dev Returns a slice containing the entire string.
+             * @param self The string to make a slice from.
+             * @return A newly allocated slice containing the entire string.
+             */
+            function toSlice(string self) internal returns (slice) {
+                uint ptr;
+                assembly {
+                    ptr := add(self, 0x20)
+                }
+                return slice(bytes(self).length, ptr);
+            }
+
+            /*
+             * @dev Returns the length of a null-terminated bytes32 string.
+             * @param self The value to find the length of.
+             * @return The length of the string, from 0 to 32.
+             */
+            function len(bytes32 self) internal returns (uint) {
+                uint ret;
+                if (self == 0)
+                    return 0;
+                if (self & 0xffffffffffffffffffffffffffffffff == 0) {
+                    ret += 16;
+                    self = bytes32(uint(self) / 0x100000000000000000000000000000000);
+                }
+                if (self & 0xffffffffffffffff == 0) {
+                    ret += 8;
+                    self = bytes32(uint(self) / 0x10000000000000000);
+                }
+                if (self & 0xffffffff == 0) {
+                    ret += 4;
+                    self = bytes32(uint(self) / 0x100000000);
+                }
+                if (self & 0xffff == 0) {
+                    ret += 2;
+                    self = bytes32(uint(self) / 0x10000);
+                }
+                if (self & 0xff == 0) {
+                    ret += 1;
+                }
+                return 32 - ret;
+            }
+
+            /*
+             * @dev Returns a slice containing the entire bytes32, interpreted as a
+             *      null-termintaed utf-8 string.
+             * @param self The bytes32 value to convert to a slice.
+             * @return A new slice containing the value of the input argument up to the
+             *         first null.
+             */
+            function toSliceB32(bytes32 self) internal returns (slice ret) {
+                // Allocate space for `self` in memory, copy it there, and point ret at it
+                assembly {
+                    let ptr := mload(0x40)
+                    mstore(0x40, add(ptr, 0x20))
+                    mstore(ptr, self)
+                    mstore(add(ret, 0x20), ptr)
+                }
+                ret._len = len(self);
+            }
+
+            /*
+             * @dev Returns a new slice containing the same data as the current slice.
+             * @param self The slice to copy.
+             * @return A new slice containing the same data as `self`.
+             */
+            function copy(slice self) internal returns (slice) {
+                return slice(self._len, self._ptr);
+            }
+
+            /*
+             * @dev Copies a slice to a new string.
+             * @param self The slice to copy.
+             * @return A newly allocated string containing the slice's text.
+             */
+            function toString(slice self) internal view returns (string) {
+                var ret = new string(self._len);
+                uint retptr;
+                assembly { retptr := add(ret, 32) }
+
+                memcpy(retptr, self._ptr, self._len);
+                return ret;
+            }
+
+            /*
+             * @dev Returns the length in runes of the slice. Note that this operation
+             *      takes time proportional to the length of the slice; avoid using it
+             *      in loops, and call `slice.empty()` if you only need to know whether
+             *      the slice is empty or not.
+             * @param self The slice to operate on.
+             * @return The length of the slice in runes.
+             */
+
+            function len(slice self) internal view returns (uint) {
+                // Starting at ptr-31 means the LSB will be the byte we care about
+                var ptr = self._ptr - 31;
+                var end = ptr + self._len;
+                for (uint len = 0; ptr < end; len++) {
+                    uint8 b;
+                    assembly {
+                        b := and(mload(ptr), 0xFF)
+                    }
+                    if (b < 0x80) {
+                        ptr += 1;
+                    } else if(b < 0xE0) {
+                        ptr += 2;
+                    } else if(b < 0xF0) {
+                        ptr += 3;
+                    } else if(b < 0xF8) {
+                        ptr += 4;
+                    } else if(b < 0xFC) {
+                        ptr += 5;
+                    } else {
+                        ptr += 6;
+                    }
+                }
+                return len;
+            }
+
+            /*
+             * @dev Returns true if the slice is empty (has a length of 0).
+             * @param self The slice to operate on.
+             * @return True if the slice is empty, False otherwise.
+             */
+            function empty(slice self) internal view returns (bool) {
+                return self._len == 0;
+            }
+
+            /*
+             * @dev Returns a positive number if `other` comes lexicographically after
+             *      `self`, a negative number if it comes before, or zero if the
+             *      contents of the two slices are equal. Comparison is done per-rune,
+             *      on unicode codepoints.
+             * @param self The first slice to compare.
+             * @param other The second slice to compare.
+             * @return The result of the comparison.
+             */
+            function compare(slice self, slice other) internal view returns (int) {
+                uint shortest = self._len;
+                if (other._len < self._len)
+                    shortest = other._len;
+
+                var selfptr = self._ptr;
+                var otherptr = other._ptr;
+                for (uint idx = 0; idx < shortest; idx += 32) {
+                    uint a;
+                    uint b;
+                    assembly {
+                        a := mload(selfptr)
+                        b := mload(otherptr)
+                    }
+                    if (a != b) {
+                        // Mask out irrelevant bytes and check again
+                        uint mask = ~(2 ** (8 * (32 - shortest + idx)) - 1);
+                        var diff = (a & mask) - (b & mask);
+                        if (diff != 0)
+                            return int(diff);
+                    }
+                    selfptr += 32;
+                    otherptr += 32;
+                }
+                return int(self._len) - int(other._len);
+            }
+
+            /*
+             * @dev Returns true if the two slices contain the same text.
+             * @param self The first slice to compare.
+             * @param self The second slice to compare.
+             * @return True if the slices are equal, false otherwise.
+             */
+            function equals(slice self, slice other) internal view returns (bool) {
+                return compare(self, other) == 0;
+            }
+
+            /*
+             * @dev Extracts the first rune in the slice into `rune`, advancing the
+             *      slice to point to the next rune and returning `rune`.
+             * @param self The slice to operate on.
+             * @param rune The slice that will contain the first rune.
+             * @return `rune`.
+             */
+            function nextRune(slice self, slice rune) internal returns (slice) {
+                rune._ptr = self._ptr;
+
+                if (self._len == 0) {
+                    rune._len = 0;
+                    return rune;
+                }
+
+                uint len;
+                uint b;
+                // Load the first byte of the rune into the LSBs of b
+                assembly { b := and(mload(sub(mload(add(self, 32)), 31)), 0xFF) }
+                if (b < 0x80) {
+                    len = 1;
+                } else if(b < 0xE0) {
+                    len = 2;
+                } else if(b < 0xF0) {
+                    len = 3;
+                } else {
+                    len = 4;
+                }
+
+                // Check for truncated codepoints
+                if (len > self._len) {
+                    rune._len = self._len;
+                    self._ptr += self._len;
+                    self._len = 0;
+                    return rune;
+                }
+
+                self._ptr += len;
+                self._len -= len;
+                rune._len = len;
+                return rune;
+            }
+
+            /*
+             * @dev Returns the first rune in the slice, advancing the slice to point
+             *      to the next rune.
+             * @param self The slice to operate on.
+             * @return A slice containing only the first rune from `self`.
+             */
+            function nextRune(slice self) internal returns (slice ret) {
+                nextRune(self, ret);
+            }
+
+            /*
+             * @dev Returns the number of the first codepoint in the slice.
+             * @param self The slice to operate on.
+             * @return The number of the first codepoint in the slice.
+             */
+            function ord(slice self) internal view returns (uint ret) {
+                if (self._len == 0) {
+                    return 0;
+                }
+
+                uint word;
+                uint len;
+                uint div = 2 ** 248;
+
+                // Load the rune into the MSBs of b
+                assembly { word:= mload(mload(add(self, 32))) }
+                var b = word / div;
+                if (b < 0x80) {
+                    ret = b;
+                    len = 1;
+                } else if(b < 0xE0) {
+                    ret = b & 0x1F;
+                    len = 2;
+                } else if(b < 0xF0) {
+                    ret = b & 0x0F;
+                    len = 3;
+                } else {
+                    ret = b & 0x07;
+                    len = 4;
+                }
+
+                // Check for truncated codepoints
+                if (len > self._len) {
+                    return 0;
+                }
+
+                for (uint i = 1; i < len; i++) {
+                    div = div / 256;
+                    b = (word / div) & 0xFF;
+                    if (b & 0xC0 != 0x80) {
+                        // Invalid UTF-8 sequence
+                        return 0;
+                    }
+                    ret = (ret * 64) | (b & 0x3F);
+                }
+
+                return ret;
+            }
+
+            /*
+             * @dev Returns the keccak-256 hash of the slice.
+             * @param self The slice to hash.
+             * @return The hash of the slice.
+             */
+            function keccak(slice self) internal view returns (bytes32 ret) {
+                assembly {
+                    ret := sha3(mload(add(self, 32)), mload(self))
+                }
+            }
+
+            /*
+             * @dev Returns true if `self` starts with `needle`.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return True if the slice starts with the provided text, false otherwise.
+             */
+            function startsWith(slice self, slice needle) internal view returns (bool) {
+                if (self._len < needle._len) {
+                    return false;
+                }
+
+                if (self._ptr == needle._ptr) {
+                    return true;
+                }
+
+                bool equal;
+                assembly {
+                    let len := mload(needle)
+                    let selfptr := mload(add(self, 0x20))
+                    let needleptr := mload(add(needle, 0x20))
+                    equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                }
+                return equal;
+            }
+
+            /*
+             * @dev If `self` starts with `needle`, `needle` is removed from the
+             *      beginning of `self`. Otherwise, `self` is unmodified.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return `self`
+             */
+            function beyond(slice self, slice needle) internal returns (slice) {
+                if (self._len < needle._len) {
+                    return self;
+                }
+
+                bool equal = true;
+                if (self._ptr != needle._ptr) {
+                    assembly {
+                        let len := mload(needle)
+                        let selfptr := mload(add(self, 0x20))
+                        let needleptr := mload(add(needle, 0x20))
+                        equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                    }
+                }
+
+                if (equal) {
+                    self._len -= needle._len;
+                    self._ptr += needle._len;
+                }
+
+                return self;
+            }
+
+            /*
+             * @dev Returns true if the slice ends with `needle`.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return True if the slice starts with the provided text, false otherwise.
+             */
+            function endsWith(slice self, slice needle) internal view returns (bool) {
+                if (self._len < needle._len) {
+                    return false;
+                }
+
+                var selfptr = self._ptr + self._len - needle._len;
+
+                if (selfptr == needle._ptr) {
+                    return true;
+                }
+
+                bool equal;
+                assembly {
+                    let len := mload(needle)
+                    let needleptr := mload(add(needle, 0x20))
+                    equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                }
+
+                return equal;
+            }
+
+            /*
+             * @dev If `self` ends with `needle`, `needle` is removed from the
+             *      end of `self`. Otherwise, `self` is unmodified.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return `self`
+             */
+            function until(slice self, slice needle) internal returns (slice) {
+                if (self._len < needle._len) {
+                    return self;
+                }
+
+                var selfptr = self._ptr + self._len - needle._len;
+                bool equal = true;
+                if (selfptr != needle._ptr) {
+                    assembly {
+                        let len := mload(needle)
+                        let needleptr := mload(add(needle, 0x20))
+                        equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                    }
+                }
+
+                if (equal) {
+                    self._len -= needle._len;
+                }
+
+                return self;
+            }
+
+            // Returns the memory address of the first byte of the first occurrence of
+            // `needle` in `self`, or the first byte after `self` if not found.
+            function findPtr(uint selflen, uint selfptr, uint needlelen, uint needleptr)
+              private
+              view
+              returns (uint)
+            {
+                uint ptr;
+                uint idx;
+
+                if (needlelen <= selflen) {
+                    if (needlelen <= 32) {
+                        // Optimized assembly for 68 gas per byte on short strings
+                        assembly {
+                            let mask := not(sub(exp(2, mul(8, sub(32, needlelen))), 1))
+                            let needledata := and(mload(needleptr), mask)
+                            let end := add(selfptr, sub(selflen, needlelen))
+                            let loop := selfptr
+
+                            for { } lt(loop, end) { } {
+                                switch eq(and(mload(loop), mask), needledata)
+                                case 1 {
+                                    ptr := loop
+                                    loop := end
+                                }
+                                case 0 {
+                                    loop := add(loop,1)
+                                }
+                            }
+                            switch eq(and(mload(ptr), mask), needledata)
+                            case 0 {
+                                ptr := add(selfptr, selflen)
+                            }
+                        }
+                        return ptr;
+                    } else {
+                        // For long needles, use hashing
+                        bytes32 hash;
+                        assembly { hash := sha3(needleptr, needlelen) }
+                        ptr = selfptr;
+                        for (idx = 0; idx <= selflen - needlelen; idx++) {
+                            bytes32 testHash;
+                            assembly { testHash := sha3(ptr, needlelen) }
+                            if (hash == testHash)
+                                return ptr;
+                            ptr += 1;
+                        }
+                    }
+                }
+                return selfptr + selflen;
+            }
+
+            // Returns the memory address of the first byte after the last occurrence of
+            // `needle` in `self`, or the address of `self` if not found.
+            function rfindPtr(uint selflen, uint selfptr, uint needlelen, uint needleptr)
+              private
+              view
+              returns (uint)
+            {
+                uint ptr;
+
+                if (needlelen <= selflen) {
+                    if (needlelen <= 32) {
+                        // Optimized assembly for 69 gas per byte on short strings
+                        assembly {
+                            let mask := not(sub(exp(2, mul(8, sub(32, needlelen))), 1))
+                            let needledata := and(mload(needleptr), mask)
+                            let loop := add(selfptr, sub(selflen, needlelen))
+
+                            for { } gt(loop, selfptr) { } {
+                                switch eq(and(mload(loop), mask), needledata)
+                                case 1 {
+                                    ptr := loop
+                                    loop := selfptr
+                                }
+                                case 0 {
+                                    loop := sub(loop,1)
+                                }
+                            }
+                            switch eq(and(mload(ptr), mask), needledata)
+                            case 1 {
+                                ptr := add(ptr, needlelen)
+                            }
+                            case 0 {
+                                ptr := selfptr
+                            }
+                        }
+                        return ptr;
+                    } else {
+                        // For long needles, use hashing
+                        bytes32 hash;
+                        assembly { hash := sha3(needleptr, needlelen) }
+                        ptr = selfptr + (selflen - needlelen);
+                        while (ptr >= selfptr) {
+                            bytes32 testHash;
+                            assembly { testHash := sha3(ptr, needlelen) }
+                            if (hash == testHash)
+                                return ptr + needlelen;
+                            ptr -= 1;
+                        }
+                    }
+                }
+                return selfptr;
+            }
+
+            /*
+             * @dev Modifies `self` to contain everything from the first occurrence of
+             *      `needle` to the end of the slice. `self` is set to the empty slice
+             *      if `needle` is not found.
+             * @param self The slice to search and modify.
+             * @param needle The text to search for.
+             * @return `self`.
+             */
+            function find(slice self, slice needle) internal returns (slice) {
+                uint ptr = findPtr(self._len, self._ptr, needle._len, needle._ptr);
+                self._len -= ptr - self._ptr;
+                self._ptr = ptr;
+                return self;
+            }
+
+            /*
+             * @dev Modifies `self` to contain the part of the string from the start of
+             *      `self` to the end of the first occurrence of `needle`. If `needle`
+             *      is not found, `self` is set to the empty slice.
+             * @param self The slice to search and modify.
+             * @param needle The text to search for.
+             * @return `self`.
+             */
+            function rfind(slice self, slice needle) internal returns (slice) {
+                uint ptr = rfindPtr(self._len, self._ptr, needle._len, needle._ptr);
+                self._len = ptr - self._ptr;
+                return self;
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything after the first
+             *      occurrence of `needle`, and `token` to everything before it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and `token` is set to the entirety of `self`.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @param token An output parameter to which the first token is written.
+             * @return `token`.
+             */
+            function split(slice self, slice needle, slice token) internal returns (slice) {
+                uint ptr = findPtr(self._len, self._ptr, needle._len, needle._ptr);
+                token._ptr = self._ptr;
+                token._len = ptr - self._ptr;
+                if (ptr == self._ptr + self._len) {
+                    // Not found
+                    self._len = 0;
+                } else {
+                    self._len -= token._len + needle._len;
+                    self._ptr = ptr + needle._len;
+                }
+                return token;
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything after the first
+             *      occurrence of `needle`, and returning everything before it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and the entirety of `self` is returned.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @return The part of `self` up to the first occurrence of `delim`.
+             */
+            function split(slice self, slice needle) internal returns (slice token) {
+                split(self, needle, token);
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything before the last
+             *      occurrence of `needle`, and `token` to everything after it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and `token` is set to the entirety of `self`.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @param token An output parameter to which the first token is written.
+             * @return `token`.
+             */
+            function rsplit(slice self, slice needle, slice token) internal returns (slice) {
+                uint ptr = rfindPtr(self._len, self._ptr, needle._len, needle._ptr);
+                token._ptr = ptr;
+                token._len = self._len - (ptr - self._ptr);
+                if (ptr == self._ptr) {
+                    // Not found
+                    self._len = 0;
+                } else {
+                    self._len -= token._len + needle._len;
+                }
+                return token;
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything before the last
+             *      occurrence of `needle`, and returning everything after it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and the entirety of `self` is returned.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @return The part of `self` after the last occurrence of `delim`.
+             */
+            function rsplit(slice self, slice needle) internal returns (slice token) {
+                rsplit(self, needle, token);
+            }
+
+            /*
+             * @dev Counts the number of nonoverlapping occurrences of `needle` in `self`.
+             * @param self The slice to search.
+             * @param needle The text to search for in `self`.
+             * @return The number of occurrences of `needle` found in `self`.
+             */
+            function count(slice self, slice needle) internal view returns (uint count) {
+                uint ptr = findPtr(self._len, self._ptr, needle._len, needle._ptr) + needle._len;
+                while (ptr <= self._ptr + self._len) {
+                    count++;
+                    ptr = findPtr(self._len - (ptr - self._ptr), ptr, needle._len, needle._ptr) + needle._len;
+                }
+            }
+
+            /*
+             * @dev Returns True if `self` contains `needle`.
+             * @param self The slice to search.
+             * @param needle The text to search for in `self`.
+             * @return True if `needle` is found in `self`, false otherwise.
+             */
+            function contains(slice self, slice needle) internal view returns (bool) {
+                return rfindPtr(self._len, self._ptr, needle._len, needle._ptr) != self._ptr;
+            }
+
+            /*
+             * @dev Returns a newly allocated string containing the concatenation of
+             *      `self` and `other`.
+             * @param self The first slice to concatenate.
+             * @param other The second slice to concatenate.
+             * @return The concatenation of the two strings.
+             */
+            function concat(slice self, slice other) internal view returns (string) {
+                var ret = new string(self._len + other._len);
+                uint retptr;
+                assembly { retptr := add(ret, 32) }
+                memcpy(retptr, self._ptr, self._len);
+                memcpy(retptr + self._len, other._ptr, other._len);
+                return ret;
+            }
+
+            /*
+             * @dev Joins an array of slices, using `self` as a delimiter, returning a
+             *      newly allocated string.
+             * @param self The delimiter to use.
+             * @param parts A list of slices to join.
+             * @return A newly allocated string containing all the slices in `parts`,
+             *         joined with `self`.
+             */
+            function join(slice self, slice[] parts) internal view returns (string) {
+                if (parts.length == 0)
+                    return "";
+
+                uint len = self._len * (parts.length - 1);
+                for(uint i = 0; i < parts.length; i++)
+                    len += parts[i]._len;
+
+                var ret = new string(len);
+                uint retptr;
+                assembly { retptr := add(ret, 32) }
+
+                for(i = 0; i < parts.length; i++) {
+                    memcpy(retptr, parts[i]._ptr, parts[i]._len);
+                    retptr += parts[i]._len;
+                    if (i < parts.length - 1) {
+                        memcpy(retptr, self._ptr, self._len);
+                        retptr += self._len;
+                    }
+                }
+
+                return ret;
+            }
+
+        }
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:46:55 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/contents/StringUtilsLib/StringUtilsLib.sol?ref=d269e5923b0d8c0ef7e391417109f219234f3ae1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/vnd.github.v3.raw
+      User-Agent:
+      - Ruby
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 17 Jul 2018 11:46:53 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Server:
+      - GitHub.com
+      Status:
+      - 302 Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - X-PJAX, Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://render.githubusercontent.com
+      Location:
+      - https://raw.githubusercontent.com/test/test_repo/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol
+      X-Runtime:
+      - '0.061233'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Expect-Ct:
+      - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
+      Content-Security-Policy:
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; connect-src
+        ''self'' uploads.github.com status.github.com collector.githubapp.com api.github.com
+        www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com
+        github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com
+        wss://live.github.com; font-src assets-cdn.github.com; form-action ''self''
+        github.com gist.github.com; frame-ancestors ''none''; frame-src render.githubusercontent.com;
+        img-src ''self'' data: assets-cdn.github.com identicons.github.com collector.githubapp.com
+        github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src ''self'';
+        media-src ''none''; script-src assets-cdn.github.com; style-src ''unsafe-inline''
+        assets-cdn.github.com'
+      X-Runtime-Rack:
+      - '0.068047'
+      Age:
+      - '2'
+      Content-Length:
+      - '202'
+      X-Github-Request-Id:
+      - 8726:71A8:6E0CD4:A7DF95:5B4DD72E
+    body:
+      encoding: UTF-8
+      string: <html><body>You are being <a href="https://raw.githubusercontent.com/test/test_repo/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:46:56 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/test/test_repo/d269e5923b0d8c0ef7e391417109f219234f3ae1/StringUtilsLib/StringUtilsLib.sol
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"b559f3bf6ffa074b451ddbcedfcd07ed3321229b"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 5C7E:63B6:410B4F4:447F7BC:5B4DD72B
+      Content-Length:
+      - '5634'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Jul 2018 11:46:55 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-syd18925-SYD
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Timer:
+      - S1531828015.180164,VS0,VE0
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - 5516ace06381dddd23ac76f5609a8e92b38849e5
+      Expires:
+      - Tue, 17 Jul 2018 11:51:55 GMT
+      Source-Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        pragma solidity ^0.4.18;
+
+        /*
+         * @title String & slice utility library for Solidity contracts.
+         * @author Nick Johnson <arachnid@notdot.net>
+         *
+         * version 1.2.0
+         * Copyright 2016 Nick Johnson
+         * Licensed under the Apache License, Version 2.0 (the "License");
+         * you may not use this file except in compliance with the License.
+         * You may obtain a copy of the License at
+         *
+         *      http://www.apache.org/licenses/LICENSE-2.0
+         *
+         * Unless required by applicable law or agreed to in writing, software
+         * distributed under the License is distributed on an "AS IS" BASIS,
+         * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+         * See the License for the specific language governing permissions and
+         * limitations under the License.
+         *
+         * This utility library was forked from https://github.com/Arachnid/solidity-stringutils
+         * into the Modular test_repo repo at https://github.com/Modular-Network/test_repo
+         * with permission. It has been updated to be more compatible with solidity 0.4.18
+         * coding patterns.
+         *
+         * Modular provides smart contract services and security reviews for contract
+         * deployments in addition to working on open source projects in the Ethereum
+         * community. Our purpose is to test, document, and deploy reusable code onto the
+         * blockchain and improve both security and usability. We also educate non-profits,
+         * schools, and other community members about the application of blockchain
+         * technology. For further information: modular.network
+         *
+         * @dev Functionality in this library is largely implemented using an
+         *      abstraction called a 'slice'. A slice represents a part of a string -
+         *      anything from the entire string to a single character, or even no
+         *      characters at all (a 0-length slice). Since a slice only has to specify
+         *      an offset and a length, copying and manipulating slices is a lot less
+         *      expensive than copying and manipulating the strings they reference.
+         *
+         *      To further reduce gas costs, most functions on slice that need to return
+         *      a slice modify the original one instead of allocating a new one; for
+         *      instance, `s.split(".")` will return the text up to the first '.',
+         *      modifying s to only contain the remainder of the string after the '.'.
+         *      In situations where you do not want to modify the original slice, you
+         *      can make a copy first with `.copy()`, for example:
+         *      `s.copy().split(".")`. Try and avoid using this idiom in loops; since
+         *      Solidity has no memory management, it will result in allocating many
+         *      short-lived slices that are later discarded.
+         *
+         *      Functions that return two slices come in two versions: a non-allocating
+         *      version that takes the second slice as an argument, modifying it in
+         *      place, and an allocating version that allocates and returns the second
+         *      slice; see `nextRune` for example.
+         *
+         *      Functions that have to copy string data will return strings rather than
+         *      slices; these can be cast back to slices for further processing if
+         *      required.
+         *
+         *      For convenience, some functions are provided with non-modifying
+         *      variants that create a new slice and return both; for instance,
+         *      `s.splitNew('.')` leaves s unmodified, and returns two values
+         *      corresponding to the left and right parts of the string.
+         */
+
+        library StringUtilsLib {
+            struct slice {
+                uint _len;
+                uint _ptr;
+            }
+
+            function memcpy(uint dest, uint src, uint len) private pure {
+                // Copy word-length chunks while possible
+                for(; len >= 32; len -= 32) {
+                    assembly {
+                        mstore(dest, mload(src))
+                    }
+                    dest += 32;
+                    src += 32;
+                }
+
+                // Copy remaining bytes
+                uint mask = 256 ** (32 - len) - 1;
+                assembly {
+                    let srcpart := and(mload(src), not(mask))
+                    let destpart := and(mload(dest), mask)
+                    mstore(dest, or(destpart, srcpart))
+                }
+            }
+
+            /*
+             * @dev Returns a slice containing the entire string.
+             * @param self The string to make a slice from.
+             * @return A newly allocated slice containing the entire string.
+             */
+            function toSlice(string self) internal returns (slice) {
+                uint ptr;
+                assembly {
+                    ptr := add(self, 0x20)
+                }
+                return slice(bytes(self).length, ptr);
+            }
+
+            /*
+             * @dev Returns the length of a null-terminated bytes32 string.
+             * @param self The value to find the length of.
+             * @return The length of the string, from 0 to 32.
+             */
+            function len(bytes32 self) internal returns (uint) {
+                uint ret;
+                if (self == 0)
+                    return 0;
+                if (self & 0xffffffffffffffffffffffffffffffff == 0) {
+                    ret += 16;
+                    self = bytes32(uint(self) / 0x100000000000000000000000000000000);
+                }
+                if (self & 0xffffffffffffffff == 0) {
+                    ret += 8;
+                    self = bytes32(uint(self) / 0x10000000000000000);
+                }
+                if (self & 0xffffffff == 0) {
+                    ret += 4;
+                    self = bytes32(uint(self) / 0x100000000);
+                }
+                if (self & 0xffff == 0) {
+                    ret += 2;
+                    self = bytes32(uint(self) / 0x10000);
+                }
+                if (self & 0xff == 0) {
+                    ret += 1;
+                }
+                return 32 - ret;
+            }
+
+            /*
+             * @dev Returns a slice containing the entire bytes32, interpreted as a
+             *      null-termintaed utf-8 string.
+             * @param self The bytes32 value to convert to a slice.
+             * @return A new slice containing the value of the input argument up to the
+             *         first null.
+             */
+            function toSliceB32(bytes32 self) internal returns (slice ret) {
+                // Allocate space for `self` in memory, copy it there, and point ret at it
+                assembly {
+                    let ptr := mload(0x40)
+                    mstore(0x40, add(ptr, 0x20))
+                    mstore(ptr, self)
+                    mstore(add(ret, 0x20), ptr)
+                }
+                ret._len = len(self);
+            }
+
+            /*
+             * @dev Returns a new slice containing the same data as the current slice.
+             * @param self The slice to copy.
+             * @return A new slice containing the same data as `self`.
+             */
+            function copy(slice self) internal returns (slice) {
+                return slice(self._len, self._ptr);
+            }
+
+            /*
+             * @dev Copies a slice to a new string.
+             * @param self The slice to copy.
+             * @return A newly allocated string containing the slice's text.
+             */
+            function toString(slice self) internal view returns (string) {
+                var ret = new string(self._len);
+                uint retptr;
+                assembly { retptr := add(ret, 32) }
+
+                memcpy(retptr, self._ptr, self._len);
+                return ret;
+            }
+
+            /*
+             * @dev Returns the length in runes of the slice. Note that this operation
+             *      takes time proportional to the length of the slice; avoid using it
+             *      in loops, and call `slice.empty()` if you only need to know whether
+             *      the slice is empty or not.
+             * @param self The slice to operate on.
+             * @return The length of the slice in runes.
+             */
+
+            function len(slice self) internal view returns (uint) {
+                // Starting at ptr-31 means the LSB will be the byte we care about
+                var ptr = self._ptr - 31;
+                var end = ptr + self._len;
+                for (uint len = 0; ptr < end; len++) {
+                    uint8 b;
+                    assembly {
+                        b := and(mload(ptr), 0xFF)
+                    }
+                    if (b < 0x80) {
+                        ptr += 1;
+                    } else if(b < 0xE0) {
+                        ptr += 2;
+                    } else if(b < 0xF0) {
+                        ptr += 3;
+                    } else if(b < 0xF8) {
+                        ptr += 4;
+                    } else if(b < 0xFC) {
+                        ptr += 5;
+                    } else {
+                        ptr += 6;
+                    }
+                }
+                return len;
+            }
+
+            /*
+             * @dev Returns true if the slice is empty (has a length of 0).
+             * @param self The slice to operate on.
+             * @return True if the slice is empty, False otherwise.
+             */
+            function empty(slice self) internal view returns (bool) {
+                return self._len == 0;
+            }
+
+            /*
+             * @dev Returns a positive number if `other` comes lexicographically after
+             *      `self`, a negative number if it comes before, or zero if the
+             *      contents of the two slices are equal. Comparison is done per-rune,
+             *      on unicode codepoints.
+             * @param self The first slice to compare.
+             * @param other The second slice to compare.
+             * @return The result of the comparison.
+             */
+            function compare(slice self, slice other) internal view returns (int) {
+                uint shortest = self._len;
+                if (other._len < self._len)
+                    shortest = other._len;
+
+                var selfptr = self._ptr;
+                var otherptr = other._ptr;
+                for (uint idx = 0; idx < shortest; idx += 32) {
+                    uint a;
+                    uint b;
+                    assembly {
+                        a := mload(selfptr)
+                        b := mload(otherptr)
+                    }
+                    if (a != b) {
+                        // Mask out irrelevant bytes and check again
+                        uint mask = ~(2 ** (8 * (32 - shortest + idx)) - 1);
+                        var diff = (a & mask) - (b & mask);
+                        if (diff != 0)
+                            return int(diff);
+                    }
+                    selfptr += 32;
+                    otherptr += 32;
+                }
+                return int(self._len) - int(other._len);
+            }
+
+            /*
+             * @dev Returns true if the two slices contain the same text.
+             * @param self The first slice to compare.
+             * @param self The second slice to compare.
+             * @return True if the slices are equal, false otherwise.
+             */
+            function equals(slice self, slice other) internal view returns (bool) {
+                return compare(self, other) == 0;
+            }
+
+            /*
+             * @dev Extracts the first rune in the slice into `rune`, advancing the
+             *      slice to point to the next rune and returning `rune`.
+             * @param self The slice to operate on.
+             * @param rune The slice that will contain the first rune.
+             * @return `rune`.
+             */
+            function nextRune(slice self, slice rune) internal returns (slice) {
+                rune._ptr = self._ptr;
+
+                if (self._len == 0) {
+                    rune._len = 0;
+                    return rune;
+                }
+
+                uint len;
+                uint b;
+                // Load the first byte of the rune into the LSBs of b
+                assembly { b := and(mload(sub(mload(add(self, 32)), 31)), 0xFF) }
+                if (b < 0x80) {
+                    len = 1;
+                } else if(b < 0xE0) {
+                    len = 2;
+                } else if(b < 0xF0) {
+                    len = 3;
+                } else {
+                    len = 4;
+                }
+
+                // Check for truncated codepoints
+                if (len > self._len) {
+                    rune._len = self._len;
+                    self._ptr += self._len;
+                    self._len = 0;
+                    return rune;
+                }
+
+                self._ptr += len;
+                self._len -= len;
+                rune._len = len;
+                return rune;
+            }
+
+            /*
+             * @dev Returns the first rune in the slice, advancing the slice to point
+             *      to the next rune.
+             * @param self The slice to operate on.
+             * @return A slice containing only the first rune from `self`.
+             */
+            function nextRune(slice self) internal returns (slice ret) {
+                nextRune(self, ret);
+            }
+
+            /*
+             * @dev Returns the number of the first codepoint in the slice.
+             * @param self The slice to operate on.
+             * @return The number of the first codepoint in the slice.
+             */
+            function ord(slice self) internal view returns (uint ret) {
+                if (self._len == 0) {
+                    return 0;
+                }
+
+                uint word;
+                uint len;
+                uint div = 2 ** 248;
+
+                // Load the rune into the MSBs of b
+                assembly { word:= mload(mload(add(self, 32))) }
+                var b = word / div;
+                if (b < 0x80) {
+                    ret = b;
+                    len = 1;
+                } else if(b < 0xE0) {
+                    ret = b & 0x1F;
+                    len = 2;
+                } else if(b < 0xF0) {
+                    ret = b & 0x0F;
+                    len = 3;
+                } else {
+                    ret = b & 0x07;
+                    len = 4;
+                }
+
+                // Check for truncated codepoints
+                if (len > self._len) {
+                    return 0;
+                }
+
+                for (uint i = 1; i < len; i++) {
+                    div = div / 256;
+                    b = (word / div) & 0xFF;
+                    if (b & 0xC0 != 0x80) {
+                        // Invalid UTF-8 sequence
+                        return 0;
+                    }
+                    ret = (ret * 64) | (b & 0x3F);
+                }
+
+                return ret;
+            }
+
+            /*
+             * @dev Returns the keccak-256 hash of the slice.
+             * @param self The slice to hash.
+             * @return The hash of the slice.
+             */
+            function keccak(slice self) internal view returns (bytes32 ret) {
+                assembly {
+                    ret := sha3(mload(add(self, 32)), mload(self))
+                }
+            }
+
+            /*
+             * @dev Returns true if `self` starts with `needle`.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return True if the slice starts with the provided text, false otherwise.
+             */
+            function startsWith(slice self, slice needle) internal view returns (bool) {
+                if (self._len < needle._len) {
+                    return false;
+                }
+
+                if (self._ptr == needle._ptr) {
+                    return true;
+                }
+
+                bool equal;
+                assembly {
+                    let len := mload(needle)
+                    let selfptr := mload(add(self, 0x20))
+                    let needleptr := mload(add(needle, 0x20))
+                    equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                }
+                return equal;
+            }
+
+            /*
+             * @dev If `self` starts with `needle`, `needle` is removed from the
+             *      beginning of `self`. Otherwise, `self` is unmodified.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return `self`
+             */
+            function beyond(slice self, slice needle) internal returns (slice) {
+                if (self._len < needle._len) {
+                    return self;
+                }
+
+                bool equal = true;
+                if (self._ptr != needle._ptr) {
+                    assembly {
+                        let len := mload(needle)
+                        let selfptr := mload(add(self, 0x20))
+                        let needleptr := mload(add(needle, 0x20))
+                        equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                    }
+                }
+
+                if (equal) {
+                    self._len -= needle._len;
+                    self._ptr += needle._len;
+                }
+
+                return self;
+            }
+
+            /*
+             * @dev Returns true if the slice ends with `needle`.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return True if the slice starts with the provided text, false otherwise.
+             */
+            function endsWith(slice self, slice needle) internal view returns (bool) {
+                if (self._len < needle._len) {
+                    return false;
+                }
+
+                var selfptr = self._ptr + self._len - needle._len;
+
+                if (selfptr == needle._ptr) {
+                    return true;
+                }
+
+                bool equal;
+                assembly {
+                    let len := mload(needle)
+                    let needleptr := mload(add(needle, 0x20))
+                    equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                }
+
+                return equal;
+            }
+
+            /*
+             * @dev If `self` ends with `needle`, `needle` is removed from the
+             *      end of `self`. Otherwise, `self` is unmodified.
+             * @param self The slice to operate on.
+             * @param needle The slice to search for.
+             * @return `self`
+             */
+            function until(slice self, slice needle) internal returns (slice) {
+                if (self._len < needle._len) {
+                    return self;
+                }
+
+                var selfptr = self._ptr + self._len - needle._len;
+                bool equal = true;
+                if (selfptr != needle._ptr) {
+                    assembly {
+                        let len := mload(needle)
+                        let needleptr := mload(add(needle, 0x20))
+                        equal := eq(sha3(selfptr, len), sha3(needleptr, len))
+                    }
+                }
+
+                if (equal) {
+                    self._len -= needle._len;
+                }
+
+                return self;
+            }
+
+            // Returns the memory address of the first byte of the first occurrence of
+            // `needle` in `self`, or the first byte after `self` if not found.
+            function findPtr(uint selflen, uint selfptr, uint needlelen, uint needleptr)
+              private
+              view
+              returns (uint)
+            {
+                uint ptr;
+                uint idx;
+
+                if (needlelen <= selflen) {
+                    if (needlelen <= 32) {
+                        // Optimized assembly for 68 gas per byte on short strings
+                        assembly {
+                            let mask := not(sub(exp(2, mul(8, sub(32, needlelen))), 1))
+                            let needledata := and(mload(needleptr), mask)
+                            let end := add(selfptr, sub(selflen, needlelen))
+                            let loop := selfptr
+
+                            for { } lt(loop, end) { } {
+                                switch eq(and(mload(loop), mask), needledata)
+                                case 1 {
+                                    ptr := loop
+                                    loop := end
+                                }
+                                case 0 {
+                                    loop := add(loop,1)
+                                }
+                            }
+                            switch eq(and(mload(ptr), mask), needledata)
+                            case 0 {
+                                ptr := add(selfptr, selflen)
+                            }
+                        }
+                        return ptr;
+                    } else {
+                        // For long needles, use hashing
+                        bytes32 hash;
+                        assembly { hash := sha3(needleptr, needlelen) }
+                        ptr = selfptr;
+                        for (idx = 0; idx <= selflen - needlelen; idx++) {
+                            bytes32 testHash;
+                            assembly { testHash := sha3(ptr, needlelen) }
+                            if (hash == testHash)
+                                return ptr;
+                            ptr += 1;
+                        }
+                    }
+                }
+                return selfptr + selflen;
+            }
+
+            // Returns the memory address of the first byte after the last occurrence of
+            // `needle` in `self`, or the address of `self` if not found.
+            function rfindPtr(uint selflen, uint selfptr, uint needlelen, uint needleptr)
+              private
+              view
+              returns (uint)
+            {
+                uint ptr;
+
+                if (needlelen <= selflen) {
+                    if (needlelen <= 32) {
+                        // Optimized assembly for 69 gas per byte on short strings
+                        assembly {
+                            let mask := not(sub(exp(2, mul(8, sub(32, needlelen))), 1))
+                            let needledata := and(mload(needleptr), mask)
+                            let loop := add(selfptr, sub(selflen, needlelen))
+
+                            for { } gt(loop, selfptr) { } {
+                                switch eq(and(mload(loop), mask), needledata)
+                                case 1 {
+                                    ptr := loop
+                                    loop := selfptr
+                                }
+                                case 0 {
+                                    loop := sub(loop,1)
+                                }
+                            }
+                            switch eq(and(mload(ptr), mask), needledata)
+                            case 1 {
+                                ptr := add(ptr, needlelen)
+                            }
+                            case 0 {
+                                ptr := selfptr
+                            }
+                        }
+                        return ptr;
+                    } else {
+                        // For long needles, use hashing
+                        bytes32 hash;
+                        assembly { hash := sha3(needleptr, needlelen) }
+                        ptr = selfptr + (selflen - needlelen);
+                        while (ptr >= selfptr) {
+                            bytes32 testHash;
+                            assembly { testHash := sha3(ptr, needlelen) }
+                            if (hash == testHash)
+                                return ptr + needlelen;
+                            ptr -= 1;
+                        }
+                    }
+                }
+                return selfptr;
+            }
+
+            /*
+             * @dev Modifies `self` to contain everything from the first occurrence of
+             *      `needle` to the end of the slice. `self` is set to the empty slice
+             *      if `needle` is not found.
+             * @param self The slice to search and modify.
+             * @param needle The text to search for.
+             * @return `self`.
+             */
+            function find(slice self, slice needle) internal returns (slice) {
+                uint ptr = findPtr(self._len, self._ptr, needle._len, needle._ptr);
+                self._len -= ptr - self._ptr;
+                self._ptr = ptr;
+                return self;
+            }
+
+            /*
+             * @dev Modifies `self` to contain the part of the string from the start of
+             *      `self` to the end of the first occurrence of `needle`. If `needle`
+             *      is not found, `self` is set to the empty slice.
+             * @param self The slice to search and modify.
+             * @param needle The text to search for.
+             * @return `self`.
+             */
+            function rfind(slice self, slice needle) internal returns (slice) {
+                uint ptr = rfindPtr(self._len, self._ptr, needle._len, needle._ptr);
+                self._len = ptr - self._ptr;
+                return self;
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything after the first
+             *      occurrence of `needle`, and `token` to everything before it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and `token` is set to the entirety of `self`.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @param token An output parameter to which the first token is written.
+             * @return `token`.
+             */
+            function split(slice self, slice needle, slice token) internal returns (slice) {
+                uint ptr = findPtr(self._len, self._ptr, needle._len, needle._ptr);
+                token._ptr = self._ptr;
+                token._len = ptr - self._ptr;
+                if (ptr == self._ptr + self._len) {
+                    // Not found
+                    self._len = 0;
+                } else {
+                    self._len -= token._len + needle._len;
+                    self._ptr = ptr + needle._len;
+                }
+                return token;
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything after the first
+             *      occurrence of `needle`, and returning everything before it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and the entirety of `self` is returned.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @return The part of `self` up to the first occurrence of `delim`.
+             */
+            function split(slice self, slice needle) internal returns (slice token) {
+                split(self, needle, token);
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything before the last
+             *      occurrence of `needle`, and `token` to everything after it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and `token` is set to the entirety of `self`.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @param token An output parameter to which the first token is written.
+             * @return `token`.
+             */
+            function rsplit(slice self, slice needle, slice token) internal returns (slice) {
+                uint ptr = rfindPtr(self._len, self._ptr, needle._len, needle._ptr);
+                token._ptr = ptr;
+                token._len = self._len - (ptr - self._ptr);
+                if (ptr == self._ptr) {
+                    // Not found
+                    self._len = 0;
+                } else {
+                    self._len -= token._len + needle._len;
+                }
+                return token;
+            }
+
+            /*
+             * @dev Splits the slice, setting `self` to everything before the last
+             *      occurrence of `needle`, and returning everything after it. If
+             *      `needle` does not occur in `self`, `self` is set to the empty slice,
+             *      and the entirety of `self` is returned.
+             * @param self The slice to split.
+             * @param needle The text to search for in `self`.
+             * @return The part of `self` after the last occurrence of `delim`.
+             */
+            function rsplit(slice self, slice needle) internal returns (slice token) {
+                rsplit(self, needle, token);
+            }
+
+            /*
+             * @dev Counts the number of nonoverlapping occurrences of `needle` in `self`.
+             * @param self The slice to search.
+             * @param needle The text to search for in `self`.
+             * @return The number of occurrences of `needle` found in `self`.
+             */
+            function count(slice self, slice needle) internal view returns (uint count) {
+                uint ptr = findPtr(self._len, self._ptr, needle._len, needle._ptr) + needle._len;
+                while (ptr <= self._ptr + self._len) {
+                    count++;
+                    ptr = findPtr(self._len - (ptr - self._ptr), ptr, needle._len, needle._ptr) + needle._len;
+                }
+            }
+
+            /*
+             * @dev Returns True if `self` contains `needle`.
+             * @param self The slice to search.
+             * @param needle The text to search for in `self`.
+             * @return True if `needle` is found in `self`, false otherwise.
+             */
+            function contains(slice self, slice needle) internal view returns (bool) {
+                return rfindPtr(self._len, self._ptr, needle._len, needle._ptr) != self._ptr;
+            }
+
+            /*
+             * @dev Returns a newly allocated string containing the concatenation of
+             *      `self` and `other`.
+             * @param self The first slice to concatenate.
+             * @param other The second slice to concatenate.
+             * @return The concatenation of the two strings.
+             */
+            function concat(slice self, slice other) internal view returns (string) {
+                var ret = new string(self._len + other._len);
+                uint retptr;
+                assembly { retptr := add(ret, 32) }
+                memcpy(retptr, self._ptr, self._len);
+                memcpy(retptr + self._len, other._ptr, other._len);
+                return ret;
+            }
+
+            /*
+             * @dev Joins an array of slices, using `self` as a delimiter, returning a
+             *      newly allocated string.
+             * @param self The delimiter to use.
+             * @param parts A list of slices to join.
+             * @return A newly allocated string containing all the slices in `parts`,
+             *         joined with `self`.
+             */
+            function join(slice self, slice[] parts) internal view returns (string) {
+                if (parts.length == 0)
+                    return "";
+
+                uint len = self._len * (parts.length - 1);
+                for(uint i = 0; i < parts.length; i++)
+                    len += parts[i]._len;
+
+                var ret = new string(len);
+                uint retptr;
+                assembly { retptr := add(ret, 32) }
+
+                for(i = 0; i < parts.length; i++) {
+                    memcpy(retptr, parts[i]._ptr, parts[i]._len);
+                    retptr += parts[i]._len;
+                    if (i < parts.length - 1) {
+                        memcpy(retptr, self._ptr, self._len);
+                        retptr += self._len;
+                    }
+                }
+
+                return ret;
+            }
+
+        }
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:46:56 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/contents/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol?ref=bcd15f73f0c229f7f4ac05bc872994a2cb571d65
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/vnd.github.v3.raw
+      User-Agent:
+      - Ruby
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Tue, 17 Jul 2018 11:46:56 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Server:
+      - GitHub.com
+      Status:
+      - 302 Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - X-PJAX, Accept-Encoding
+      Access-Control-Allow-Origin:
+      - https://render.githubusercontent.com
+      Location:
+      - https://raw.githubusercontent.com/test/test_repo/bcd15f73f0c229f7f4ac05bc872994a2cb571d65/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol
+      X-Runtime:
+      - '0.066721'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Expect-Ct:
+      - max-age=2592000, report-uri="https://api.github.com/_private/browser/errors"
+      Content-Security-Policy:
+      - 'default-src ''none''; base-uri ''self''; block-all-mixed-content; connect-src
+        ''self'' uploads.github.com status.github.com collector.githubapp.com api.github.com
+        www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com
+        github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com
+        wss://live.github.com; font-src assets-cdn.github.com; form-action ''self''
+        github.com gist.github.com; frame-ancestors ''none''; frame-src render.githubusercontent.com;
+        img-src ''self'' data: assets-cdn.github.com identicons.github.com collector.githubapp.com
+        github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src ''self'';
+        media-src ''none''; script-src assets-cdn.github.com; style-src ''unsafe-inline''
+        assets-cdn.github.com'
+      X-Runtime-Rack:
+      - '0.077219'
+      Age:
+      - '0'
+      Content-Length:
+      - '217'
+      X-Github-Request-Id:
+      - 2240:71A8:6E0D46:A7E031:5B4DD72F
+    body:
+      encoding: UTF-8
+      string: <html><body>You are being <a href="https://raw.githubusercontent.com/test/test_repo/bcd15f73f0c229f7f4ac05bc872994a2cb571d65/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol">redirected</a>.</body></html>
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:46:57 GMT
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/test/test_repo/bcd15f73f0c229f7f4ac05bc872994a2cb571d65/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"db4bb5426c8b3629dc0a713794403fb936bcd2af"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 5800:4549:3F5C356:42C9B02:5B4DD72F
+      Content-Length:
+      - '6954'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 17 Jul 2018 11:46:57 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-syd18932-SYD
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1531828017.579881,VS0,VE1006
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - c0f38081fcc35e19c1c8274f9932e67edcc96342
+      Expires:
+      - Tue, 17 Jul 2018 11:51:57 GMT
+      Source-Age:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        pragma solidity ^0.4.18;
+
+        /**
+         * @title InteractiveCrowdsaleLib
+         * @author Modular, Inc
+         *
+         * version 1.0.0
+         * Copyright (c) 2017 Modular, Inc
+         * The MIT License (MIT)
+         *
+         * The InteractiveCrowdsale Library provides functionality to create a crowdsale
+         * based on the white paper initially proposed by Jason Teutsch and Vitalik
+         * Buterin. See https://people.cs.uchicago.edu/~teutsch/papers/ico.pdf for
+         * further information.
+         *
+         * This library was developed in a collaborative effort among many organizations
+         * including TrueBit, Modular, and Consensys.
+         * For further information: truebit.io, modular.network,
+         * consensys.net
+         *
+         * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+         * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+         * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+         * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+         * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+         * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+         * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+         */
+
+        import "./BasicMathLib.sol";
+        import "./TokenLib.sol";
+        import "./CrowdsaleToken.sol";
+        import "./CrowdsaleLib.sol";
+        import "./LinkedListLib.sol";
+
+        library InteractiveCrowdsaleLib {
+          using BasicMathLib for uint256;
+          using TokenLib for TokenLib.TokenStorage;
+          using LinkedListLib for LinkedListLib.LinkedList;
+          using CrowdsaleLib for CrowdsaleLib.CrowdsaleStorage;
+
+          // Node constants for use in the linked list
+          uint256 constant NULL = 0;
+          uint256 constant HEAD = 0;
+          bool constant PREV = false;
+          bool constant NEXT = true;
+
+          struct InteractiveCrowdsaleStorage {
+
+            CrowdsaleLib.CrowdsaleStorage base; // base storage from CrowdsaleLib
+
+            // List of personal valuations, sorted from smallest to largest (from LinkedListLib)
+            LinkedListLib.LinkedList valuationsList;
+
+            // Info holder for token creation
+            TokenLib.TokenStorage tokenInfo;
+
+            uint256 endWithdrawalTime;   // time when manual withdrawals are no longer allowed
+
+            // current total valuation of the sale
+            // actual amount of ETH committed, taking into account partial purchases
+            uint256 totalValuation;
+
+            // amount of value committed at this valuation, cannot rely on owner balance
+            // due to fluctations in commitment calculations needed after owner withdraws
+            // in other words, the total amount of ETH committed, including total bids
+            // that will eventually get partial purchases
+            uint256 valueCommitted;
+
+            // the bucket that sits either at or just below current total valuation.
+            // determines where the cutoff point is for bids in the sale
+            uint256 currentBucket;
+
+            // the fraction of each minimal valuation bidder's ether refund, 'q' is from the paper
+            // and is calculated when finalizing the sale
+            uint256 q;
+
+            // minimim amount that the sale needs to make to be successfull
+            uint256 minimumRaise;
+
+            // percentage of total tokens being sold in this sale
+            uint8 percentBeingSold;
+
+            // the bonus amount for early bidders.  This is a percentage of the base token
+            // price that gets added on the the base token price used in getCurrentBonus()
+            uint256 priceBonusPercent;
+
+            // Indicates that the owner has finalized the sale and withdrawn Ether
+            bool isFinalized;
+
+            // Set to true if the sale is canceled
+            bool isCanceled;
+
+            // shows the price that the address purchased tokens at
+            mapping (address => uint256) pricePurchasedAt;
+
+            // the sums of bids at each valuation.  Used to calculate the current bucket for the valuation pointer
+            mapping (uint256 => uint256) valuationSums;
+
+            // the number of active bids at a certain valuation cap
+            mapping (uint256 => uint256) numBidsAtValuation;
+
+            // the valuation cap that each address has submitted
+            mapping (address => uint256) personalCaps;
+
+            // shows if an address has done a manual withdrawal. manual withdrawals are only allowed once
+            mapping (address => bool) hasManuallyWithdrawn;
+          }
+
+          // Indicates when a bidder submits a bid to the crowdsale
+          event LogBidAccepted(address indexed bidder, uint256 amount, uint256 personalValuation);
+
+          // Indicates when a bidder manually withdraws their bid from the crowdsale
+          event LogBidWithdrawn(address indexed bidder, uint256 amount, uint256 personalValuation);
+
+          // Indicates when a bid is removed by the automated bid removal process
+          event LogBidRemoved(address indexed bidder, uint256 personalValuation);
+
+          // Generic Error Msg Event
+          event LogErrorMsg(uint256 amount, string Msg);
+
+          // Indicates when the price of the token changes
+          event LogTokenPriceChange(uint256 amount, string Msg);
+
+          // Logs the current bucket that the valuation points to, the total valuation of
+          // the sale, and the amount of ETH committed, including total bids that will eventually get partial purchases
+          event BucketAndValuationAndCommitted(uint256 bucket, uint256 valuation, uint256 committed);
+
+          /// @dev Called by a crowdsale contract upon creation.
+          /// @param self Stored crowdsale from crowdsale contract
+          /// @param _owner Address of crowdsale owner
+          /// @param _saleData Array of 3 item arrays such that, in each 3 element
+          /// array index-0 is a timestamp, index-1 is price in tokens/ETH
+          /// index-2 is address purchase cap at that time, 0 if no address cap
+          /// @param _priceBonusPercent the bonus amount for early bidders
+          /// @param _minimumRaise minimim amount that the sale needs to make to be successfull
+          /// @param _endWithdrawalTime timestamp that indicates that manual withdrawals are no longer allowed
+          /// @param _endTime Timestamp of sale end time
+          /// @param _percentBeingSold percentage of total tokens being sold in the sale
+          /// @param _tokenName name of the token being sold. ex: "Jason Network Token"
+          /// @param _tokenSymbol symbol of the token. ex: "JNT"
+          /// @param _tokenDecimals number of decimals in the token
+          /// @param _allowMinting whether or not to allow minting of the token after the sale
+          function init(InteractiveCrowdsaleStorage storage self,
+                        address _owner,
+                        uint256[] _saleData,
+                        uint256 _priceBonusPercent,
+                        uint256 _minimumRaise,
+                        uint256 _endWithdrawalTime,
+                        uint256 _endTime,
+                        uint8 _percentBeingSold,
+                        string _tokenName,
+                        string _tokenSymbol,
+                        uint8 _tokenDecimals,
+                        bool _allowMinting) public
+          {
+            self.base.init(_owner,
+                        _saleData,
+                        _endTime,
+                        0, // no token burning for iico
+                        CrowdsaleToken(0)); // no tokens created prior to iico
+
+            require(_endWithdrawalTime < _endTime);
+            require(_endWithdrawalTime > _saleData[0]);
+            require(_minimumRaise > 0);
+            require(_percentBeingSold > 0);
+            require(_percentBeingSold <= 100);
+            require(_priceBonusPercent > 0);
+
+            self.minimumRaise = _minimumRaise;
+            self.endWithdrawalTime = _endWithdrawalTime;
+            self.percentBeingSold = _percentBeingSold;
+            self.priceBonusPercent = _priceBonusPercent;
+
+            self.tokenInfo.name = _tokenName;
+            self.tokenInfo.symbol = _tokenSymbol;
+            self.tokenInfo.decimals = _tokenDecimals;
+            self.tokenInfo.stillMinting = _allowMinting;
+          }
+
+          /// @dev calculates the number of digits in a given number
+          /// @param _number the number for which we're caluclating digits
+          /// @return _digits the number of digits in _number
+          function numDigits(uint256 _number) public pure returns (uint256) {
+            uint256 _digits = 0;
+            while (_number != 0) {
+              _number /= 10;
+              _digits++;
+            }
+            return _digits;
+          }
+
+          /// @dev calculates the number of tokens purchased based on the amount of wei
+          ///      spent and the price of tokens
+          /// @param _amount amound of wei that the buyer sent
+          /// @param _price price of tokens in the sale, in tokens/ETH
+          /// @return uint256 numTokens the number of tokens purchased
+          /// @return remainder  any remaining wei leftover from integer division
+          function calculateTokenPurchase(uint256 _amount,
+                                          uint256 _price)
+                                          internal
+                                          pure
+                                          returns (uint256,uint256)
+          {
+            uint256 remainder = 0; //temp calc holder for division remainder for leftover wei
+
+            bool err;
+            uint256 numTokens;
+            uint256 weiTokens; //temp calc holder
+
+            // Find the number of tokens as a function in wei
+            (err,weiTokens) = _amount.times(_price);
+            require(!err);
+
+            numTokens = weiTokens / 1000000000000000000;
+            remainder = weiTokens % 1000000000000000000;
+            remainder = remainder / _price;
+
+            return (numTokens,remainder);
+          }
+
+          /// @dev Called when an address wants to submit a bid to the sale
+          /// @param self Stored crowdsale from crowdsale contract
+          /// @return currentBonus percentage of the bonus that is applied for the purchase
+          function getCurrentBonus(InteractiveCrowdsaleStorage storage self) internal view returns (uint256){
+            // can't underflow becuase endWithdrawalTime > startTime
+            uint256 bonusTime = self.endWithdrawalTime - self.base.startTime;
+            // can't underflow because now > startTime
+            uint256 elapsed = now - self.base.startTime;
+            uint256 percentElapsed = (elapsed * 100)/bonusTime;
+
+            bool err;
+            uint256 currentBonus;
+            (err,currentBonus) = self.priceBonusPercent.minus(((percentElapsed * self.priceBonusPercent)/100));
+            require(!err);
+
+            return currentBonus;
+          }
+
+          /// @dev Called when an address wants to submit bid to the sale
+          /// @param self Stored crowdsale from crowdsale contract
+          /// @param _amount amound of wei that the buyer is sending
+          /// @param _personalCap the total crowdsale valuation (wei) that the bidder is comfortable with
+          /// @param _valuePredict prediction of where the valuation will go in the linked list. saves on searching time
+          /// @return true on succesful bid
+          function submitBid(InteractiveCrowdsaleStorage storage self,
+                              uint256 _amount,
+                              uint256 _personalCap,
+                              uint256 _valuePredict) public returns (bool)
+          {
+            require(msg.sender != self.base.owner);
+            require(self.base.validPurchase());
+            // bidder can't have already bid
+            require((self.personalCaps[msg.sender] == 0) && (self.base.hasContributed[msg.sender] == 0));
+
+            uint256 _bonusPercent;
+            // token purchase bonus only applies before the withdrawal lock
+            if (now < self.endWithdrawalTime) {
+              require(_personalCap > _amount);
+              _bonusPercent = getCurrentBonus(self);
+            } else {
+              // The personal valuation submitted must be greater than the current
+              // valuation plus the bid if after the withdrawal lock.
+              require(_personalCap >= self.totalValuation + _amount);
+            }
+
+            // personal valuation and minimum should be set to the proper granularity,
+            // only three most significant values can be non-zero. reduces the number of possible
+            // valuation buckets in the linked list
+            uint256 digits = numDigits(_personalCap);
+            if(digits > 3) {
+              require((_personalCap % (10**(digits - 3))) == 0);
+            }
+
+            // add the bid to the sorted valuations list
+            // duplicate personal valuation caps share a spot in the linked list
+            uint256 _listSpot;
+            if(!self.valuationsList.nodeExists(_personalCap)){
+                _listSpot = self.valuationsList.getSortedSpot(_valuePredict,_personalCap,NEXT);
+                self.valuationsList.insert(_listSpot,_personalCap,PREV);
+            }
+
+            // add the bid to the address => cap mapping
+            self.personalCaps[msg.sender] = _personalCap;
+
+            // add the bid to the sum of bids at this valuation. Needed for calculating correct valuation pointer
+            self.valuationSums[_personalCap] += _amount;
+            self.numBidsAtValuation[_personalCap] += 1;
+
+            // add the bid to bidder's contribution amount
+            self.base.hasContributed[msg.sender] += _amount;
+
+            // temp variables for calculation
+            uint256 _proposedCommit;
+            uint256 _currentBucket;
+            bool loop;
+            bool exists;
+
+            // we only affect the pointer if we are coming in above it
+            if(_personalCap > self.currentBucket){
+
+              // if our valuation is sitting at the current bucket then we are using
+              // commitments right at their cap
+              if (self.totalValuation == self.currentBucket) {
+                // we are going to drop those commitments to see if we are going to be
+                // greater than the current bucket without them
+                _proposedCommit = (self.valueCommitted - self.valuationSums[self.currentBucket]) + _amount;
+                if(_proposedCommit > self.currentBucket){ loop = true; }
+              } else {
+                // else we're sitting in between buckets and have already dropped the
+                // previous commitments
+                _proposedCommit = self.totalValuation + _amount;
+                loop = true;
+              }
+
+              if(loop){
+                // if we're going to loop we move to the next bucket
+                (exists,_currentBucket) = self.valuationsList.getAdjacent(self.currentBucket, NEXT);
+
+                while(_proposedCommit >= _currentBucket){
+                  // while we are proposed higher than the next bucket we drop commitments
+                  // and iterate to the next
+                  _proposedCommit = _proposedCommit - self.valuationSums[_currentBucket];
+                  (exists,_currentBucket) = self.valuationsList.getAdjacent(_currentBucket, NEXT);
+                }
+                // once we've reached a bucket too high we move back to the last bucket and set it
+                (exists, _currentBucket) = self.valuationsList.getAdjacent(_currentBucket, PREV);
+                self.currentBucket = _currentBucket;
+              } else {
+                // else we're staying at the current bucket
+                _currentBucket = self.currentBucket;
+              }
+              // if our proposed commitment is less than or equal to the bucket
+              if(_proposedCommit <= _currentBucket){
+                // we add the commitments in that bucket
+                _proposedCommit += self.valuationSums[_currentBucket];
+                // and our value is capped at that bucket
+                self.totalValuation = _currentBucket;
+              } else {
+                // else our total value is in between buckets and it equals the total commitements
+                self.totalValuation = _proposedCommit;
+              }
+
+              self.valueCommitted = _proposedCommit;
+            } else if(_personalCap == self.totalValuation){
+              self.valueCommitted += _amount;
+            }
+
+            self.pricePurchasedAt[msg.sender] = (self.base.tokensPerEth * (100 + _bonusPercent))/100;
+            LogBidAccepted(msg.sender, _amount, _personalCap);
+            BucketAndValuationAndCommitted(self.currentBucket, self.totalValuation, self.valueCommitted);
+            return true;
+          }
+
+
+          /// @dev Called when an address wants to manually withdraw their bid from the
+          ///      sale. puts their wei in the LeftoverWei mapping
+          /// @param self Stored crowdsale from crowdsale contract
+          /// @return true on succesful
+          function withdrawBid(InteractiveCrowdsaleStorage storage self) public returns (bool) {
+            // The sender has to have already bid on the sale
+            require(self.personalCaps[msg.sender] > 0);
+
+            uint256 refundWei;
+            // cannot withdraw after compulsory withdraw period is over unless the bid's
+            // valuation is below the cutoff
+            if (now >= self.endWithdrawalTime) {
+              require(self.personalCaps[msg.sender] < self.totalValuation);
+
+              // full refund because their bid no longer affects the total sale valuation
+              refundWei = self.base.hasContributed[msg.sender];
+
+            } else {
+              require(!self.hasManuallyWithdrawn[msg.sender]);  // manual withdrawals are only allowed once
+              /***********************************************************************
+              The following lines were commented out due to stack depth, but they represent
+              the variables and calculations from the paper. The actual code is the same
+              thing spelled out using current variables.  See section 4 of the white paper for formula used
+              ************************************************************************/
+              //uint256 t = self.endWithdrawalTime - self.base.startTime;
+              //uint256 s = now - self.base.startTime;
+              //uint256 pa = self.pricePurchasedAt[msg.sender];
+              //uint256 pu = self.base.tokensPerEth;
+              //uint256 multiplierPercent =  (100*(t - s))/t;
+              //self.pricePurchasedAt = pa-((pa-pu)/3)
+
+              uint256 multiplierPercent = (100 * (self.endWithdrawalTime - now)) /
+                                          (self.endWithdrawalTime - self.base.startTime);
+              refundWei = (multiplierPercent * self.base.hasContributed[msg.sender]) / 100;
+
+              self.valuationSums[self.personalCaps[msg.sender]] -= refundWei;
+              self.numBidsAtValuation[self.personalCaps[msg.sender]] -= 1;
+
+              self.pricePurchasedAt[msg.sender] = self.pricePurchasedAt[msg.sender] -
+                                                  ((self.pricePurchasedAt[msg.sender] - self.base.tokensPerEth) / 3);
+
+              self.hasManuallyWithdrawn[msg.sender] = true;
+
+            }
+
+            // Put the sender's contributed wei into the leftoverWei mapping for later withdrawal
+            self.base.leftoverWei[msg.sender] += refundWei;
+
+            // subtract the bidder's refund from its total contribution
+            self.base.hasContributed[msg.sender] -= refundWei;
+
+
+            uint256 _proposedCommit;
+            uint256 _proposedValue;
+            uint256 _currentBucket;
+            bool loop;
+            bool exists;
+
+            // bidder's withdrawal only affects the pointer if the personal cap is at or
+            // above the current valuation
+            if(self.personalCaps[msg.sender] >= self.totalValuation){
+
+              // first we remove the refundWei from the committed value
+              _proposedCommit = self.valueCommitted - refundWei;
+
+              // if we've dropped below the current bucket
+              if(_proposedCommit <= self.currentBucket){
+                // and current valuation is above the bucket
+                if(self.totalValuation > self.currentBucket){
+                  _proposedCommit += self.valuationSums[self.currentBucket];
+                }
+
+                if(_proposedCommit >= self.currentBucket){
+                  _proposedValue = self.currentBucket;
+                } else {
+                  // if we are still below the current bucket then we need to iterate
+                  loop = true;
+                }
+              } else {
+                if(self.totalValuation == self.currentBucket){
+                  _proposedValue = self.totalValuation;
+                } else {
+                  _proposedValue = _proposedCommit;
+                }
+              }
+
+              if(loop){
+                // if we're going to loop we move to the previous bucket
+                (exists,_currentBucket) = self.valuationsList.getAdjacent(self.currentBucket, PREV);
+                while(_proposedCommit <= _currentBucket){
+                  // while we are proposed lower than the previous bucket we add commitments
+                  _proposedCommit += self.valuationSums[_currentBucket];
+                  // and iterate to the previous
+                  if(_proposedCommit >= _currentBucket){
+                    _proposedValue = _currentBucket;
+                  } else {
+                    (exists,_currentBucket) = self.valuationsList.getAdjacent(_currentBucket, PREV);
+                  }
+                }
+
+                if(_proposedValue == 0) { _proposedValue = _proposedCommit; }
+
+                self.currentBucket = _currentBucket;
+              }
+
+              self.totalValuation = _proposedValue;
+              self.valueCommitted = _proposedCommit;
+            }
+
+            LogBidWithdrawn(msg.sender, refundWei, self.personalCaps[msg.sender]);
+            BucketAndValuationAndCommitted(self.currentBucket, self.totalValuation, self.valueCommitted);
+            return true;
+          }
+
+          /// @dev This should be called once the sale is over to commit all bids into
+          ///      the owner's bucket.
+          /// @param self stored crowdsale from crowdsale contract
+          function finalizeSale(InteractiveCrowdsaleStorage storage self) public returns (bool) {
+            require(now >= self.base.endTime);
+            require(!self.isFinalized); // can only be called once
+            require(setCanceled(self));
+
+            self.isFinalized = true;
+            require(launchToken(self));
+            // may need to be computed due to EVM rounding errors
+            uint256 computedValue;
+
+            if(!self.isCanceled){
+              if(self.totalValuation == self.currentBucket){
+                // calculate the fraction of each minimal valuation bidders ether and tokens to refund
+                self.q = (100*(self.valueCommitted - self.totalValuation)/(self.valuationSums[self.totalValuation])) + 1;
+                computedValue = self.valueCommitted - self.valuationSums[self.totalValuation];
+                computedValue += (self.q * self.valuationSums[self.totalValuation])/100;
+              } else {
+                // no computation necessary
+                computedValue = self.totalValuation;
+              }
+              self.base.ownerBalance = computedValue;  // sets ETH raised in the sale to be ready for withdrawal
+            }
+          }
+
+          /// @dev Mints the token being sold by taking the percentage of the token supply
+          ///      being sold in this sale along with the valuation, derives all necessary
+          ///      values and then transfers owner tokens to the owner.
+          /// @param self Stored crowdsale from crowdsale contract
+          function launchToken(InteractiveCrowdsaleStorage storage self) internal returns (bool) {
+            // total valuation of all the tokens not including the bonus
+            uint256 _fullValue = (self.totalValuation*100)/uint256(self.percentBeingSold);
+            // total valuation of bonus tokens
+            uint256 _bonusValue = ((self.totalValuation * (100 + self.priceBonusPercent))/100) - self.totalValuation;
+            // total supply of all tokens not including the bonus
+            uint256 _supply = (_fullValue * self.base.tokensPerEth)/1000000000000000000;
+            // total number of bonus tokens
+            uint256 _bonusTokens = (_bonusValue * self.base.tokensPerEth)/1000000000000000000;
+            // tokens allocated to the owner of the sale
+            uint256 _ownerTokens = _supply - ((_supply * uint256(self.percentBeingSold))/100);
+            // total supply of tokens not including the bonus tokens
+            uint256 _totalSupply = _supply + _bonusTokens;
+
+            // deploy new token contract with total number of tokens
+            self.base.token = new CrowdsaleToken(address(this),
+                                                 self.tokenInfo.name,
+                                                 self.tokenInfo.symbol,
+                                                 self.tokenInfo.decimals,
+                                                 _totalSupply,
+                                                 self.tokenInfo.stillMinting);
+
+            // if the sale got canceled, then all the tokens go to the owner and bonus tokens are burned
+            if(!self.isCanceled){
+              self.base.token.transfer(self.base.owner, _ownerTokens);
+            } else {
+              self.base.token.transfer(self.base.owner, _supply);
+              self.base.token.burnToken(_bonusTokens);
+            }
+            // the owner of the crowdsale becomes the new owner of the token contract
+            self.base.token.changeOwner(self.base.owner);
+            self.base.startingTokenBalance = _supply - _ownerTokens;
+
+            return true;
+          }
+
+          /// @dev returns a boolean indicating if the sale is canceled.
+          ///      This can either be if the minimum raise hasn't been met
+          ///      or if it is 30 days after the sale and the owner hasn't finalized the sale.
+          /// @return bool canceled indicating if the sale is canceled or not
+          function setCanceled(InteractiveCrowdsaleStorage storage self) internal returns(bool){
+            bool canceled = (self.totalValuation < self.minimumRaise) ||
+                            ((now > (self.base.endTime + 30 days)) && !self.isFinalized);
+
+            if(canceled) {self.isCanceled = true;}
+
+            return true;
+          }
+
+          /// @dev If the address' personal cap is below the pointer, refund them all their ETH.
+          ///      if it is above the pointer, calculate tokens purchased and refund leftoever ETH
+          /// @param self Stored crowdsale from crowdsale contract
+          /// @return bool success if the contract runs successfully
+          function retreiveFinalResult(InteractiveCrowdsaleStorage storage self) public returns (bool) {
+            require(now > self.base.endTime);
+            require(self.personalCaps[msg.sender] > 0);
+
+            uint256 numTokens;
+            uint256 remainder;
+
+            if(!self.isFinalized){
+              require(setCanceled(self));
+              require(self.isCanceled);
+            }
+
+            if (self.isCanceled) {
+              // if the sale was canceled, everyone gets a full refund
+              self.base.leftoverWei[msg.sender] += self.base.hasContributed[msg.sender];
+              self.base.hasContributed[msg.sender] = 0;
+              LogErrorMsg(self.totalValuation, "Sale is canceled, all bids have been refunded!");
+              return true;
+            }
+
+            if (self.personalCaps[msg.sender] < self.totalValuation) {
+
+              // full refund if personal cap is less than total valuation
+              self.base.leftoverWei[msg.sender] += self.base.hasContributed[msg.sender];
+
+              // set hasContributed to 0 to prevent participant from calling this over and over
+              self.base.hasContributed[msg.sender] = 0;
+
+              return self.base.withdrawLeftoverWei();
+
+            } else if (self.personalCaps[msg.sender] == self.totalValuation) {
+
+              // calculate the portion that this address has to take out of their bid
+              uint256 refundAmount = (self.q*self.base.hasContributed[msg.sender])/100;
+
+              // refund that amount of wei to the address
+              self.base.leftoverWei[msg.sender] += refundAmount;
+
+              // subtract that amount the address' contribution
+              self.base.hasContributed[msg.sender] -= refundAmount;
+            }
+
+            LogErrorMsg(self.base.hasContributed[msg.sender],"contribution");
+            LogErrorMsg(self.pricePurchasedAt[msg.sender],"price");
+            LogErrorMsg(self.q,"percentage");
+            // calculate the number of tokens that the bidder purchased
+            (numTokens, remainder) = calculateTokenPurchase(self.base.hasContributed[msg.sender],
+                                                            self.pricePurchasedAt[msg.sender]);
+
+            // add tokens to the bidders purchase.  can't overflow because it will be under the cap
+            self.base.withdrawTokensMap[msg.sender] += numTokens;
+            self.valueCommitted = self.valueCommitted - remainder;
+            self.base.leftoverWei[msg.sender] += remainder;
+
+            // burn any extra bonus tokens
+            uint256 _fullBonus;
+            uint256 _fullBonusPrice = (self.base.tokensPerEth*(100 + self.priceBonusPercent))/100;
+            (_fullBonus, remainder) = calculateTokenPurchase(self.base.hasContributed[msg.sender], _fullBonusPrice);
+            uint256 _leftoverBonus = _fullBonus - numTokens;
+            self.base.token.burnToken(_leftoverBonus);
+
+            self.base.hasContributed[msg.sender] = 0;
+
+            // send tokens and leftoverWei to the address calling the function
+            self.base.withdrawTokens();
+
+            self.base.withdrawLeftoverWei();
+
+          }
+
+
+
+           /*Functions "inherited" from CrowdsaleLib library*/
+
+          function withdrawLeftoverWei(InteractiveCrowdsaleStorage storage self) internal returns (bool) {
+
+            return self.base.withdrawLeftoverWei();
+          }
+
+          function withdrawOwnerEth(InteractiveCrowdsaleStorage storage self) internal returns (bool) {
+
+            return self.base.withdrawOwnerEth();
+          }
+
+          function crowdsaleActive(InteractiveCrowdsaleStorage storage self) internal view returns (bool) {
+            return self.base.crowdsaleActive();
+          }
+
+          function crowdsaleEnded(InteractiveCrowdsaleStorage storage self) internal view returns (bool) {
+            return self.base.crowdsaleEnded();
+          }
+
+          function getPersonalCap(InteractiveCrowdsaleStorage storage self, address _bidder) internal view returns (uint256) {
+            return self.personalCaps[_bidder];
+          }
+
+          function getTokensSold(InteractiveCrowdsaleStorage storage self) internal view returns (uint256) {
+            return self.base.getTokensSold();
+          }
+
+        }
+    http_version: 
+  recorded_at: Tue, 17 Jul 2018 11:46:59 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/contents/StringUtilsLib/StringUtilsLib.sol?ref=d269e5923b0d8c0ef7e391417109f219234f3ae1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+      Accept:
+      - application/vnd.github.v3.raw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 01 Aug 2018 08:09:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 404 Not Found
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4994'
+      X-Ratelimit-Reset:
+      - '1533112933'
+      X-Oauth-Scopes:
+      - repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Oauth-Client-Id:
+      - de0e3c7e9973e1c4dd77
+      X-Github-Media-Type:
+      - github.v3; param=raw
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.032544'
+      X-Github-Request-Id:
+      - 7822:4A77:A6F014:D9E3A1:5B616A9F
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3/repos/contents/#get-contents"}'
+    http_version: 
+  recorded_at: Wed, 01 Aug 2018 08:09:04 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/contents/CrowdsaleLib/IICOLib/InteractiveCrowdsaleLib.sol?ref=bcd15f73f0c229f7f4ac05bc872994a2cb571d65
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+      Accept:
+      - application/vnd.github.v3.raw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 01 Aug 2018 08:25:30 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 404 Not Found
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4989'
+      X-Ratelimit-Reset:
+      - '1533112933'
+      X-Oauth-Scopes:
+      - repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Oauth-Client-Id:
+      - de0e3c7e9973e1c4dd77
+      X-Github-Media-Type:
+      - github.v3; param=raw
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.037101'
+      X-Github-Request-Id:
+      - 2CD9:4A75:22CC99:2CA19E:5B616E79
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3/repos/contents/#get-contents"}'
+    http_version: 
+  recorded_at: Wed, 01 Aug 2018 08:25:30 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/test/test_repo/issues?access_token=1003bf0b23e9a631df5389a932cd615768048433&filter=all&per_page=100&sort=updated&state=all
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json,application/vnd.github.beta+json;q=0.5,application/json;q=0.1
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - Github API Ruby Gem 0.18.2
+      Authorization:
+      - token 1003bf0b23e9a631df5389a932cd615768048433
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 22 Aug 2018 02:39:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 404 Not Found
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4986'
+      X-Ratelimit-Reset:
+      - '1534907083'
+      X-Oauth-Scopes:
+      - repo, user
+      X-Accepted-Oauth-Scopes:
+      - repo
+      X-Oauth-Client-Id:
+      - de0e3c7e9973e1c4dd77
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Runtime-Rack:
+      - '0.033371'
+      X-Github-Request-Id:
+      - EF09:441E:98A5E7:CA0B10:5B7CCCF5
+    body:
+      encoding: ASCII-8BIT
+      string: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3/issues/#list-issues-for-a-repository"}'
+    http_version: 
+  recorded_at: Wed, 22 Aug 2018 02:39:49 GMT
+recorded_with: VCR 4.0.0
