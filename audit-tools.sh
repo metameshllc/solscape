@@ -177,13 +177,13 @@ suryaCall() {
   printf "![Call Graph](CallGraph.png)"\n |& tee -a Audit_Tools_Report.md
 }
 
-checkDeps () {
-suryaCheck
-graphvizCheck
-solcCheck
-mythCheck
-maruCheck
-solhintCheck
+checkDeps() {
+  suryaCheck
+  graphvizCheck
+  solcCheck
+  mythCheck
+  maruCheck
+  solhintCheck
 }
 
 scope() {

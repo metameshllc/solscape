@@ -1,0 +1,3 @@
+[submodule "Audit-Templates"]
+	path = Audit-Templates
+	url = https://www.github.com/consensys/Audit-Templates.git
