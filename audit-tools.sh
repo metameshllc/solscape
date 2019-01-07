@@ -25,7 +25,7 @@ graphvizCheck() {
 }
 
 solcCheck() {
-    if command -v dot --help>/dev/null; then
+    if command -v solc --help>/dev/null; then
       printf "\e[1mDependency Passed: \e[0m   Solc\n"
     else
         printf "Dependency Solc Missing. Solc functions will fail."
@@ -34,7 +34,7 @@ solcCheck() {
 }
 
 mythCheck() {
-    if command -v dot --help>/dev/null; then
+    if command -v solc --help>/dev/null; then
     printf "\e[1mDependency Passed:    \e[0mMythril  \n"
     else
         printf "Dependency Mythril Missing. Mythril functions will fail."
@@ -44,7 +44,7 @@ mythCheck() {
 
 
 maruCheck() {
-    if command -v dot --help>/dev/null; then
+    if command -v maru --help>/dev/null; then
     printf "\e[1mDependency Passed:    \e[0mMaru\n"
     else
         printf "Dependency Maru Missing. Maru functions will fail."
@@ -53,7 +53,7 @@ maruCheck() {
 }
 
 solhintCheck() {
-    if command -v dot --help>/dev/null; then
+    if command -v solhint --help>/dev/null; then
     printf "\e[1mDependency Passed:    \e[0mSolhint\n"
     else
         printf | "Dependency Solhint Missing. Solhint functions will fail."
@@ -268,7 +268,7 @@ done
       printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
-      printf "   -c     Scan dependencies. \n"
+      printf "   -c     Test for dependencies. \n"
       printf "   -s     Run scoping.\n"
       printf "   -a     Run analysis.\n"
       printf "   -l     Run all.\n"
