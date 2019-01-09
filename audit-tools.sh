@@ -34,7 +34,7 @@ solcCheck() {
 }
 
 mythCheck() {
-    if command -v solc --help>/dev/null; then
+    if command -v myth --help>/dev/null; then
     printf "\e[1mDependency Passed:    \e[0mMythril  \n"
     else
         printf "Dependency Mythril Missing. Mythril functions will fail."
