@@ -1,6 +1,12 @@
 # Audit Tools
 A bash script for carrying out auditing processes.
 
+### Why use it?
+
+* Automatically excludes trusted public libraries and audits C-Dili has done before.
+* Saves repetitive entering of commands for scoping and tool analysis.
+* Syncs seamlessly with Odyssey to create streamlined reports for client audits.
+
 ## Scoping
 
 Scoping is an essential part of audit _pre-assessment_ which has to do with understanding the dimensions of the files to be audited, and what kinds of work/how much work will an audit entail
@@ -30,7 +36,6 @@ For each Solidity file, performs a Solhint analysis.
 
 ### Future Versions
 Should:
-- Automatically exclude lines in files we've audited before or that don't need scoped for some other reason (e.g., the 0x contracts.)
 - Apply some more cool automatic searching/sorting of .sol files to the generic output. (pattern recognition and extrapolating from large data samples, to name a few)
 - Report as an MD file instead of a plaintext outfile.
  
