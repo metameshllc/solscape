@@ -7,6 +7,10 @@ A bash script for carrying out auditing processes.
 * Saves repetitive entering of commands for scoping and tool analysis.
 * Syncs seamlessly with Odyssey to create streamlined reports for client audits.
 
+<kbd>
+  <img src="https://github.com/ConsenSys/audit-tools/blob/master/ss1.png" style="margin-right:50px"; \>
+</kbd>
+
 ## Scoping
 
 Scoping is an essential part of audit _pre-assessment_ which has to do with understanding the dimensions of the files to be audited, and what kinds of work/how much work will an audit entail
