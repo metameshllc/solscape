@@ -8,7 +8,7 @@ A bash script for carrying out auditing processes.
 * Syncs seamlessly with Odyssey to create streamlined reports for client audits.
 
 <kbd>
-  <img src="https://github.com/ConsenSys/audit-tools/blob/master/ss1.png" style="margin-right:50px"; \>
+  <img src="https://github.com/chronaeon/audit-tools/blob/master/ss1.png?raw=true" style="margin-right:50px"; \>
 </kbd>
 
 ## Scoping
