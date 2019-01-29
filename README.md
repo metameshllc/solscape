@@ -31,9 +31,6 @@ For each Solidity file, performs a Mythril analysis.
 ##### Mythril Dependencies
 Mythril requires Python 3 to run. Mythril's dependencies will be automatically installed when installing Mythril with `python3-pip`.
 
-#### Maru
-For each Solidity file, performs a Maru analysis.
-
 #### Solhint
 For each Solidity file, performs a Solhint analysis.
 
