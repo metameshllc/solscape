@@ -66,21 +66,22 @@ solhintCheck() {
 #Slither Check?
 
 mythRun() {
+  sed -i 's/pragma solidity ..*0*;/pragma solidity >=0\.4\.25;/g' $filteredVar
   printf "# Mythril Output\n" |& tee -a Audit_Tools_Report.md 
   
   for file in $filteredVar
 do
-  myth -x $file |& tee -a Audit_Tools_Report.md 
+  myth -x $file --solc-args='--allow-paths *$rootDir*' |& tee -a Audit_Tools_Report.md 
 done
 }
 
 maruRun() {
-  mkdir tmp
-  cp $filteredVar ./tmp/
+  mkdir a3632
+  cp $filteredVar ./a3632/
   printf "# Maru Output\n" |& tee -a Audit_Tools_Report.md 
-  maru -r tmp |& tee -a Audit_Tools_Report.md 
-  sleep 2
-  rm -rf tmp 
+  maru -r a3632 |& tee -a Audit_Tools_Report.md 
+  sleep 0.2
+  rm -rf a3632 
 }
 
 solhintRun() {
@@ -111,7 +112,33 @@ filterFind() {
     grep -v node_modules | \
     grep -v coverageEnv  | \
     grep -v openzeppelin-solidity | \
-    grep -v cryptofin-solidity
+    grep -v cryptofin-solidity | \
+    grep -v IERC20.sol 
+
+}
+
+
+
+fileList() {
+  printf "\n ## File Lists\n\n" |& tee -a Audit_Tools_Report.md
+  printf "$filteredVar" | xargs -L 1 basename | sort > file1
+  filteredList=$(cat file1)
+  printf "$unfilteredVar" | xargs -L 1 basename | sort > file2
+  diffsList=$(awk 'FNR==NR {a[$0]++; next} !a[$0]' file1 file2)
+  printf "<details> \n" |& tee -a Audit_Tools_Report.md
+  printf "<summary>Recommended Files for Auditing</summary> \n" |& tee -a Audit_Tools_Report.md
+  printf "\n \`\`\` \n" |& tee -a Audit_Tools_Report.md
+  printf "$filteredList \n" |& tee -a Audit_Tools_Report.md
+  printf "\n \`\`\` \n" |& tee -a Audit_Tools_Report.md
+  printf "</details> \n" |& tee -a Audit_Tools_Report.md
+  printf "<details> \n" |& tee -a Audit_Tools_Report.md
+  printf "<summary>Recommended Files for Skipping</summary> \n" |& tee -a Audit_Tools_Report.md
+  printf "\n \`\`\` \n" |& tee -a Audit_Tools_Report.md
+  printf "$diffsList \n" |& tee -a Audit_Tools_Report.md
+  printf "\n \`\`\` \n" |& tee -a Audit_Tools_Report.md
+  printf "</details> \n" |& tee -a Audit_Tools_Report.md
+  rm file1 file2
+
 }
 
 createFilteredVars() {
@@ -120,21 +147,20 @@ createFilteredVars() {
 }
 
 createReport() {
-  printf "## Audit Tools Report\n" > Audit_Tools_Report.md
+  printf "# Audit Tools Report\n" > Audit_Tools_Report.md
 }
 
 fileCount() {
-  printf "## File Count \n" |& tee -a Audit_Tools_Report.md
+  printf "\n\n## File Count \n" |& tee -a Audit_Tools_Report.md
     uF=$(unfilterFind | wc -l) 
     fF=$(filterFind | wc -l)
   printf "* **$uF** Solidity files exist in this contract system.\n" |& tee -a Audit_Tools_Report.md
-  printf "* but, only **$fF** of those need audited.\n" |& tee -a Audit_Tools_Report.md
-
+  printf "* **$fF** of those files are recommended for auditing.\n" |& tee -a Audit_Tools_Report.md
 }
 
 
 lineCount() {
-    printf "## Line Count \n" |& tee -a Audit_Tools_Report.md
+    printf "\n ## Line Count \n" |& tee -a Audit_Tools_Report.md
         uF2=$(unfilterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//'|sed 's/ //g')
         fF2=$(filterFind | xargs wc -l | tail -1 | sed -e 's/total//g' | sed -e 's/^[[:space:]]*//'|sed 's/ //g')
     printf "* **$uF2** Solidity lines exist in this contract system.\n" |& tee -a Audit_Tools_Report.md
@@ -142,39 +168,53 @@ lineCount() {
 }
 
 suryaDescribe() {
-    printf "### Surya Describe\n" |& tee -a Audit_Tools_Report.md
+    printf "<details> \n" |& tee -a Audit_Tools_Report.md
+    printf "<summary>Description Report</summary> \n" |& tee -a Audit_Tools_Report.md
+    printf "\n\n### Surya Describe \n" |& tee -a Audit_Tools_Report.md
     surya describe $filteredVar | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" |& tee -a Audit_Tools_Report.md
+    printf "</details> \n" |& tee -a Audit_Tools_Report.md
 }
 
 suryaParse(){
-    printf "### Surya Parse\n" |& tee -a Audit_Tools_Report.md
+    printf "<details> \n" |& tee -a Audit_Tools_Report.md
+    printf "<summary>Surya Parse Tree</summary> \n" |& tee -a Audit_Tools_Report.md
+    printf "\n\n### Surya Parse \n \n \`\`\` \n" |& tee -a Audit_Tools_Report.md
     surya parse $filteredVar |& tee -a Audit_Tools_Report.md
+    printf "\n \`\`\` \n" |& tee -a Audit_Tools_Report.md
+    printf "</details> \n" |& tee -a Audit_Tools_Report.md
 }
 
 suryaInheritance() {
-  printf "## Inheritance Graph\n" |& tee -a Audit_Tools_Report.md
-  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a Audit_Tools_Report.md
+  printf "<details> \n" |& tee -a Audit_Tools_Report.md
+  printf "<summary>Inheritance Graph</summary> \n\n" |& tee -a Audit_Tools_Report.md
+  printf "\n ## Inheritance Graph\n\n" |& tee -a Audit_Tools_Report.md
+  printf "**Surya's Inheritance Graph** creates an exhaustive visualization of parent and child contracts.\n" |& tee -a Audit_Tools_Report.md
   surya inheritance $filteredVar | dot -Tpng > InheritanceGraph.png
-  printf "![Inheritance Graph](InheritanceGraph.png)"\n |& tee -a Audit_Tools_Report.md
+  printf "![Inheritance Graph](InheritanceGraph.png)\n\n" |& tee -a Audit_Tools_Report.md
+  printf "</details> \n" |& tee -a Audit_Tools_Report.md
 }
 
 suryaMdReport() {
-    printf "## Markdown Report\n" |& tee -a Audit_Tools_Report.md 
+    printf "<details> \n" |& tee -a Audit_Tools_Report.md
+    printf "<summary>Markdown Report</summary> \n\n" |& tee -a Audit_Tools_Report.md
+    printf "## Markdown Report \n\n" |& tee -a Audit_Tools_Report.md 
     printf "**Surya's Markdown Report** gives an eagle-eye view of a smart contract system's inner workings. It displays:\n"  |& tee -a Audit_Tools_Report.md
     printf "* Files to be audited, along with their SHA-1 hash. \n" |& tee -a Audit_Tools_Report.md
     printf "* The directory of each file in the contract system. \n" |& tee -a Audit_Tools_Report.md
-    printf "* The description table of all contracts (surya describe.) \n" |& tee -a Audit_Tools_Report.md
-    printf "* Click [here](MDReport.md) to view Surya's Markdown Report. \n" |& tee -a Audit_Tools_Report.md
       surya mdreport MDReport.md $filteredVar
       cat MDReport.md |& tee -a Audit_Tools_Report.md
       rm MDReport.md
+    printf "</details> \n" |& tee -a Audit_Tools_Report.md
 }
 
 suryaCall() {
-  printf "## Call Graph\n" |& tee -a Audit_Tools_Report.md
+  printf "<details> \n" |& tee -a Audit_Tools_Report.md
+  printf "<summary>Call Graph</summary> \n\n" |& tee -a Audit_Tools_Report.md
+  printf "## Call Graph \n\n" |& tee -a Audit_Tools_Report.md
   printf "**Surya's Call Graph** creates an exhaustive visualization of all function calls.\n" |& tee -a Audit_Tools_Report.md
   surya graph $filteredVar | dot -Tpng > CallGraph.png
-  printf "![Call Graph](CallGraph.png)"\n |& tee -a Audit_Tools_Report.md
+  printf "![Call Graph](CallGraph.png) \n\n" |& tee -a Audit_Tools_Report.md
+  printf "</details> \n" |& tee -a Audit_Tools_Report.md
 }
 
 checkDeps() {
@@ -188,20 +228,19 @@ checkDeps() {
 
 scope() {
 checkDeps
-createReport
-printf "# Scoping Report \n" >> Audit_Tools_Report.md
 createFilteredVars
 lineCount
 fileCount
+fileList
+printf "\n ## Surya Reports \n" >> Audit_Tools_Report.md
 suryaDescribe
 suryaParse
+suryaMdReport
 suryaInheritance
 suryaCall
-suryaMdReport
 }
 
 analyze() {
-createReport
 printf "# Analysis Report \n" >> Audit_Tools_Report.md
 createFilteredVars
 mythRun
@@ -209,8 +248,6 @@ maruRun
 solhintRun
 }
 
-
-#!/bin/bash
  
 while getopts ":hcs:a:l:d" opt; do
   case $opt in
@@ -233,18 +270,21 @@ while getopts ":hcs:a:l:d" opt; do
     s)
       rm Audit_Tools_Report.md
       rootDir=$OPTARG
+      createReport
       scope
       exit
       ;;
     a)
       rm Audit_Tools_Report.md
       rootDir=$OPTARG
+      createReport
       analyze
       exit
       ;;
     l)
       rm Audit_Tools_Report.md
       rootDir=$OPTARG
+      createReport
       scope
       analyze
       exit
