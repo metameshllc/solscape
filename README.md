@@ -3,12 +3,11 @@ A bash script for carrying out auditing processes.
 
 ### Why use it?
 
-* Automatically excludes trusted public libraries and audits C-Dili has done before.
+* Automatically excludes trusted public libraries and audits.
 * Saves repetitive entering of commands for scoping and tool analysis.
-* Syncs seamlessly with Odyssey to create streamlined reports for client audits.
 
 <kbd>
-  <img src="https://github.com/ConsenSys/audit-tools/blob/master/ss1.png" style="margin-right:50px"; \>
+  <img src="https://github.com/chronaeon/audit-tools/blob/master/ss1.png?raw=true" style="margin-right:50px"; \>
 </kbd>
 
 ## Scoping
@@ -31,9 +30,6 @@ For each Solidity file, performs a Mythril analysis.
 
 ##### Mythril Dependencies
 Mythril requires Python 3 to run. Mythril's dependencies will be automatically installed when installing Mythril with `python3-pip`.
-
-#### Maru
-For each Solidity file, performs a Maru analysis.
 
 #### Solhint
 For each Solidity file, performs a Solhint analysis.
