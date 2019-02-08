@@ -254,7 +254,7 @@ while getopts ":hcs:a:l:d" opt; do
     h)
       printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
       printf "\n"
-      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
+      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -[option] /path/to/contractsDir\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
       printf "   -c     Scan environment dependencies. \n"
@@ -289,13 +289,13 @@ while getopts ":hcs:a:l:d" opt; do
       analyze
       exit
       ;;
-    d)
-      rm Audit_Tools_Report.md
-      rootDir=$OPTARG
-      scope
-      analyze
-      exit
-      ;;
+#    d)
+#      rm Audit_Tools_Report.md
+#      rootDir=$OPTARG
+#      scope
+#      analyze
+#      exit
+#      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
       exit 1
@@ -305,10 +305,10 @@ done
 
       printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
       printf "\n"
-      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -l /home/user/contractDir\e[0m\n\n"
+      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -[option] ../path/to/contracts\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
-      printf "   -c     Test for dependencies. \n"
+      printf "   -c     Scan environment dependencies. \n"
       printf "   -s     Run scoping.\n"
       printf "   -a     Run analysis.\n"
       printf "   -l     Run all.\n"
