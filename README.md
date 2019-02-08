@@ -37,8 +37,13 @@ For each Solidity file, performs a Solhint analysis.
 ### Future Versions
 Should:
 - Apply some more cool automatic searching/sorting of .sol files to the generic output. (pattern recognition and extrapolating from large data samples, to name a few)
-- Report as an MD file instead of a plaintext outfile.
  
-### Test Files
+### Viewing the Report
+It is recommended to use `grip` to view the report, which is generated in Markdown.
+To install `grip`, type
 
-To test the functionality of Audit Tools scoping functions, Solidity files can be found in the soltest folder.
+`pip install grip`
+
+then
+
+`$ grip /path/to/report/Audit_Tools_Report.md`
