@@ -1,5 +1,5 @@
-# Audit Tools
-A bash script for carrying out auditing processes.
+# Sol-Scope
+A bash script for carrying out audit pre-assessment on Solidity code.
 
 ### Why use it?
 
