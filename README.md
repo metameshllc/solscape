@@ -1,4 +1,4 @@
-# Sol-Scope
+# Solscope
 A bash script for carrying out audit pre-assessment on Solidity code.
 
 ### Why use it?
