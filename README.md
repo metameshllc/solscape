@@ -1,5 +1,5 @@
-# Solscope
-A bash script for carrying out audit pre-assessment on Solidity code.
+# SolsScape
+Navigate the Solidity landscape.
 
 ### Why use it?
 
