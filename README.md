@@ -1,4 +1,4 @@
-# SolsScape
+# Solscape
 Navigate the Solidity landscape.
 
 ### Why use it?
