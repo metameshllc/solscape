@@ -147,7 +147,7 @@ createFilteredVars() {
 }
 
 createReport() {
-  printf "# Audit Tools Report\n" > Audit_Tools_Report.md
+  printf "# Solscape Report\n" > Audit_Tools_Report.md
 }
 
 fileCount() {
@@ -252,9 +252,9 @@ solhintRun
 while getopts ":hcs:a:l:d" opt; do
   case $opt in
     h)
-      printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
+      printf "\e[1m Solscape v 0.1.5\e[0m\n"
       printf "\n"
-      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -[option] /path/to/contractsDir\e[0m\n\n"
+      printf " \e[4mUsage\e[0m: \e[2m./Solscape.sh -[option] /path/to/contractsDir\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
       printf "   -c     Scan environment dependencies. \n"
@@ -303,9 +303,9 @@ while getopts ":hcs:a:l:d" opt; do
   esac
 done
 
-      printf "\e[1m Audit Tools v 0.1.5\e[0m\n"
+      printf "\e[1m Solscape v 0.1.5\e[0m\n"
       printf "\n"
-      printf " \e[4mUsage\e[0m: \e[2m./audit-tools -[option] ../path/to/contracts\e[0m\n\n"
+      printf " \e[4mUsage\e[0m: \e[2m./Solscape.sh -[option] ../path/to/contracts\e[0m\n\n"
       printf "\e[1m Option    Description\e[0m\n"
       printf "   -h     This help text. \n"
       printf "   -c     Scan environment dependencies. \n"
