@@ -1,5 +1,5 @@
 # Solscape
-Navigate the Solidity landscape.
+Navigate the Solidity landscape. Use an automated battery of tools to get a bird's eye view of any contract system in less than two minutes.
 
 ### Why use it?
 
